@@ -44,6 +44,7 @@
       color: white;
       margin-top: 2rem;
       margin-bottom: 5rem;
+      cursor: pointer;
     }
 
     .radio-buttons * {
@@ -61,6 +62,7 @@
       border: 1px solid white;
       border-radius: 1rem;
       margin: 0 auto;
+      cursor: pointer;
     }
 
     .radio {
@@ -124,11 +126,14 @@
       </div>
     </div>
   </div>
-  <audio src="sounds/bell.mp3"></audio>
+  <!-- <audio src="sounds/bell.mp3" autoplay muted></audio> -->
 
   <script>
     const cardTime = 5000; //120000;
     const blackTime = 5000; //180000;
+    const bellTime = 2000;
+
+    let audio = null;
 
     var segments = [];
     const singles = [ 'imgs/land.jpg', 'imgs/water.jpg', 'imgs/fire.jpg', 'imgs/wind.jpg', 'imgs/ether.jpg' ];
@@ -141,6 +146,10 @@
     };
 
     function start() {
+      audio = new Audio();
+      audio.autoplay = true;
+      playSilent();
+
       const el = document.querySelector('.controls');
       document.querySelector('.black').removeChild(el);
       buildSegments();
@@ -167,12 +176,18 @@
       el.style.backgroundImage = s.i ? `url(${s.i})` : null;
 
       s.t && setTimeout(() => next(), s.t);
-      s.b && setTimeout(() => chime(), s.t - 1000);
+      s.b && setTimeout(() => playChime(), s.t - 1000);
       s.done && window.location.reload();
     }
 
-    function chime() {
-      document.querySelector('audio').play();
+    function playSilent() {
+      audio.src = 'data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV';
+    }
+
+    function playChime() {
+      audio.src = 'sounds/bell.mp3';
+
+      setTimeout(() => playSilent(), bellTime);
     }
 
     function chooseType(evt, type) {
