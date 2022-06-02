@@ -52,7 +52,8 @@
     }
 
     .hidden {
-      visibility: hidden;
+      opacity: 0.15;
+      pointer-events: none;
     }
 
     .button {
@@ -79,6 +80,32 @@
       pointer-events: none;
     }
 
+    .radio.small-img img {
+      width: 47%;
+    }
+
+    .card-time {
+      margin-bottom: 70px;
+    }
+
+    .card-time div {
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 20px 40px;
+      border-radius: 1rem;
+      display: inline-block;
+    }
+
+    .card-time div + div {
+      margin-left: 2rem;
+    }
+
+    .card-time input {
+      width: 50px;
+      font-size: inherit;
+      border-radius: 4px;
+      border: none;
+    }
+
   </style>
 </head>
 <body>
@@ -89,11 +116,16 @@
         <div class="radio-buttons count">
           <div class="radio selected" data-id="s">
             <img src="imgs/land.jpg" />
-            <div class="label">Single</div>
+            <div class="label">Singles</div>
           </div>
           <div class="radio" data-id="d">
             <img src="imgs/2earthWater.jpeg" />
-            <div class="label">Double</div>
+            <div class="label">Doubles</div>
+          </div>
+          <div class="radio small-img" data-id="p">
+            <img src="imgs/2earthFire.jpeg" />
+            <img src="imgs/2fireLand.jpeg" />
+            <div class="label">Pairs</div>
           </div>
         </div>  
 
@@ -122,15 +154,18 @@
             </div>
           </div>
         </div>
+        <div class="card-time">
+          <div>Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
+          <div>Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
+        </div>
         <div class="button" onclick="start()">Start</div>
       </div>
     </div>
   </div>
-  <!-- <audio src="sounds/bell.mp3" autoplay muted></audio> -->
 
   <script>
-    const cardTime = 120000;
-    const blackTime = 180000;
+    let cardTime = 120000;
+    let blackTime = 180000;
     const bellTime = 2000;
 
     let audio = null;
@@ -149,6 +184,9 @@
       audio = new Audio();
       audio.autoplay = true;
       playSilent();
+
+      cardTime = document.querySelector('#cardTime').value * 60000;
+      blackTime = document.querySelector('#vizTime').value * 60000;
 
       const el = document.querySelector('.controls');
       document.querySelector('.black').removeChild(el);
@@ -236,6 +274,9 @@
         }
       });
     }
+
+    document.querySelector('#cardTime').value = cardTime / 60000;
+    document.querySelector('#vizTime').value = blackTime / 60000;
 
   </script>
 </body>
