@@ -43,7 +43,7 @@
       align-items: center;
       color: white;
       margin-top: 2rem;
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
       cursor: pointer;
     }
 
@@ -85,13 +85,11 @@
     }
 
     .card-time {
-      margin-bottom: 70px;
+      margin-bottom: 1rem;
     }
 
     .card-time div {
-      border: 1px solid rgba(255,255,255,0.5);
       padding: 20px 40px;
-      border-radius: 1rem;
       display: inline-block;
     }
 
@@ -104,6 +102,14 @@
       font-size: inherit;
       border-radius: 4px;
       border: none;
+      text-align: center;
+    }
+
+    .group {
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      padding-top: 2rem;
     }
 
   </style>
@@ -112,51 +118,56 @@
   <div class="wrap">
     <div class="black">
       <div class="controls">
-        <div>Card Style</div>
-        <div class="radio-buttons count">
-          <div class="radio selected" data-id="s">
-            <img src="imgs/land.jpg" />
-            <div class="label">Singles</div>
-          </div>
-          <div class="radio" data-id="d">
-            <img src="imgs/2earthWater.jpeg" />
-            <div class="label">Doubles</div>
-          </div>
-          <div class="radio small-img" data-id="p">
-            <img src="imgs/2earthFire.jpeg" />
-            <img src="imgs/2fireLand.jpeg" />
-            <div class="label">Pairs</div>
-          </div>
-        </div>  
-
-        <div class="hidden" id="select-deck">
-          <div>Card Deck</div>
-          <div class="radio-buttons deck">
-            <div class="radio selected" data-id="land">
+        <div class="group">
+          <div>Card Style</div>
+          <div class="radio-buttons count">
+            <div class="radio selected" data-id="s">
               <img src="imgs/land.jpg" />
-              <div class="label">Land</div>                
+              <div class="label">Singles</div>
             </div>
-            <div class="radio" data-id="water">
-              <img src="imgs/water.jpg" />
-              <div class="label">Water</div>
+            <div class="radio" data-id="d">
+              <img src="imgs/land-water.jpeg" />
+              <div class="label">Doubles</div>
             </div>
-            <div class="radio" data-id="fire">
-              <img src="imgs/fire.jpg" />
-              <div class="label">Fire</div>
-            </div>
-            <div class="radio" data-id="wind">
-              <img src="imgs/wind.jpg" />
-              <div class="label">Wind</div>
-            </div>
-            <div class="radio" data-id="ether">
-              <img src="imgs/ether.jpg" />
-              <div class="label">Ether</div>
+            <div class="radio small-img" data-id="p">
+              <img src="imgs/land-fire.jpeg" />
+              <img src="imgs/fire-land.jpeg" />
+              <div class="label">Pairs</div>
             </div>
           </div>
         </div>
+
+        <div class="group">
+          <div class="hidden" id="select-deck">
+            <div>Card Deck</div>
+            <div class="radio-buttons deck">
+              <div class="radio" data-id="land">
+                <img src="imgs/land.jpg" />
+                <div class="label">Land</div>                
+              </div>
+              <div class="radio" data-id="water">
+                <img src="imgs/water.jpg" />
+                <div class="label">Water</div>
+              </div>
+              <div class="radio" data-id="fire">
+                <img src="imgs/fire.jpg" />
+                <div class="label">Fire</div>
+              </div>
+              <div class="radio" data-id="wind">
+                <img src="imgs/wind.jpg" />
+                <div class="label">Wind</div>
+              </div>
+              <div class="radio" data-id="ether">
+                <img src="imgs/ether.jpg" />
+                <div class="label">Ether</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="card-time">
-          <div>Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
-          <div>Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
+          <div class="group">Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
+          <div class="group">Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
         </div>
         <div class="button" onclick="start()">Start</div>
       </div>
@@ -173,38 +184,47 @@
     var segments = [];
     const singles = [ 'imgs/land.jpg', 'imgs/water.jpg', 'imgs/fire.jpg', 'imgs/wind.jpg', 'imgs/ether.jpg' ];
     const decks = {
-      land: { i: 'imgs/land.jpg', c: [ 'imgs/land.jpg', 'imgs/2earthWater.jpeg', 'imgs/2earthFire.jpeg', 'imgs/2earthWind.jpeg', 'imgs/2earthEther.jpeg' ] },
-      water: { i: 'imgs/water.jpg', c: [ 'imgs/water.jpg', 'imgs/2waterLand.jpeg', 'imgs/2waterFire.jpeg', 'imgs/2waterWind.jpeg', 'imgs/2waterEther.jpeg' ] },
-      fire: { i: 'imgs/fire.jpg', c: [ 'imgs/fire.jpg', 'imgs/2fireLand.jpeg', 'imgs/2fireWater.jpeg', 'imgs/2fireWind.jpeg', 'imgs/2fireEther.jpeg' ] },
-      wind: { i: 'imgs/wind.jpg', c: [ 'imgs/wind.jpg', 'imgs/2windLand.jpeg', 'imgs/2windWater.jpeg', 'imgs/2windFire.jpeg', 'imgs/2windEther.jpeg' ] },
-      ether: { i: 'imgs/ether.jpg', c: [ 'imgs/ether.jpg', 'imgs/2etherLand.jpeg', 'imgs/2etherWater.jpeg', 'imgs/2etherFire.jpeg', 'imgs/2etherWind.jpeg' ] },
+      land: { i: 'imgs/land.jpg', c: [ 'imgs/land.jpg', 'imgs/land-water.jpeg', 'imgs/land-fire.jpeg', 'imgs/land-wind.jpeg', 'imgs/land-ether.jpeg' ] },
+      water: { i: 'imgs/water.jpg', c: [ 'imgs/water.jpg', 'imgs/water-land.jpeg', 'imgs/water-fire.jpeg', 'imgs/water-wind.jpeg', 'imgs/water-ether.jpeg' ] },
+      fire: { i: 'imgs/fire.jpg', c: [ 'imgs/fire.jpg', 'imgs/fire-land.jpeg', 'imgs/fire-water.jpeg', 'imgs/fire-wind.jpeg', 'imgs/fire-ether.jpeg' ] },
+      wind: { i: 'imgs/wind.jpg', c: [ 'imgs/wind.jpg', 'imgs/wind-land.jpeg', 'imgs/wind-water.jpeg', 'imgs/wind-fire.jpeg', 'imgs/wind-ether.jpeg' ] },
+      ether: { i: 'imgs/ether.jpg', c: [ 'imgs/ether.jpg', 'imgs/ether-land.jpeg', 'imgs/ether-water.jpeg', 'imgs/ether-fire.jpeg', 'imgs/ether-wind.jpeg' ] },
     };
 
     function start() {
-      audio = new Audio();
-      audio.autoplay = true;
-      playSilent();
+      if (typeChosen !== 'p' || pairChosen.length === 2) {
+        audio = new Audio();
+        audio.autoplay = true;
+        playSilent();
 
-      cardTime = document.querySelector('#cardTime').value * 60000;
-      blackTime = document.querySelector('#vizTime').value * 60000;
+        cardTime = document.querySelector('#cardTime').value * 60000;
+        blackTime = document.querySelector('#vizTime').value * 60000;
 
-      const el = document.querySelector('.controls');
-      document.querySelector('.black').removeChild(el);
-      buildSegments();
-      next();
+        const el = document.querySelector('.controls');
+        document.querySelector('.black').removeChild(el);
+        buildSegments();
+        next();
+      }
     }
 
     function buildSegments() {
-      const images = countChosen === 's' ? singles : decks[deckChosen].c;
+      if (typeChosen !== 'p') {
+        const images = typeChosen === 's' ? singles : decks[deckChosen].c;
 
-      images.forEach(img => {
-        segments.push({ i: img, t: cardTime });
+        images.forEach(img => {
+          segments.push({ i: img, t: cardTime });
+          segments.push({ t: blackTime, b: true });
+        });
+
+        segments.push({ i: 'imgs/commun.jpg', t: cardTime });
         segments.push({ t: blackTime, b: true });
-      });
-
-      segments.push({ i: 'imgs/commun.jpg', t: cardTime });
-      segments.push({ t: blackTime, b: true });
-      segments.push({ done: true });
+        segments.push({ done: true });
+      } else {
+        segments.push({ i: `imgs/${pairChosen[0]}-${pairChosen[1]}.jpeg`, t: cardTime });
+        segments.push({ t: blackTime, b: true });
+        segments.push({ i: `imgs/${pairChosen[1]}-${pairChosen[0]}.jpeg`, t: cardTime });
+        segments.push({ t: blackTime, b: true });
+      }
     }
 
     function next() {
@@ -228,34 +248,46 @@
       setTimeout(() => playSilent(), bellTime);
     }
 
-    function chooseType(evt, type) {
-      if (type !== countChosen) {
-        countChosen = type;
+    function updateSelectedDeck() {
+      deckButtons.forEach( btn => btn.classList.remove('selected') );
 
-        document.querySelector('.radio-buttons.count').classList.toggle('selected');
-        document.querySelector('.radio-buttons.deck').classList.toggle('selected');
-
-        countChosen === 'd'
-          ? selectDeck.classList.remove('hidden')
-          : selectDeck.classList.add('hidden');
+      if (typeChosen === 'd') {
+        selectDeck.querySelector(`.radio[data-id=${deckChosen}]`).classList.add('selected');
+      } else if (typeChosen === 'p') {
+        if (pairChosen[0]) {
+          selectDeck.querySelector(`.radio[data-id=${pairChosen[0]}]`).classList.add('selected');
+          if (pairChosen[1]) {
+            selectDeck.querySelector(`.radio[data-id=${pairChosen[1]}]`).classList.add('selected');
+          }
+        }
       }
+    }
+
+    function updateButtonState() {
+
     }
 
     const countButtons = document.querySelectorAll('.radio-buttons.count .radio')
     const deckButtons = document.querySelectorAll('.radio-buttons.deck .radio');
     const selectDeck = document.querySelector('#select-deck');
 
-    let countChosen = 's';
+    let typeChosen = 's';
     let deckChosen = 'land';
+    let pairChosen = [];
 
     for (const radioButton of countButtons) {
       radioButton.addEventListener('click', evt => {
         const newVal = evt.target.dataset.id;
-        if (newVal !== countChosen) {
-          countChosen = newVal;
-          countChosen === 'd'
-            ? selectDeck.classList.remove('hidden')
-            : selectDeck.classList.add('hidden');
+        if (newVal !== typeChosen) {
+          typeChosen = newVal;
+          if (typeChosen === 's') {
+            selectDeck.classList.add('hidden');
+          } else {
+            selectDeck.classList.remove('hidden');
+            selectDeck.querySelector('div:first-child').innerText = typeChosen === 'd' ? 'Choose Deck' : 'Choose 2 Cards to Pair';
+            updateSelectedDeck();
+            updateButtonState();
+          }
 
           countButtons.forEach( btn => btn.classList.remove('selected') );
           evt.target.classList.add('selected');
@@ -266,12 +298,20 @@
     for (const radioButton of deckButtons) {
       radioButton.addEventListener('click', evt => {
         const newVal = evt.target.dataset.id;
-        if (newVal !== deckChosen) {
-          deckChosen = newVal;
-
-          deckButtons.forEach( btn => btn.classList.remove('selected') );
-          evt.target.classList.add('selected');
+        if (typeChosen === 'd') {
+          if (newVal !== deckChosen) {
+            deckChosen = newVal;
+          }
+        } else if (typeChosen === 'p') {
+          const idx = pairChosen.indexOf(newVal);
+          if (idx >= 0) {
+            pairChosen.splice(idx,1);
+          } else if (pairChosen.length < 2) {
+            pairChosen.push(newVal);
+          }
         }
+
+        updateSelectedDeck();
       });
     }
 
