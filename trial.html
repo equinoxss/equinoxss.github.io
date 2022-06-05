@@ -138,7 +138,7 @@
 <body>
   <div class="wrap">
     <div class="controls">
-      <h2>Luminous Tablets</h2>
+      <h2>Luminous Tablets (trial)</h2>
       <div class="group">
         <div>Card Style</div>
         <div class="radio-buttons count">
@@ -216,16 +216,24 @@
 
     function start() {
       if (typeChosen !== 'p' || pairChosen.length === 2) {
-        audio = new Audio();
-        audio.autoplay = true;
-        playSilent();
+        if (!localStorage.ts) {
+          localStorage.ts = Date.now() + 7200000;
+        }
 
-        cardTime = document.querySelector('#cardTime').value * 60000;
-        blackTime = document.querySelector('#vizTime').value * 60000;
+        if (Date.now() < Number(localStorage.ts)) {
+          audio = new Audio();
+          audio.autoplay = true;
+          playSilent();
 
-        buildSegments();
-        prepare();
-        next();
+          cardTime = document.querySelector('#cardTime').value * 60000;
+          blackTime = document.querySelector('#vizTime').value * 60000;
+
+          buildSegments();
+          prepare();
+          next();
+        } else {
+          window.alert('Your trial time period has expired.');
+        }
       }
     }
 
@@ -296,21 +304,21 @@
       }
     }
 
-    // function updateClock() {
-    //   if (localStorage.ts) {
-    //     const t = (Number(localStorage.ts) - Date.now()) / 3600000;
-    //     const h = Math.floor(t);
-    //     const m = Math.floor((t - h) * 60);
-    //     if (h >= 0 && m >= 0) {
-    //       document.querySelector('.trial').innerText = h ? `Time remaining: ${h}hr ${m}mins` : `Time remaining: ${m}mins`;
-    //     } else {
-    //       const el = document.querySelector('.trial');
-    //       el.classList.add('expired');
-    //       el.innerText = `Trial has expired`;
-    //       document.querySelector('.button').parentNode.removeChild(document.querySelector('.button'));
-    //     }
-    //   }      
-    // }
+    function updateClock() {
+      if (localStorage.ts) {
+        const t = (Number(localStorage.ts) - Date.now()) / 3600000;
+        const h = Math.floor(t);
+        const m = Math.floor((t - h) * 60);
+        if (h >= 0 && m >= 0) {
+          document.querySelector('.trial').innerText = h ? `Time remaining: ${h}hr ${m}mins` : `Time remaining: ${m}mins`;
+        } else {
+          const el = document.querySelector('.trial');
+          el.classList.add('expired');
+          el.innerText = `Trial has expired`;
+          document.querySelector('.button').parentNode.removeChild(document.querySelector('.button'));
+        }
+      }      
+    }
 
     const countButtons = document.querySelectorAll('.radio-buttons.count .radio')
     const deckButtons = document.querySelectorAll('.radio-buttons.deck .radio');
@@ -362,8 +370,8 @@
     document.querySelector('#cardTime').value = cardTime / 60000;
     document.querySelector('#vizTime').value = blackTime / 60000;
 
-    // updateClock();
-    // const clock = setInterval(() => updateClock(), 30000);
+    updateClock();
+    const clock = setInterval(() => updateClock(), 30000);
 
   </script>
 </body> 
