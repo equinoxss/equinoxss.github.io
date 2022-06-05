@@ -3,18 +3,18 @@
 <head>
   <style>
     body {
-      overflow: hidden;
       background-color: black;
       font-family: sans-serif;
       font-size: 2rem;
       color: white;
       margin: 0;
+      height: 100vh;
+      width: 100vw;
     }
 
     .wrap {
-      width: 100vw;
-      height: 100vh;
-      /* padding: 3%; */
+      width: 100%;
+      height: 100%;
       text-align: center;
       position: relative;
       box-sizing: border-box;
@@ -32,6 +32,12 @@
       align-items: center;
     }
 
+    @media (min-width: 500px) and (max-width: 986px) {
+      .black {
+        padding: 5vh 0;        
+      }
+    }
+
     .controls {
       padding: 3rem;
     }
@@ -42,8 +48,7 @@
       justify-content: center;
       align-items: center;
       color: white;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin: 2rem 1rem;
       cursor: pointer;
     }
 
@@ -60,10 +65,11 @@
       width: 250px;
       height: 5rem;
       line-height: 5rem;
-      border: 1px solid white;
       border-radius: 1rem;
       margin: 0 auto;
       cursor: pointer;
+      background-color: white;
+      color: black;
     }
 
     .radio {
@@ -110,6 +116,17 @@
       border-radius: 1rem;
       margin-bottom: 2rem;
       padding-top: 2rem;
+    }
+
+    .trial {
+      float: right;
+      font-size: 1rem;
+      margin-top: 60px;
+    }
+
+    .trial.expired {
+      float: none;
+      font-size: 2rem;
     }
 
   </style>
@@ -169,7 +186,9 @@
           <div class="group">Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
           <div class="group">Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
         </div>
-        <div class="button" onclick="start()">Start</div>
+
+        <div class="trial"></div>
+        <div class="button inverted" onclick="start()">Start</div>
       </div>
     </div>
   </div>
@@ -193,17 +212,25 @@
 
     function start() {
       if (typeChosen !== 'p' || pairChosen.length === 2) {
-        audio = new Audio();
-        audio.autoplay = true;
-        playSilent();
+        if (!localStorage.ts) {
+          localStorage.ts = Date.now() + 7200000;
+        }
 
-        cardTime = document.querySelector('#cardTime').value * 60000;
-        blackTime = document.querySelector('#vizTime').value * 60000;
+        if (Date.now() < Number(localStorage.ts)) {
+          audio = new Audio();
+          audio.autoplay = true;
+          playSilent();
 
-        const el = document.querySelector('.controls');
-        document.querySelector('.black').removeChild(el);
-        buildSegments();
-        next();
+          cardTime = document.querySelector('#cardTime').value * 60000;
+          blackTime = document.querySelector('#vizTime').value * 60000;
+
+          const el = document.querySelector('.controls');
+          document.querySelector('.black').removeChild(el);
+          buildSegments();
+          next();
+        } else {
+          window.alert('Your trial time period has expired.');
+        }
       }
     }
 
@@ -263,8 +290,20 @@
       }
     }
 
-    function updateButtonState() {
-
+    function updateClock() {
+      if (localStorage.ts) {
+        const t = (Number(localStorage.ts) - Date.now()) / 3600000;
+        const h = Math.floor(t);
+        const m = Math.floor((t - h) * 60);
+        if (h >= 0 && m >= 0) {
+          document.querySelector('.trial').innerText = h ? `Time remaining: ${h}hr ${m}mins` : `Time remaining: ${m}mins`;
+        } else {
+          const el = document.querySelector('.trial');
+          el.classList.add('expired');
+          el.innerText = `Trial has expired`;
+          document.querySelector('.button').parentNode.removeChild(document.querySelector('.button'));
+        }
+      }      
     }
 
     const countButtons = document.querySelectorAll('.radio-buttons.count .radio')
@@ -318,6 +357,9 @@
     document.querySelector('#cardTime').value = cardTime / 60000;
     document.querySelector('#vizTime').value = blackTime / 60000;
 
+    updateClock();
+    const clock = setInterval(() => updateClock(), 30000);
+
   </script>
-</body>
+</body> 
 </html>
