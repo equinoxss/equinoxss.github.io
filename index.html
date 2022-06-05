@@ -258,13 +258,14 @@
 
         segments.push({ i: 'imgs/commun.jpg', t: cardTime });
         segments.push({ t: blackTime, b: true });
-        segments.push({ done: true });
       } else {
         segments.push({ i: `imgs/${pairChosen[0]}-${pairChosen[1]}.jpeg`, t: cardTime });
         segments.push({ t: blackTime, b: true });
         segments.push({ i: `imgs/${pairChosen[1]}-${pairChosen[0]}.jpeg`, t: cardTime });
         segments.push({ t: blackTime, b: true });
       }
+
+      segments.push({ done: true });
     }
 
     function next() {
