@@ -275,7 +275,7 @@
 
       s.t && setTimeout(() => next(), s.t);
       s.b && setTimeout(() => playChime(), s.t - 1000);
-      s.done && document.querySelector('.black').classList.remove('show');
+      s.done && done();
     }
 
     function playSilent() {
