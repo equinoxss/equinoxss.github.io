@@ -10,6 +10,10 @@
       margin: 0;
     }
 
+    body.no-scroll {
+      overflow: hidden;
+    }
+
     .wrap {
       width: 100%;
       height: 100%;
@@ -19,8 +23,12 @@
     }
 
     .black {
-      width: 100%;
-      height: 100%;
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background-color: black;
       background-repeat: no-repeat;
       background-position: center;
@@ -28,6 +36,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    .black.show {
+      z-index: 10;
     }
 
     .controls {
@@ -125,65 +137,64 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="black">
-      <div class="controls">
-        <h2>Luminous Tablets</h2>
-        <div class="group">
-          <div>Card Style</div>
-          <div class="radio-buttons count">
-            <div class="radio selected" data-id="s">
-              <img src="imgs/land.jpg" />
-              <div class="label">Singles</div>
-            </div>
-            <div class="radio" data-id="d">
-              <img src="imgs/land-water.jpeg" />
-              <div class="label">Doubles</div>
-            </div>
-            <div class="radio small-img" data-id="p">
-              <img src="imgs/land-fire.jpeg" />
-              <img src="imgs/fire-land.jpeg" />
-              <div class="label">Pairs</div>
-            </div>
+    <div class="controls">
+      <h2>Luminous Tablets</h2>
+      <div class="group">
+        <div>Card Style</div>
+        <div class="radio-buttons count">
+          <div class="radio selected" data-id="s">
+            <img src="imgs/land.jpg" />
+            <div class="label">Singles</div>
+          </div>
+          <div class="radio" data-id="d">
+            <img src="imgs/land-water.jpeg" />
+            <div class="label">Doubles</div>
+          </div>
+          <div class="radio small-img" data-id="p">
+            <img src="imgs/land-fire.jpeg" />
+            <img src="imgs/fire-land.jpeg" />
+            <div class="label">Pairs</div>
           </div>
         </div>
-
-        <div class="group">
-          <div class="hidden" id="select-deck">
-            <div>Card Deck</div>
-            <div class="radio-buttons deck">
-              <div class="radio" data-id="land">
-                <img src="imgs/land.jpg" />
-                <div class="label">Land</div>                
-              </div>
-              <div class="radio" data-id="water">
-                <img src="imgs/water.jpg" />
-                <div class="label">Water</div>
-              </div>
-              <div class="radio" data-id="fire">
-                <img src="imgs/fire.jpg" />
-                <div class="label">Fire</div>
-              </div>
-              <div class="radio" data-id="wind">
-                <img src="imgs/wind.jpg" />
-                <div class="label">Wind</div>
-              </div>
-              <div class="radio" data-id="ether">
-                <img src="imgs/ether.jpg" />
-                <div class="label">Ether</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-time">
-          <div class="group">Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
-          <div class="group">Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
-        </div>
-
-        <div class="trial"></div>
-        <div class="button inverted" onclick="start()">Start</div>
       </div>
+
+      <div class="group">
+        <div class="hidden" id="select-deck">
+          <div>Card Deck</div>
+          <div class="radio-buttons deck">
+            <div class="radio" data-id="land">
+              <img src="imgs/land.jpg" />
+              <div class="label">Land</div>                
+            </div>
+            <div class="radio" data-id="water">
+              <img src="imgs/water.jpg" />
+              <div class="label">Water</div>
+            </div>
+            <div class="radio" data-id="fire">
+              <img src="imgs/fire.jpg" />
+              <div class="label">Fire</div>
+            </div>
+            <div class="radio" data-id="wind">
+              <img src="imgs/wind.jpg" />
+              <div class="label">Wind</div>
+            </div>
+            <div class="radio" data-id="ether">
+              <img src="imgs/ether.jpg" />
+              <div class="label">Ether</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-time">
+        <div class="group">Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
+        <div class="group">Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
+      </div>
+
+      <div class="trial"></div>
+      <div class="button inverted" onclick="start()">Start</div>
     </div>
+    <div class="black"></div>
   </div>
 
   <script>
@@ -217,14 +228,23 @@
           cardTime = document.querySelector('#cardTime').value * 60000;
           blackTime = document.querySelector('#vizTime').value * 60000;
 
-          const el = document.querySelector('.controls');
-          document.querySelector('.black').removeChild(el);
           buildSegments();
+          prepare();
           next();
         } else {
           window.alert('Your trial time period has expired.');
         }
       }
+    }
+
+    function prepare() {
+      document.querySelector('.black').classList.add('show');
+      document.querySelector('body').classList.add('no-scroll');
+    }
+
+    function done() {
+      document.querySelector('.black').classList.remove('show');
+      document.querySelector('body').classList.remove('no-scroll');
     }
 
     function buildSegments() {
@@ -255,7 +275,7 @@
 
       s.t && setTimeout(() => next(), s.t);
       s.b && setTimeout(() => playChime(), s.t - 1000);
-      s.done && window.location.reload();
+      s.done && document.querySelector('.black').classList.remove('show');
     }
 
     function playSilent() {
@@ -318,7 +338,6 @@
             selectDeck.classList.remove('hidden');
             selectDeck.querySelector('div:first-child').innerText = typeChosen === 'd' ? 'Choose Deck' : 'Choose 2 Cards to Pair';
             updateSelectedDeck();
-            updateButtonState();
           }
 
           countButtons.forEach( btn => btn.classList.remove('selected') );
