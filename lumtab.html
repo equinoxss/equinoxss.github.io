@@ -91,7 +91,8 @@
     }
 
     .radio.small-img img {
-      width: 47%;
+      width: 46%;
+      border-radius: 0.5rem;
     }
 
     .card-time {
@@ -144,16 +145,22 @@
         <div class="radio-buttons count">
           <div class="radio selected" data-id="s">
             <img src="imgs/land.jpg" />
-            <div class="label">Singles</div>
+            <div class="label">Singles Deck</div>
           </div>
           <div class="radio" data-id="d">
             <img src="imgs/land-water.jpeg" />
-            <div class="label">Doubles</div>
+            <div class="label">Doubles Deck</div>
           </div>
           <div class="radio small-img" data-id="p">
             <img src="imgs/land-fire.jpeg" />
+            <img src="imgs/wind-ether.jpeg" />
             <img src="imgs/fire-land.jpeg" />
-            <div class="label">Pairs</div>
+            <img src="imgs/ether-wind.jpeg" />
+            <div class="label">Card Pairs</div>
+          </div>
+          <div class="radio" data-id="o">
+            <img src="imgs/land.jpg" />
+            <div class="label">One Card</div>
           </div>
         </div>
       </div>
@@ -240,7 +247,11 @@
     }
 
     function buildSegments() {
-      if (typeChosen !== 'p') {
+      if (typeChosen === 'o') {
+        segments.push({ i: decks[deckChosen].i, t: cardTime });
+        segments.push({ t: blackTime, b: true });
+
+      } else if (typeChosen !== 'p') {
         const images = typeChosen === 's' ? singles : decks[deckChosen].c;
 
         images.forEach(img => {
@@ -276,7 +287,7 @@
     }
 
     function playChime() {
-      audio.src = 'sounds/bell.mp3';
+      audio.src = 'sounds/bell2.mp3';
 
       setTimeout(() => playSilent(), bellTime);
     }
@@ -284,7 +295,7 @@
     function updateSelectedDeck() {
       deckButtons.forEach( btn => btn.classList.remove('selected') );
 
-      if (typeChosen === 'd') {
+      if (typeChosen === 'd' || typeChosen === 'o') {
         selectDeck.querySelector(`.radio[data-id=${deckChosen}]`).classList.add('selected');
       } else if (typeChosen === 'p') {
         if (pairChosen[0]) {
@@ -312,6 +323,12 @@
     //   }      
     // }
 
+    const ctas = {
+      d: 'Choose Deck',
+      p: 'Choose 2 Cards to Pair',
+      o: 'Choose 1 Card'
+    };
+
     const countButtons = document.querySelectorAll('.radio-buttons.count .radio')
     const deckButtons = document.querySelectorAll('.radio-buttons.deck .radio');
     const selectDeck = document.querySelector('#select-deck');
@@ -329,7 +346,7 @@
             selectDeck.classList.add('hidden');
           } else {
             selectDeck.classList.remove('hidden');
-            selectDeck.querySelector('div:first-child').innerText = typeChosen === 'd' ? 'Choose Deck' : 'Choose 2 Cards to Pair';
+            selectDeck.querySelector('div:first-child').innerText = ctas[typeChosen];
             updateSelectedDeck();
           }
 
@@ -342,7 +359,7 @@
     for (const radioButton of deckButtons) {
       radioButton.addEventListener('click', evt => {
         const newVal = evt.target.dataset.id;
-        if (typeChosen === 'd') {
+        if (typeChosen === 'd' || typeChosen === 'o') {
           if (newVal !== deckChosen) {
             deckChosen = newVal;
           }
