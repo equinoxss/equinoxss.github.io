@@ -56,9 +56,13 @@ body.no-scroll {
   flex: 1;
 }
 
-.hidden {
+.dimmed {
   opacity: 0.15;
   pointer-events: none;
+}
+
+.hidden {
+  display: none;
 }
 
 .button {

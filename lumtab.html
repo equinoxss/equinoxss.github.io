@@ -29,18 +29,22 @@
             <img src="imgs/ether-wind.jpeg" />
             <div class="label">Card Pairs</div>
           </div>
-          <div class="radio small-img" data-id="p">
+          <!-- <div class="radio small-img" data-id="c">
             <img src="imgs/fire.jpg" />
             <img src="imgs/wind-ether.jpeg" />
             <img src="imgs/water.jpg" />
             <img src="imgs/commun.jpg" />
             <div class="label">Custom</div>
-          </div>
+          </div> -->
+          <div class="radio" data-id="b">
+            <img src="imgs/breath-up.jpeg" />
+            <div class="label">Breath</div>
+          </div>          
         </div>
       </div>
 
       <div class="group">
-        <div class="hidden" id="select-deck">
+        <div class="dimmed" id="select-deck">
           <div>Card Deck</div>
           <div class="radio-buttons deck">
             <div class="radio" data-id="land">
@@ -67,9 +71,14 @@
         </div>
       </div>
 
-      <div class="card-time">
+      <div class="card-time sequence">
         <div class="group">Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
         <div class="group">Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
+      </div>
+
+      <div class="card-time breath hidden">
+        <div class="group">Breath time: <input type="number" id="breathTime" min="1" max="60" /> seconds</div>
+        <div class="group">Session time: <input type="number" id="sessionTime" min="1" max="60" /> mins</div>
       </div>
 
       <div class="trial"></div>
@@ -99,11 +108,8 @@
       if (typeChosen !== 'p' || pairChosen.length === 2) {
         audio = new Audio();
         audio.autoplay = true;
+
         playSilent();
-
-        cardTime = document.querySelector('#cardTime').value * 60000;
-        blackTime = document.querySelector('#vizTime').value * 60000;
-
         buildSegments();
         prepare();
         next();
@@ -121,28 +127,46 @@
     }
 
     function buildSegments() {
-      if (typeChosen === 'o') {
-        segments.push({ i: decks[deckChosen].i, t: cardTime });
-        segments.push({ t: blackTime, b: true });
+      segments.push({ i: 'imgs/count-3.jpeg', t: 1000 });
+      segments.push({ i: 'imgs/count-2.jpeg', t: 1000 });
+      segments.push({ i: 'imgs/count-1.jpeg', t: 1000 });
 
-      } else if (typeChosen !== 'p') {
-        const images = typeChosen === 's' ? singles : decks[deckChosen].c;
+      if (typeChosen !== 'b') {
+        cardTime = document.querySelector('#cardTime').value * 60000;
+        blackTime = document.querySelector('#vizTime').value * 60000;
 
-        images.forEach(img => {
-          segments.push({ i: img, t: cardTime });
+        if (typeChosen === 'o') {
+          segments.push({ i: decks[deckChosen].i, t: cardTime });
           segments.push({ t: blackTime, b: true });
-        });
 
-        segments.push({ i: 'imgs/commun.jpg', t: cardTime });
-        segments.push({ t: blackTime, b: true });
+        } else if (typeChosen !== 'p') {
+          const images = typeChosen === 's' ? singles : decks[deckChosen].c;
+
+          images.forEach(img => {
+            segments.push({ i: img, t: cardTime });
+            segments.push({ t: blackTime, b: true });
+          });
+
+          segments.push({ i: 'imgs/commun.jpg', t: cardTime });
+          segments.push({ t: blackTime, b: true });
+        } else {
+          segments.push({ i: `imgs/${pairChosen[0]}-${pairChosen[1]}.jpeg`, t: cardTime });
+          segments.push({ t: blackTime, b: true });
+          segments.push({ i: `imgs/${pairChosen[1]}-${pairChosen[0]}.jpeg`, t: cardTime });
+          segments.push({ t: blackTime, b: true });
+        }
+
+        segments.push({ done: true });
       } else {
-        segments.push({ i: `imgs/${pairChosen[0]}-${pairChosen[1]}.jpeg`, t: cardTime });
-        segments.push({ t: blackTime, b: true });
-        segments.push({ i: `imgs/${pairChosen[1]}-${pairChosen[0]}.jpeg`, t: cardTime });
-        segments.push({ t: blackTime, b: true });
-      }
+        const bTime = document.querySelector('#breathTime').value;
+        const sTime = document.querySelector('#sessionTime').value;
+        const cycles = Math.ceil( (sTime * 60) / (2 * bTime) );
 
-      segments.push({ done: true });
+        for (let i=0;i<cycles;i++) {
+          segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
+          segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
+        }
+      }
     }
 
     function next() {
@@ -181,31 +205,18 @@
       }
     }
 
-    // function updateClock() {
-    //   if (localStorage.ts) {
-    //     const t = (Number(localStorage.ts) - Date.now()) / 3600000;
-    //     const h = Math.floor(t);
-    //     const m = Math.floor((t - h) * 60);
-    //     if (h >= 0 && m >= 0) {
-    //       document.querySelector('.trial').innerText = h ? `Time remaining: ${h}hr ${m}mins` : `Time remaining: ${m}mins`;
-    //     } else {
-    //       const el = document.querySelector('.trial');
-    //       el.classList.add('expired');
-    //       el.innerText = `Trial has expired`;
-    //       document.querySelector('.button').parentNode.removeChild(document.querySelector('.button'));
-    //     }
-    //   }      
-    // }
-
     const ctas = {
       d: 'Choose Deck',
       p: 'Choose 2 Cards to Pair',
-      o: 'Choose 1 Card'
+      o: 'Choose 1 Card',
+      c: 'Choose Deck',
     };
 
     const countButtons = document.querySelectorAll('.radio-buttons.count .radio')
     const deckButtons = document.querySelectorAll('.radio-buttons.deck .radio');
     const selectDeck = document.querySelector('#select-deck');
+    const sequenceTime = document.querySelector('.card-time.sequence');
+    const breathTime = document.querySelector('.card-time.breath');
 
     let typeChosen = 's';
     let deckChosen = 'land';
@@ -216,12 +227,22 @@
         const newVal = evt.target.dataset.id;
         if (newVal !== typeChosen) {
           typeChosen = newVal;
-          if (typeChosen === 's') {
-            selectDeck.classList.add('hidden');
+
+          if (typeChosen === 's' || typeChosen === 'b') {
+            selectDeck.classList.add('dimmed');
+            
           } else {
-            selectDeck.classList.remove('hidden');
+            selectDeck.classList.remove('dimmed');
             selectDeck.querySelector('div:first-child').innerText = ctas[typeChosen];
             updateSelectedDeck();
+          }
+
+          if (typeChosen === 'b') {
+            sequenceTime.classList.add('hidden');
+            breathTime.classList.remove('hidden');
+          } else {
+            sequenceTime.classList.remove('hidden');
+            breathTime.classList.add('hidden');
           }
 
           countButtons.forEach( btn => btn.classList.remove('selected') );
@@ -252,9 +273,8 @@
 
     document.querySelector('#cardTime').value = cardTime / 60000;
     document.querySelector('#vizTime').value = blackTime / 60000;
-
-    // updateClock();
-    // const clock = setInterval(() => updateClock(), 30000);
+    document.querySelector('#breathTime').value = 4;
+    document.querySelector('#sessionTime').value = cardTime / 60000;
 
   </script>
 </body> 
