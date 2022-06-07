@@ -1,148 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    body {
-      background-color: black;
-      font-family: sans-serif;
-      font-size: 2rem;
-      color: white;
-      margin: 0;
-    }
-
-    body.no-scroll {
-      overflow: hidden;
-    }
-
-    .wrap {
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      position: relative;
-      box-sizing: border-box;
-    }
-
-    .black {
-      position: fixed;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: black;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .black.show {
-      z-index: 10;
-    }
-
-    .controls {
-      padding: 3rem;
-    }
-
-    .radio-buttons {
-      display: flex;
-      gap: 3rem;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      margin: 2rem 1rem;
-      cursor: pointer;
-    }
-
-    .radio-buttons * {
-      flex: 1;
-    }
-
-    .hidden {
-      opacity: 0.15;
-      pointer-events: none;
-    }
-
-    .button {
-      width: 250px;
-      height: 5rem;
-      line-height: 5rem;
-      border-radius: 1rem;
-      margin: 0 auto;
-      cursor: pointer;
-      background-color: white;
-      color: black;
-    }
-
-    .radio {
-      max-width: 120px;
-    }
-
-    .radio:not(.selected) {
-      filter: opacity(0.5) grayscale(0.3);
-    }
-
-    .radio img {
-      width: 100%;
-      border-radius: 1rem;
-      pointer-events: none;
-    }
-
-    .radio.small-img img {
-      width: 46%;
-      border-radius: 0.5rem;
-    }
-
-    .card-time {
-      margin-bottom: 1rem;
-    }
-
-    .card-time div {
-      padding: 20px 40px;
-      display: inline-block;
-    }
-
-    .card-time div + div {
-      margin-left: 2rem;
-    }
-
-    .card-time input {
-      width: 50px;
-      font-size: inherit;
-      border-radius: 4px;
-      border: none;
-      text-align: center;
-    }
-
-    .group {
-      border: 1px solid rgba(255,255,255,0.5);
-      border-radius: 1rem;
-      margin-bottom: 2rem;
-      padding-top: 2rem;
-    }
-
-    .trial {
-      float: right;
-      font-size: 1rem;
-      margin-top: 60px;
-    }
-
-    .trial.expired {
-      float: none;
-      font-size: 2rem;
-    }
-
-  </style>
+  <link rel="stylesheet" href="cards.css">
 </head>
 <body>
   <div class="wrap">
     <div class="controls">
       <h2>Luminous Tablets</h2>
       <div class="group">
-        <div>Card Style</div>
+        <div>Cards to View</div>
         <div class="radio-buttons count">
+          <div class="radio" data-id="o">
+            <img src="imgs/land.jpg" />
+            <div class="label">One Card</div>
+          </div>
           <div class="radio selected" data-id="s">
             <img src="imgs/land.jpg" />
             <div class="label">Singles Deck</div>
@@ -158,9 +29,12 @@
             <img src="imgs/ether-wind.jpeg" />
             <div class="label">Card Pairs</div>
           </div>
-          <div class="radio" data-id="o">
-            <img src="imgs/land.jpg" />
-            <div class="label">One Card</div>
+          <div class="radio small-img" data-id="p">
+            <img src="imgs/fire.jpg" />
+            <img src="imgs/wind-ether.jpeg" />
+            <img src="imgs/water.jpg" />
+            <img src="imgs/commun.jpg" />
+            <div class="label">Custom</div>
           </div>
         </div>
       </div>
