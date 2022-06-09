@@ -40,9 +40,9 @@ function done() {
 function buildSegments() {
   segments = [];
 
-  segments.push({ i: 'imgs/count-3.jpeg', t: 750 });
-  segments.push({ i: 'imgs/count-2.jpeg', t: 750 });
-  segments.push({ i: 'imgs/count-1.jpeg', t: 750 });
+  segments.push({ i: 'imgs/count-3.jpeg', t: 675 });
+  segments.push({ i: 'imgs/count-2.jpeg', t: 675 });
+  segments.push({ i: 'imgs/count-1.jpeg', t: 675 });
 
   if (typeChosen === 'b') {
     const bTime = document.querySelector('#breathTime').value;
