@@ -40,9 +40,9 @@ function done() {
 function buildSegments() {
   segments = [];
 
-  segments.push({ i: 'imgs/count-3.jpeg', t: 1000 });
-  segments.push({ i: 'imgs/count-2.jpeg', t: 1000 });
-  segments.push({ i: 'imgs/count-1.jpeg', t: 1000 });
+  segments.push({ i: 'imgs/count-3.jpeg', t: 750 });
+  segments.push({ i: 'imgs/count-2.jpeg', t: 750 });
+  segments.push({ i: 'imgs/count-1.jpeg', t: 750 });
 
   if (typeChosen === 'b') {
     const bTime = document.querySelector('#breathTime').value;
@@ -53,15 +53,16 @@ function buildSegments() {
       segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
       segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
     }
-  } else if (typeChosen === 'c') {
-    customChosen.filter(img => !!img).map(img => {
-      segments.push({ i: img, t: cardTime })
-    });
   } else {
     cardTime = document.querySelector('#cardTime').value * 60000;
     blackTime = document.querySelector('#vizTime').value * 60000;
 
-    if (typeChosen === 'o') {
+    if (typeChosen === 'c') {
+      customChosen.filter(img => !!img).map(img => {
+        segments.push({ i: img, t: cardTime });
+        segments.push({ t: blackTime, b: true });
+      });
+    } else if (typeChosen === 'o') {
       segments.push({ i: decks[deckChosen].i, t: cardTime });
       segments.push({ t: blackTime, b: true });
 
@@ -131,8 +132,8 @@ function addCustomCards() {
     }, []);
 
     imgs.push('<img src="imgs/commun.jpg" draggable="true" ondragstart="drag(event)" />');
-    imgs.push('<img src="imgs/breath-up.jpeg" draggable="true" ondragstart="drag(event)" />');
-    imgs.push('<img src="imgs/breath-down.jpeg" draggable="true" ondragstart="drag(event)" />');
+    // imgs.push('<img src="imgs/breath-up.jpeg" draggable="true" ondragstart="drag(event)" />');
+    // imgs.push('<img src="imgs/breath-down.jpeg" draggable="true" ondragstart="drag(event)" />');
 
     customGroup.querySelector('.card-list').innerHTML = imgs.join('');
   }
