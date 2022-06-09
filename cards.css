@@ -140,19 +140,27 @@ body.no-scroll {
 
 .card-list {
   display: grid;
-  gap: 10px 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 40px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 30px 15px 15px;
 }
 
 .card-list img {
   width: 100%;
   border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.card-list-title {
+  margin-top: 30px;
+  position: relative;
 }
 
 .chosen-cards {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -164,4 +172,44 @@ body.no-scroll {
   width: 120px;
   border: 1px solid rgba(255,255,255,0.7);
   border-radius: 1rem;
+  padding: 3px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.chosen-cards .custom-slot img {
+  width: 100%;
+  pointer-events: none;
+  border-radius: 0.8rem;
+}
+
+.chosen-cards .custom-slot.active-drop {
+  border-color: white;
+  border-style: double;
+  background: #f1f1f1;
+}
+
+.remove-img {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background: white;
+  color: black;
+  height: 30px;
+  width: 30px;
+  line-height: 26px;
+  border-radius: 15px;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+.add-custom {
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 0px;
+  padding: 10px 15px;
+  font-size: 1rem;
 }

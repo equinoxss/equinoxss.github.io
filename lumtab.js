@@ -5,7 +5,7 @@ const bellTime = 2000;
 let audio = null;
 let customCardListBuilt = false;
 
-var segments = [];
+let segments = [];
 const singles = [ 'imgs/land.jpg', 'imgs/water.jpg', 'imgs/fire.jpg', 'imgs/wind.jpg', 'imgs/ether.jpg' ];
 const decks = {
   land: { i: 'imgs/land.jpg', c: [ 'imgs/land.jpg', 'imgs/land-water.jpeg', 'imgs/land-fire.jpeg', 'imgs/land-wind.jpeg', 'imgs/land-ether.jpeg' ] },
@@ -38,11 +38,26 @@ function done() {
 }
 
 function buildSegments() {
+  segments = [];
+
   segments.push({ i: 'imgs/count-3.jpeg', t: 1000 });
   segments.push({ i: 'imgs/count-2.jpeg', t: 1000 });
   segments.push({ i: 'imgs/count-1.jpeg', t: 1000 });
 
-  if (typeChosen !== 'b') {
+  if (typeChosen === 'b') {
+    const bTime = document.querySelector('#breathTime').value;
+    const sTime = document.querySelector('#sessionTime').value;
+    const cycles = Math.ceil( (sTime * 60) / (2 * bTime) );
+
+    for (let i=0;i<cycles;i++) {
+      segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
+      segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
+    }
+  } else if (typeChosen === 'c') {
+    customChosen.filter(img => !!img).map(img => {
+      segments.push({ i: img, t: cardTime })
+    });
+  } else {
     cardTime = document.querySelector('#cardTime').value * 60000;
     blackTime = document.querySelector('#vizTime').value * 60000;
 
@@ -65,15 +80,6 @@ function buildSegments() {
       segments.push({ t: blackTime, b: true });
       segments.push({ i: `imgs/${pairChosen[1]}-${pairChosen[0]}.jpeg`, t: cardTime });
       segments.push({ t: blackTime, b: true });
-    }
-  } else {
-    const bTime = document.querySelector('#breathTime').value;
-    const sTime = document.querySelector('#sessionTime').value;
-    const cycles = Math.ceil( (sTime * 60) / (2 * bTime) );
-
-    for (let i=0;i<cycles;i++) {
-      segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
-      segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
     }
   }
 
@@ -116,31 +122,76 @@ function updateSelectedDeck() {
   }
 }
 
-function addCards() {
+function addCustomCards() {
   if (!customCardListBuilt) {
     customCardListBuilt = true;
     const imgs = Object.keys(decks).reduce( (acc, key) => {
-      const cards = decks[key].c.map(path => `<img src="${path}" />`);
+      const cards = decks[key].c.map(path => `<img src="${path}" draggable="true" ondragstart="drag(event)" />`);
       return acc.concat(cards);
     }, []);
 
-    imgs.push('<img src="imgs/commun.jpg" />')
+    imgs.push('<img src="imgs/commun.jpg" draggable="true" ondragstart="drag(event)" />');
+    imgs.push('<img src="imgs/breath-up.jpeg" draggable="true" ondragstart="drag(event)" />');
+    imgs.push('<img src="imgs/breath-down.jpeg" draggable="true" ondragstart="drag(event)" />');
 
-    const listEl = customGroup.querySelector('.card-list');
-    listEl.innerHTML = imgs.join('');
-    listEl.querySelectorAll('img').forEach(img => {
-
-    });
+    customGroup.querySelector('.card-list').innerHTML = imgs.join('');
   }
 }
 
 function renderCustomSequence() {
-  const cards = customChosen.map((img,idx) => `<div class="custom-slot" data-idx="${idx}"><img src="${img}"></div>` );
-  const cardsEl = customGroup.querySelector('.chosen-cards');
-  cardsEl.innerHTML = cards.join('');
-  cardsEl.querySelectorAll('.custom-slot').forEach(div => {
+  const cards = customChosen.map((img,idx) => `
+      <div class="custom-slot" data-idx="${idx}" 
+          ondragover="dragOver(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondrop="drop(event,${idx})"
+          onmouseenter="mouseEnter(event,${idx})" onmouseleave="mouseLeave(event)">
+        <img src="${img}">
+        <div class="remove-img hidden" onclick="clearCustomCard(event,${idx})">&times;</div>
+      </div>`);
 
-  });
+  customGroup.querySelector('.chosen-cards').innerHTML = cards.join('');
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.src);
+}
+
+function dragOver(ev) {
+  ev.preventDefault();
+}
+
+function dragEnter(ev) {
+  ev.preventDefault();
+  ev.target.classList.add('active-drop');
+}
+
+function dragLeave(ev) {
+  ev.preventDefault();
+  ev.target.classList.remove('active-drop');
+}
+
+function drop(ev,idx) {
+  ev.preventDefault();
+  customChosen[idx] = ev.dataTransfer.getData("text");
+  renderCustomSequence();
+}
+
+function mouseEnter(ev,idx) {
+  if (customChosen[idx]) {
+    ev.target.querySelector('.remove-img').classList.remove('hidden');
+  }
+}
+
+function mouseLeave(ev) {
+  ev.target.querySelector('.remove-img').classList.add('hidden');
+}
+
+function clearCustomCard(ev,idx) {
+  customChosen[idx] = '';
+  renderCustomSequence();
+}
+
+function addCustomCard() {
+  customChosen.push('');
+  renderCustomSequence();
 }
 
 const ctas = {
@@ -173,7 +224,7 @@ for (const radioButton of countButtons) {
       if (typeChosen === 's' || typeChosen === 'b') {
         selectDeck.classList.add('dimmed');
       } else if (typeChosen === 'c') {
-        addCards();
+        addCustomCards();
         renderCustomSequence();
       } else {
         selectDeck.classList.remove('dimmed');
