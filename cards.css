@@ -91,7 +91,7 @@ body.no-scroll {
 }
 
 .radio.small-img img {
-  width: 46%;
+  width: 45%;
   border-radius: 0.5rem;
 }
 
@@ -141,14 +141,32 @@ body.no-scroll {
 .card-list {
   display: grid;
   gap: 10px 40px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 30px 15px 15px;
+}
+
+@media (min-width: 1081px) {
+  .card-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 }
 
 .card-list img {
   width: 100%;
   border-radius: 0.7rem;
   cursor: pointer;
+}
+
+.card-list img.selected {
+  border: 4px solid yellow;
+  box-sizing: border-box;
+  padding: 8px;
 }
 
 .card-list-title {

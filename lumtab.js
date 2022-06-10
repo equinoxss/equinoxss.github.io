@@ -1,9 +1,11 @@
-let cardTime = 120000;
-let blackTime = 180000;
+let cardTime = 60000;
+let blackTime = 120000;
 const bellTime = 2000;
 
 let audio = null;
 let customCardListBuilt = false;
+let customImgElement = null;
+let customImgChosen = null;
 
 let segments = [];
 const singles = [ 'imgs/land.jpg', 'imgs/water.jpg', 'imgs/fire.jpg', 'imgs/wind.jpg', 'imgs/ether.jpg' ];
@@ -139,13 +141,13 @@ function addCustomCards() {
   if (!customCardListBuilt) {
     customCardListBuilt = true;
     const imgs = Object.keys(decks).reduce( (acc, key) => {
-      const cards = decks[key].c.map(path => `<img src="${path}" draggable="true" ondragstart="drag(event)" />`);
+      const cards = decks[key].c.map(path => `<img src="${path}" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />`);
       return acc.concat(cards);
     }, []);
 
-    imgs.push('<img src="imgs/commun.jpg" draggable="true" ondragstart="drag(event)" />');
-    imgs.push('<img src="imgs/breath-btn.jpeg" draggable="true" ondragstart="drag(event)" />');
-    // imgs.push('<img src="imgs/breath-down.jpeg" draggable="true" ondragstart="drag(event)" />');
+    imgs.push('<img src="imgs/commun.jpg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
+    imgs.push('<img src="imgs/breath-btn.jpeg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
+    // imgs.push('<img src="imgs/breath-down.jpeg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
 
     customGroup.querySelector('.card-list').innerHTML = imgs.join('');
   }
@@ -160,7 +162,7 @@ function renderCustomSequence() {
     return `
       <div class="custom-slot" data-idx="${idx}" 
           ondragover="dragOver(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondrop="drop(event,${idx})"
-          onmouseenter="mouseEnter(event,${idx})" onmouseleave="mouseLeave(event)">
+          onmouseenter="mouseEnter(event,${idx})" onmouseleave="mouseLeave(event)" onclick="placeCustomImg(event, ${idx})">
         <img src="${img}">
         <div class="remove-img hidden" onclick="clearCustomCard(event,${idx})">&times;</div>
       </div>`
@@ -175,6 +177,20 @@ function renderCustomSequence() {
 
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.src);
+}
+
+function selectCustomImg(ev) {
+  clearCustomImgSelection();
+  if (customImgChosen !== ev.target.src) {
+    customImgChosen = ev.target.src;
+    ev.target.classList.toggle('selected');
+  } else {
+    customImgChosen = null;
+  }
+}
+
+function clearCustomImgSelection() {
+  customGroup.querySelectorAll('.card-list img').forEach( img => img.classList.remove('selected'));
 }
 
 function dragOver(ev) {
@@ -195,6 +211,16 @@ function drop(ev,idx) {
   ev.preventDefault();
   customChosen[idx] = ev.dataTransfer.getData("text");
   renderCustomSequence();
+}
+
+function placeCustomImg(ev, idx) {
+  ev.preventDefault();
+  if (customImgChosen) {
+    customChosen[idx] = customImgChosen;
+    customImgChosen = null;
+    clearCustomImgSelection();
+    renderCustomSequence();
+  }
 }
 
 function mouseEnter(ev,idx) {
@@ -300,4 +326,4 @@ for (const radioButton of deckButtons) {
 document.querySelector('#cardTime').value = cardTime / 60000;
 document.querySelector('#vizTime').value = blackTime / 60000;
 document.querySelector('#breathTime').value = 4;
-document.querySelector('#sessionTime').value = cardTime / 60000;
+document.querySelector('#sessionTime').value = 3;
