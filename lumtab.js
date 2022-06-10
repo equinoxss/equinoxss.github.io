@@ -45,22 +45,19 @@ function buildSegments() {
   segments.push({ i: 'imgs/count-1.jpeg', t: 675 });
 
   if (typeChosen === 'b') {
-    const bTime = document.querySelector('#breathTime').value;
-    const sTime = document.querySelector('#sessionTime').value;
-    const cycles = Math.ceil( (sTime * 60) / (2 * bTime) );
-
-    for (let i=0;i<cycles;i++) {
-      segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
-      segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
-    }
+    addBreathSegments();
   } else {
     cardTime = document.querySelector('#cardTime').value * 60000;
     blackTime = document.querySelector('#vizTime').value * 60000;
 
     if (typeChosen === 'c') {
       customChosen.filter(img => !!img).map(img => {
-        segments.push({ i: img, t: cardTime });
-        segments.push({ t: blackTime, b: true });
+        if (img.endsWith('breath-btn.jpeg')) {
+          addBreathSegments(true);
+        } else {
+          segments.push({ i: img, t: cardTime });
+          segments.push({ t: blackTime, b: true });
+        }
       });
     } else if (typeChosen === 'o') {
       segments.push({ i: decks[deckChosen].i, t: cardTime });
@@ -85,6 +82,21 @@ function buildSegments() {
   }
 
   segments.push({ done: true });
+}
+
+function addBreathSegments(addBlack) {
+  const bTime = document.querySelector('#breathTime').value;
+  const sTime = document.querySelector('#sessionTime').value;
+  const cycles = Math.ceil( (sTime * 60) / (2 * bTime) );
+
+  for (let i=0;i<cycles;i++) {
+    segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
+    segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
+  }
+  
+  if (addBlack) {
+    segments.push({ t: bTime * 1000, b: true });
+  }
 }
 
 function next() {
@@ -132,7 +144,7 @@ function addCustomCards() {
     }, []);
 
     imgs.push('<img src="imgs/commun.jpg" draggable="true" ondragstart="drag(event)" />');
-    // imgs.push('<img src="imgs/breath-up.jpeg" draggable="true" ondragstart="drag(event)" />');
+    imgs.push('<img src="imgs/breath-btn.jpeg" draggable="true" ondragstart="drag(event)" />');
     // imgs.push('<img src="imgs/breath-down.jpeg" draggable="true" ondragstart="drag(event)" />');
 
     customGroup.querySelector('.card-list').innerHTML = imgs.join('');
@@ -140,13 +152,23 @@ function addCustomCards() {
 }
 
 function renderCustomSequence() {
-  const cards = customChosen.map((img,idx) => `
+  let hasBreath = false;
+
+  const cards = customChosen.map((img,idx) => {
+    hasBreath |= img.endsWith('breath-btn.jpeg');
+
+    return `
       <div class="custom-slot" data-idx="${idx}" 
           ondragover="dragOver(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondrop="drop(event,${idx})"
           onmouseenter="mouseEnter(event,${idx})" onmouseleave="mouseLeave(event)">
         <img src="${img}">
         <div class="remove-img hidden" onclick="clearCustomCard(event,${idx})">&times;</div>
-      </div>`);
+      </div>`
+  });
+
+  hasBreath 
+    ? breathTime.classList.remove('hidden')
+    : breathTime.classList.add('hidden');
 
   customGroup.querySelector('.chosen-cards').innerHTML = cards.join('');
 }
@@ -222,17 +244,6 @@ for (const radioButton of countButtons) {
     if (newVal !== typeChosen) {
       typeChosen = newVal;
 
-      if (typeChosen === 's' || typeChosen === 'b') {
-        selectDeck.classList.add('dimmed');
-      } else if (typeChosen === 'c') {
-        addCustomCards();
-        renderCustomSequence();
-      } else {
-        selectDeck.classList.remove('dimmed');
-        selectDeck.querySelector('div:first-child').innerText = ctas[typeChosen];
-        updateSelectedDeck();
-      }
-
       if (typeChosen === 'b') {
         sequenceTime.classList.add('hidden');
         breathTime.classList.remove('hidden');
@@ -247,6 +258,17 @@ for (const radioButton of countButtons) {
       } else {
         deckGroup.classList.remove('hidden');
         customGroup.classList.add('hidden');
+      }
+
+      if (typeChosen === 's' || typeChosen === 'b') {
+        selectDeck.classList.add('dimmed');
+      } else if (typeChosen === 'c') {
+        addCustomCards();
+        renderCustomSequence();
+      } else {
+        selectDeck.classList.remove('dimmed');
+        selectDeck.querySelector('div:first-child').innerText = ctas[typeChosen];
+        updateSelectedDeck();
       }
 
       countButtons.forEach( btn => btn.classList.remove('selected') );
