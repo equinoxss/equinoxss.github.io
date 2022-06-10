@@ -258,10 +258,11 @@ const breathTime = document.querySelector('.card-time.breath');
 const deckGroup = document.querySelector('.group.deck');
 const customGroup = document.querySelector('.group.custom');
 
+const onMobile = window.innerWidth <= 512;
 let typeChosen = 's';
 let deckChosen = 'land';
 const pairChosen = [];
-const customChosen = ['','','','','',''];
+const customChosen =  onMobile ? ['','','','',''] : ['','','','','',''];
 
 
 for (const radioButton of countButtons) {
@@ -327,3 +328,5 @@ document.querySelector('#cardTime').value = cardTime / 60000;
 document.querySelector('#vizTime').value = blackTime / 60000;
 document.querySelector('#breathTime').value = 4;
 document.querySelector('#sessionTime').value = 3;
+
+onMobile && (document.querySelector('.add-custom').innerText = '+');
