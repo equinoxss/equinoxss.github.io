@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div class="page names">
+    <div class="names-table"></div>
+  </div>
+
+  <div class="page info hidden">
+    <div class="column names">
+      <div class="english-name" data-bind="nameEn"></div>
+      <div class="hebrew-name" data-bind="nameHb"></div>
+      <div class="name-number" data-bind="id"></div>
+    </div><div class="column description">
+      <div class="english-description" data-bind="descriptionEn"></div>
+    </div>
+  </div>
+
+  <div class="page meditate-time hidden">
+    <div>How long do you want to meditate?</div>
+    <div><input type="number" value="5" id="meditate-time" /> seconds each</div>
+    <button id="meditate-now">Meditate</button>
+  </div>
+
+  <div class="page meditate hidden">
+    <div class="meditate-wrap" id="meditate-wrap">
+      <div class="hebrew-name" data-bind="nameHb"></div>
+    </div>
+  </div>
+
+  <div class="page settings hidden">
+    <div>Choose a font for display</div>
+    <div class="font-wrap">
+      <div class="font-button">
+        <div class="hebrew-name" data-id="std">ל</div>
+        <div>System</div>
+      </div>
+      <div class="font-button">
+        <div class="hebrew-name ash" data-id="ash">ל</div>
+        <div>Ashkenaz</div>
+      </div>
+      <div class="font-button">
+        <div class="hebrew-name sef" data-id="sef">ל</div>
+        <div>Serafad</div>
+      </div>
+      <div class="font-button">
+        <div class="hebrew-name lib" data-id="lib">ל</div>
+        <div>Libre</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer names">
+    <div>72 Names of God</div>
+    <img src="imgs/gear-solid.svg" id="settings" />
+  </div>
+      
+  <div class="footer info hidden">
+    <img src="imgs/previous.svg" id="previous" />
+    <img src="imgs/grid.svg" id="home" />
+    <img src="imgs/spa.svg" id="meditate" />
+    <img src="imgs/next.svg" id="next" />
+  </div>
+
+  <div class="footer back hidden">
+    <img src="imgs/back.svg" id="back" />
+  </div>
+
+  <script src="data.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

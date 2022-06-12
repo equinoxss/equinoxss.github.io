@@ -1,0 +1,245 @@
+@font-face {
+  font-family: 'StamAshkenaz';
+  src: url(./fonts/Stam-Ashkenaz-CLM-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'StamSefarad';
+  src: url(./fonts/Stam-Sefarad-CLM-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'FRLibre';
+  src: url(./fonts/Frank-Ruhl-Libre-Medium.ttf);
+}
+
+
+body {
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -1px;
+  bottom: 50px;
+  overflow: scroll;
+  background-color: white;
+  transition: transform 0.9s;
+  transform: translateX(-1px);
+  border-left: 1px solid #ccc;
+}
+
+.page.hidden {
+  transform: translateX(300vh);
+}
+
+.page.names {
+  z-index: 1;
+}
+
+.names-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0;
+}
+
+@media (orientation: portrait) {
+  .names-table {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.hebrew-name.ash {
+  font-family: StamAshkenaz;
+}
+.hebrew-name.sef {
+  font-family: StamSefarad;
+}
+.hebrew-name.lib {
+  font-family: FRLibre;
+}
+.hebrew-name.small {
+  font-family: initial;
+}
+
+.page.names .hebrew-name {
+  font-size: 19px;
+}
+
+.name-cell {
+  border: 1px solid #ddd;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.page.info {
+  z-index: 10;
+  display: flex;
+}
+
+@media (orientation: portrait) {
+  .page.info {
+    flex-wrap: wrap;
+  }
+}
+
+.column {
+  width: 50vh;
+  height: 100vw;
+  box-sizing: border-box;
+}
+
+.column + .column {
+  border-left: 1px solid black;
+  border-top: none;
+}
+
+@media (orientation: portrait) {
+  .column + .column {
+    border-left: none;
+    border-top: 1px solid black;
+  }
+}
+
+.page.info .column.names {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+}
+
+.page.info .column.names .english-name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.page.info .column.names .hebrew-name {
+  font-size: 7rem;
+}
+
+.page.info .column.description {
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.page.meditate {
+  z-index: 20;
+  bottom: 0;
+}
+
+.page.meditate .meditate-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12rem;
+}
+
+.page.meditate.invert {
+  color: white;
+  background: black;
+}
+
+.page.meditate.black {
+  color: black !important;
+}
+
+.page.meditate-time {
+  z-index: 30;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+
+.page.meditate-time input {
+  width: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.page.meditate-time #meditate-now {
+  text-transform: uppercase;
+  padding: 7px 30px;  
+}
+
+.page.settings {
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  flex-direction: column;
+}
+
+.page.settings .font-wrap {
+  display: flex;
+  gap: 3vw;
+  margin-top: 2rem;
+}
+
+.page.settings .font-button {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.page.settings .hebrew-name {
+  border: 1px solid;
+  width: min(20vw, 5rem);
+  height: min(20vw, 5rem);
+  text-align: center;
+  font-size: min(13vw, 3.7rem);
+  line-height: min(24vw, 6.2rem);
+  border-radius: 1rem;  
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  border-top: 1px solid #e9e9e9;
+  background: #f9f9f9;
+  display: flex;
+  padding: 5px 15px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.footer.hidden {
+  display: none;
+}
+
+.footer.names {
+  font-size: 23px;
+  line-height: 50px;
+  text-align: center;
+  border-top: 1px solid #e9e9e9;
+}
+
+.footer img {
+  height: 30px;
+}
+
+.footer.meditate {
+  background-color: white;
+  border-color: black;
+}
+
+.footer.meditate.invert {
+  background-color: black;
+}
