@@ -114,11 +114,11 @@ body {
 
 .page.info .column.names .english-name {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .page.info .column.names .hebrew-name {
-  font-size: 7rem;
+  font-size: min(7rem, 30vh);
 }
 
 .page.info .column.description {
@@ -223,6 +223,10 @@ body {
 
 .footer.hidden {
   display: none;
+}
+
+.footer.back {
+  z-index: 30;
 }
 
 .footer.names {
