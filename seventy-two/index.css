@@ -51,6 +51,9 @@ body {
   }
 }
 
+.hebrew-name.std {
+  font-family: initial;
+}
 .hebrew-name.ash {
   font-family: StamAshkenaz;
 }
@@ -109,7 +112,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;  
+  flex-direction: column;
+  gap: 10;
 }
 
 .page.info .column.names .english-name {
@@ -118,12 +122,17 @@ body {
 }
 
 .page.info .column.names .hebrew-name {
-  font-size: min(7rem, 30vh);
+  font-size: min(8rem, 40vh);
 }
 
 .page.info .column.description {
   padding: 20px;
-  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  text-align: center;
 }
 
 .page.meditate {

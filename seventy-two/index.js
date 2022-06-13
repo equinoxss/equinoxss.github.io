@@ -196,6 +196,7 @@ function setFont() {
 
   const fontId = localStorage.font;
   const fontNames = {
+    std: 'initial',
     ash: 'StamAshkenaz',
     sef: 'StamSefarad',
     lib: 'FRLibre'
