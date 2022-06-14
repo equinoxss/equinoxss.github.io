@@ -138,6 +138,23 @@ function meditate() {
   if (!bbound) {
     bbound = true;
     document.querySelector('.footer #back').addEventListener('click', () => back('meditate'));
+
+    const freqButtons = document.querySelector('#meditate-frequency');
+    document.querySelector('#meditate-mode').addEventListener('change', ev => {
+      ev.target.checked
+        ? freqButtons.classList.remove('hidden')
+        : freqButtons.classList.add('hidden');
+    })
+
+    const options = freqButtons.querySelectorAll('.option');
+    options.forEach( opt => {
+      opt.addEventListener('click', ev => {
+        if (!ev.target.classList.contains('selected')) {
+          options.forEach( el => el.classList.remove('selected'));
+          ev.target.classList.add('selected');
+        }
+      });
+    });
   }
 }
 
@@ -148,6 +165,7 @@ function startMeditation() {
 
   const ms = Number(document.querySelector('#meditate-time').value) * 1000;
   const fm = document.querySelector('#meditate-mode').checked;
+  const fq = Number(document.querySelector('#meditate-frequency .option.selected').dataset.value);
 
   const done = () => {
     document.querySelector('.page.meditate').classList.remove('black','invert','flash');
@@ -156,8 +174,9 @@ function startMeditation() {
   }
   
   if (fm) {
+    setFlashFrequency(fq);
     document.querySelector('.page.meditate').classList.add('flash');
-    setTimeout(done, ms * 2);
+    setTimeout(done, ms);
 
   } else {
     setTimeout(() => {
@@ -181,6 +200,22 @@ function startMeditation() {
       }, ms);
     }, ms);
   }
+}
+
+function setFlashFrequency(fq) {
+  const el = document.querySelector('style#flashing');
+  el && el.remove();
+
+  const element = document.createElement('style');
+  element.id = 'flashing';
+  document.head.appendChild(element);
+  const sheet = element.sheet;
+
+  sheet.insertRule(`
+    .page.meditate.flash {
+      animation-duration:${fq}s;
+    }
+  `, 0);
 }
 
 function settings() {
