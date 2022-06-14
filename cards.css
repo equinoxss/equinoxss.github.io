@@ -188,6 +188,16 @@ body.no-scroll {
   text-align: center;
 }
 
+.card-time input[type=checkbox] {
+  height: 25px;
+}
+
+@media (max-width: 512px) {
+  .card-time input[type=checkbox] {
+    vertical-align: sub;    
+  }
+}
+
 .group {
   border: 1px solid rgba(255,255,255,0.5);
   border-radius: 1rem;

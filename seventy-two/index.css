@@ -158,6 +158,17 @@ body {
   color: black !important;
 }
 
+@keyframes flash {
+  50% {
+    color: white;
+    background-color: black;
+  }
+}
+
+.page.meditate.flash {
+  animation: flash 0.1s linear infinite;
+}
+
 .page.meditate-time {
   z-index: 30;
 

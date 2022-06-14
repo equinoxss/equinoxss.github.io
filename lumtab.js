@@ -89,11 +89,15 @@ function buildSegments() {
 function addBreathSegments(addBlack) {
   const bTime = document.querySelector('#breathTime').value;
   const sTime = document.querySelector('#sessionTime').value;
-  const cycles = Math.ceil( (sTime * 60) / (2 * bTime) );
+  const square = document.querySelector('#squareBreathing').checked;
+
+  const cycles = Math.ceil( (sTime * 60) / ((square ? 4 : 2) * bTime) );
 
   for (let i=0;i<cycles;i++) {
     segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
+    square && segments.push({ i: 'imgs/breath-up-hold.jpeg', t: bTime * 1000 });
     segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
+    square && segments.push({ i: 'imgs/breath-down-hold.jpeg', t: bTime * 1000 });
   }
   
   if (addBlack) {

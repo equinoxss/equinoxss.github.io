@@ -147,29 +147,40 @@ function startMeditation() {
   setBoundFields('meditate');
 
   const ms = Number(document.querySelector('#meditate-time').value) * 1000;
-  setTimeout(() => {
-    // black
-    document.querySelector('.page.meditate').classList.add('invert');
-    document.querySelector('.page.meditate').classList.add('black');
+  const fm = document.querySelector('#meditate-mode').checked;
 
+  const done = () => {
+    document.querySelector('.page.meditate').classList.remove('black','invert','flash');
+    // document.querySelector('.page.meditate').classList.remove('invert');
+    document.querySelector('.page.meditate').classList.add('hidden');
+  }
+  
+  if (fm) {
+    document.querySelector('.page.meditate').classList.add('flash');
+    setTimeout(done, ms * 2);
+
+  } else {
     setTimeout(() => {
-      // inverted
-      document.querySelector('.page.meditate').classList.remove('black');
+      // black
+      document.querySelector('.page.meditate').classList.add('invert');
+      document.querySelector('.page.meditate').classList.add('black');
 
       setTimeout(() => {
-        // black
-        document.querySelector('.page.meditate').classList.add('black');
-    
+        // inverted
+        document.querySelector('.page.meditate').classList.remove('black');
+
         setTimeout(() => {
-          // done
-          document.querySelector('.page.meditate').classList.remove('black');
-          document.querySelector('.page.meditate').classList.remove('invert');
-          document.querySelector('.page.meditate').classList.add('hidden');
-        
-        }, ms)
-      }, ms)
+          // black
+          document.querySelector('.page.meditate').classList.add('black');
+      
+          setTimeout(() => {
+            // done
+            done();
+          }, ms);
+        }, ms);
+      }, ms);
     }, ms);
-  }, ms);
+  }
 }
 
 function settings() {
