@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'Paleo';
-  src: url(./fonts/PaleoBora.TTF);
+  src: url(./fonts/PaleoHebrewMod.ttf);
 }
 
 
@@ -312,6 +312,12 @@ body {
   font-size: min(13vw, 3.7rem);
   line-height: min(24vw, 6.2rem);
   border-radius: 1rem;  
+}
+
+.page.settings .hebrew-name.pal {
+  line-height: unset;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
 .footer {
