@@ -9,8 +9,8 @@
 }
 
 @font-face {
-  font-family: 'FRLibre';
-  src: url(./fonts/Frank-Ruhl-Libre-Medium.ttf);
+  font-family: 'Paleo';
+  src: url(./fonts/PaleoBora.TTF);
 }
 
 
@@ -60,8 +60,8 @@ body {
 .hebrew-name.sef {
   font-family: StamSefarad;
 }
-.hebrew-name.lib {
-  font-family: FRLibre;
+.hebrew-name.pal {
+  font-family: Paleo;
 }
 .hebrew-name.small {
   font-family: initial;
@@ -69,6 +69,12 @@ body {
 
 .page.names .hebrew-name {
   font-size: 19px;
+}
+
+@media (min-width: 945px) and (min-height: 512px) {
+  .page.names .hebrew-name {
+    font-size: 2rem;
+  }
 }
 
 .name-cell {
@@ -109,16 +115,17 @@ body {
 }
 
 .page.info .column.names {
+  flex: 1 1 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 10;
+  gap: 10px;
 }
 
-.page.info .column.names .english-name {
+.page.info .column.names .english-name,
+.page.info .column.names .name-number {
   font-size: 1.5rem;
-  /* margin-bottom: 1rem; */
 }
 
 .page.info .column.names .hebrew-name {
@@ -135,6 +142,24 @@ body {
   text-align: center;
 }
 
+@media (min-width: 945px) and (min-height: 512px) {
+  .page.info .column.names {
+    gap: 40px;
+  }
+
+  .page.info .column.names .english-name {
+    font-size: 2rem;
+  }
+
+  .page.info .column.names .hebrew-name {
+    font-size: 15rem;
+  }
+
+  .page.info .column.names .name-number {
+    font-size: 2rem;
+  }
+}
+
 .page.meditate {
   z-index: 20;
   bottom: 0;
@@ -146,7 +171,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12rem;
+  font-size: 13rem;
+}
+
+@media (orientation: portrait) {
+  .page.meditate .meditate-wrap {
+    font-size: 10rem;
+  }
+}
+
+@media (min-width: 945px) and (min-height: 512px) {
+  .page.meditate .meditate-wrap {
+    font-size: min(50vw, 50vh);
+  }
 }
 
 .page.meditate.invert {
@@ -191,9 +228,15 @@ body {
   text-align: center;
 }
 
+.page.meditate-time #meditate-mode {
+  height: 1.5rem;
+  vertical-align: text-bottom;
+}
+
 .page.meditate-time #meditate-now {
   text-transform: uppercase;
-  padding: 7px 30px;  
+  padding: 10px 40px;
+  letter-spacing: 0.5px;
 }
 
 .button-bar {
@@ -207,7 +250,8 @@ body {
 }
 
 .button-bar img {
-  width: 20px;
+  height: 22px;
+  margin-top: 3px;
 }
 
 .button-bar .buttons {

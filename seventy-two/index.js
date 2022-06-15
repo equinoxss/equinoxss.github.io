@@ -155,10 +155,21 @@ function meditate() {
         }
       });
     });
+
+    let clickTime = -600;
+    document.querySelector('.page .meditate-wrap').addEventListener('click', ev => {
+      if (ev.timeStamp - clickTime < 600) {
+        endMeditation();
+      }
+      clickTime = ev.timeStamp;
+    });
   }
 }
 
+let mtid = 0;
+
 function startMeditation() {
+  document.querySelector('body').requestFullscreen();
   document.querySelector('.page.meditate-time').classList.add('hidden');
   document.querySelector('.footer.back').classList.add('hidden');
   setBoundFields('meditate');
@@ -166,40 +177,42 @@ function startMeditation() {
   const ms = Number(document.querySelector('#meditate-time').value) * 1000;
   const fm = document.querySelector('#meditate-mode').checked;
   const fq = Number(document.querySelector('#meditate-frequency .option.selected').dataset.value);
-
-  const done = () => {
-    document.querySelector('.page.meditate').classList.remove('black','invert','flash');
-    // document.querySelector('.page.meditate').classList.remove('invert');
-    document.querySelector('.page.meditate').classList.add('hidden');
-  }
   
   if (fm) {
     setFlashFrequency(fq);
     document.querySelector('.page.meditate').classList.add('flash');
-    setTimeout(done, ms);
+    mtid = setTimeout(done, ms);
 
   } else {
-    setTimeout(() => {
+    mtid = setTimeout(() => {
       // black
       document.querySelector('.page.meditate').classList.add('invert');
       document.querySelector('.page.meditate').classList.add('black');
 
-      setTimeout(() => {
+      mtid = setTimeout(() => {
         // inverted
         document.querySelector('.page.meditate').classList.remove('black');
 
-        setTimeout(() => {
+        mtid = setTimeout(() => {
           // black
           document.querySelector('.page.meditate').classList.add('black');
       
-          setTimeout(() => {
+          mtid = setTimeout(() => {
             // done
-            done();
+            endMeditation();
           }, ms);
         }, ms);
       }, ms);
     }, ms);
   }
+}
+
+function endMeditation() {
+  clearTimeout(mtid);
+  document.querySelector('.page.meditate').classList.remove('black','invert','flash');
+  // document.querySelector('.page.meditate').classList.remove('invert');
+  document.querySelector('.page.meditate').classList.add('hidden');
+  document.exitFullscreen();
 }
 
 function setFlashFrequency(fq) {
@@ -245,7 +258,7 @@ function setFont() {
     std: 'initial',
     ash: 'StamAshkenaz',
     sef: 'StamSefarad',
-    lib: 'FRLibre'
+    pal: 'Paleo'
   };
 
   if (fontNames[fontId]) {
