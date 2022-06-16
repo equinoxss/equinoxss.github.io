@@ -13,6 +13,11 @@
   src: url(./fonts/PaleoHebrewMod.ttf);
 }
 
+@font-face {
+  font-family: 'Proto';
+  src: url(./fonts/ProtoSinaiticMod.ttf);
+}
+
 
 body {
   overflow: hidden;
@@ -62,6 +67,9 @@ body {
 }
 .hebrew-name.pal {
   font-family: Paleo;
+}
+.hebrew-name.pro {
+  font-family: Proto;
 }
 .hebrew-name.small {
   font-family: initial;
@@ -132,6 +140,10 @@ body {
   font-size: min(8rem, 40vh);
 }
 
+.page.info .column.names .hebrew-name.pro {
+  font-size: min(5rem, 40vh);
+}
+
 .page.info .column.description {
   padding: 20px;
   display: flex;
@@ -151,9 +163,13 @@ body {
     font-size: 2rem;
   }
 
-  .page.info .column.names .hebrew-name {
+  .page.info .column.names .hebrew-name:not(.pro) {
     font-size: 15rem;
   }
+
+  .page.info .column.names .hebrew-name.pro {
+    font-size: 11vw;
+  }  
 
   .page.info .column.names .name-number {
     font-size: 2rem;
@@ -171,7 +187,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 13rem;
+  font-size: 14rem;
+}
+
+.page.meditate .meditate-wrap .hebrew-name.pro {
+  font-size: 11rem;
 }
 
 @media (orientation: portrait) {
@@ -293,6 +313,8 @@ body {
   display: flex;
   gap: 3vw;
   margin-top: 2rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
 .page.settings .font-button {
@@ -314,9 +336,9 @@ body {
   border-radius: 1rem;  
 }
 
-.page.settings .hebrew-name.pal {
-  line-height: unset;
-  padding-left: 20px;
+.page.settings .hebrew-name.pal,
+.page.settings .hebrew-name.pro {
+  line-height: 4.5rem;
   box-sizing: border-box;
 }
 

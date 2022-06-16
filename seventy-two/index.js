@@ -97,6 +97,12 @@ function showInfo(id) {
 
   selected = names.find( n => n.id === id);
   setBoundFields('info');
+  addFontId(document.querySelector('.page.info .hebrew-name'));
+}
+
+function addFontId(el) {
+  el.classList.remove('std','ash','sef','pro','pal')
+  el.classList.add(fontId);
 }
 
 function setBoundFields(page) {
@@ -132,6 +138,7 @@ function back(from) {
 
 function meditate() {
   document.querySelector('.page.meditate').classList.remove('hidden');
+  addFontId(document.querySelector('.page.meditate .hebrew-name'));
   document.querySelector('.page.meditate-time').classList.remove('hidden');
   document.querySelector('.footer.back').classList.remove('hidden');
   
@@ -249,16 +256,19 @@ function chooseFont(ev) {
   setFont();
 }
 
+let fontId = 'std';
+
 function setFont() {
   const el = document.querySelector('style#font');
   el && el.remove();
 
-  const fontId = localStorage.font;
+  fontId = localStorage.font;
   const fontNames = {
     std: 'initial',
     ash: 'StamAshkenaz',
     sef: 'StamSefarad',
-    pal: 'Paleo'
+    pal: 'Paleo',
+    pro: 'Proto'
   };
 
   if (fontNames[fontId]) {
