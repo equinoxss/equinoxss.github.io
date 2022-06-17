@@ -256,9 +256,10 @@ function chooseFont(ev) {
   setFont();
 }
 
-let fontId = 'std';
+let fontId = 'sef';
 
 function setFont() {
+  document.querySelectorAll('.font-button .hebrew-name').forEach( hn => hn.classList.remove('selected'));
   const el = document.querySelector('style#font');
   el && el.remove();
 
@@ -283,6 +284,8 @@ function setFont() {
           font-family: ${fontNames[fontId]};
         }
       `, 0);
+
+      document.querySelector(`.font-button .hebrew-name.${fontId}`).classList.add('selected');
     } catch(e) {
       // ignore
     }
