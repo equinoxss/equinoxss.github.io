@@ -11,10 +11,6 @@
       <div class="group">
         <div>Cards to View</div>
         <div class="radio-buttons count">
-          <div class="radio" data-id="o">
-            <img src="imgs/land.jpg" />
-            <div class="label">One Card</div>
-          </div>
           <div class="radio selected" data-id="s">
             <img src="imgs/land.jpg" />
             <div class="label">Singles Deck</div>
@@ -37,6 +33,10 @@
             <img src="imgs/commun.jpg" />
             <div class="label">Custom</div>
           </div>
+          <div class="radio" data-id="o">
+            <img src="imgs/land.jpg" />
+            <div class="label">Flashing</div>
+          </div>
           <div class="radio" data-id="b">
             <img src="imgs/breath-up.jpeg" />
             <div class="label">Breath</div>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="group deck">
-        <div class="dimmed" id="select-deck">
+        <div class="dimmed" id="selectDeck">
           <div>Card Deck</div>
           <div class="radio-buttons deck">
             <div class="radio" data-id="land">
@@ -97,7 +97,9 @@
       <div class="trial"></div>
       <div class="button inverted" onclick="start()">Start</div>
     </div>
-    <div class="black"></div>
+    <div class="viewer">
+      <img src="imgs/play.svg" class="hidden" id="playButton" />
+    </div>
   </div>
 
   <script src="lumtab.js"></script>

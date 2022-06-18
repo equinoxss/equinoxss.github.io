@@ -30,13 +30,15 @@ function start() {
 }
 
 function prepare() {
-  document.querySelector('.black').classList.add('show');
+  viewer.classList.add('show');
   document.querySelector('body').classList.add('no-scroll');
+  document.querySelector('body').requestFullscreen();
 }
 
 function done() {
-  document.querySelector('.black').classList.remove('show');
+  viewer.classList.remove('show');
   document.querySelector('body').classList.remove('no-scroll');
+  document.exitFullscreen();
 }
 
 function buildSegments() {
@@ -105,15 +107,46 @@ function addBreathSegments(addBlack) {
   }
 }
 
+let currentSegment = null;
+let currentStart = 0;
+let timers = [];
+let viewerPaused = false;
+
 function next() {
-  const el = document.querySelector('.black');
-  const s = segments.shift();
+  try {
+    currentSegment = segments.shift();
 
-  el.style.backgroundImage = s.i ? `url(${s.i})` : null;
+    viewer.style.backgroundImage = currentSegment.i ? `url(${currentSegment.i})` : null;
 
-  s.t && setTimeout(() => next(), s.t);
-  s.b && setTimeout(() => playChime(), s.t - 1000);
-  s.done && done();
+    timers = [];
+    currentStart = Date.now();
+
+    currentSegment.t && timers.push( setTimeout(() => next(), currentSegment.t) );
+    currentSegment.b && timers.push( setTimeout(() => playChime(), Math.max(0, currentSegment.t - 1000)) );
+    currentSegment.done && done();
+  } catch(e) {
+    exitMeditation();
+  }
+}
+
+function pause() {
+  viewerPaused = true;
+  timers.forEach(t => clearTimeout(t));
+  currentSegment.t = currentSegment.t - (Date.now() - currentStart);
+  segments.unshift(currentSegment);
+  document.querySelector('#playButton').classList.remove('hidden');
+}
+
+function resume() {
+  viewerPaused = false;
+  document.querySelector('#playButton').classList.add('hidden');
+  next();
+}
+
+function exitMeditation() {
+  timers.forEach(t => clearTimeout(t));
+  viewer.style.backgroundImage = null;
+  done();
 }
 
 function playSilent() {
@@ -151,7 +184,6 @@ function addCustomCards() {
 
     imgs.push('<img src="imgs/commun.jpg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
     imgs.push('<img src="imgs/breath-btn.jpeg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
-    // imgs.push('<img src="imgs/breath-down.jpeg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
 
     customGroup.querySelector('.card-list').innerHTML = imgs.join('');
   }
@@ -256,18 +288,19 @@ const ctas = {
 
 const countButtons = document.querySelectorAll('.radio-buttons.count .radio')
 const deckButtons = document.querySelectorAll('.radio-buttons.deck .radio');
-const selectDeck = document.querySelector('#select-deck');
+const selectDeck = document.querySelector('#selectDeck');
 const sequenceTime = document.querySelector('.card-time.sequence');
 const breathTime = document.querySelector('.card-time.breath');
 const deckGroup = document.querySelector('.group.deck');
 const customGroup = document.querySelector('.group.custom');
+const viewer = document.querySelector('.viewer');
+const playButton = document.querySelector('#playButton')
 
 const onMobile = window.innerWidth <= 512;
 let typeChosen = 's';
 let deckChosen = 'land';
 const pairChosen = [];
 const customChosen =  onMobile ? ['','','','',''] : ['','','','','',''];
-
 
 for (const radioButton of countButtons) {
   radioButton.addEventListener('click', evt => {
@@ -327,6 +360,24 @@ for (const radioButton of deckButtons) {
     updateSelectedDeck();
   });
 }
+
+let clickTime = -600;
+let clickWatcher = null;
+viewer.addEventListener('click', ev => {
+  if (viewerPaused) {
+    resume();
+  } else {
+    clickWatcher && clearTimeout(clickWatcher);
+
+    if (ev.timeStamp - clickTime < 600) {
+      exitMeditation();
+    } else {
+      clickWatcher = setTimeout(() => pause(), 1000);
+    }
+    
+    clickTime = ev.timeStamp;
+  }
+});
 
 document.querySelector('#cardTime').value = cardTime / 60000;
 document.querySelector('#vizTime').value = blackTime / 60000;

@@ -24,8 +24,9 @@ body.no-scroll {
   box-sizing: border-box;
 }
 
-.black {
+.viewer {
   position: fixed;
+  visibility: hidden;
   z-index: -1;
   top: 0;
   left: 0;
@@ -40,8 +41,19 @@ body.no-scroll {
   align-items: center;
 }
 
-.black.show {
+.viewer.show {
+  visibility: visible;
   z-index: 10;
+}
+
+.viewer #playButton {
+  width: 120px;
+  animation: pulsing 2s ease-out infinite;
+}
+
+@keyframes pulsing {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .controls {
@@ -139,6 +151,7 @@ body.no-scroll {
   cursor: pointer;
   background-color: white;
   color: black;
+  user-select: none;
 }
 
 @media (max-width: 512px) {
