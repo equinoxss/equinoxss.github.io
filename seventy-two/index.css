@@ -230,7 +230,8 @@ body {
   animation: flash 0.1s linear infinite;
 }
 
-.page.meditate-time {
+.page.meditate-time,
+.page.study-time {
   z-index: 30;
 
   display: flex;
@@ -242,7 +243,8 @@ body {
   text-align: center;
 }
 
-.page.meditate-time input {
+.page.meditate-time input,
+.page.study-time input {
   width: 40px;
   font-size: 1.2rem;
   text-align: center;
@@ -253,7 +255,8 @@ body {
   vertical-align: text-bottom;
 }
 
-.page.meditate-time #meditate-now {
+.page.meditate-time #meditate-now,
+.page.study-time #study-now {
   text-transform: uppercase;
   padding: 10px 40px;
   letter-spacing: 0.5px;
@@ -371,15 +374,24 @@ body {
   z-index: 30;
 }
 
+.footer img {
+  height: 30px;
+}
+
 .footer.names {
   font-size: 23px;
   line-height: 50px;
-  text-align: center;
+  text-align: left;
   border-top: 1px solid #e9e9e9;
+  justify-content: flex-end;
 }
 
-.footer img {
-  height: 30px;
+.footer.names div {
+  flex: 1;
+}
+
+.footer.names img {
+  margin-left: 28px;
 }
 
 .footer.meditate {

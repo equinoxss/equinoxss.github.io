@@ -1,13 +1,14 @@
 let selected = null;
 let ibound = false;
-let bbound = false;
+let mbound = false;
 let sbound = false;
+let pbound = false;
 let names = [];
 let orientation = 'portrait';
 
 function initApp() {
   document.querySelector('#settings').addEventListener('click', () => settings());
-  setFont();
+  document.querySelector('#study').addEventListener('click', () => study());
 }
 
 function initOrientation() {
@@ -79,6 +80,7 @@ function calculateSizes() {
 
 function bindPageElements() {
   document.querySelector('#meditate-now').addEventListener('click', () => startMeditation());
+  document.querySelector('#study-now').addEventListener('click', () => startStudy());
   document.querySelectorAll('.font-wrap .font-button').forEach(btn => btn.addEventListener('click', chooseFont));
   document.querySelectorAll('.font-wrap .font-button').forEach(btn => btn.addEventListener('mousedown', ev => ev.target.classList.add('pressed')));
   document.querySelectorAll('.font-wrap .font-button').forEach(btn => btn.addEventListener('mouseup', ev => ev.target.classList.remove('pressed')));
@@ -131,6 +133,7 @@ function back(from) {
   if (from === 'meditate') {
     document.querySelector('.page.meditate').classList.add('hidden');
     document.querySelector('.page.meditate-time').classList.add('hidden');
+    document.querySelector('.page.study-time').classList.add('hidden');
   } else if (from === 'settings') {
     document.querySelector('.page.settings').classList.add('hidden');
   }
@@ -142,8 +145,8 @@ function meditate() {
   document.querySelector('.page.meditate-time').classList.remove('hidden');
   document.querySelector('.footer.back').classList.remove('hidden');
   
-  if (!bbound) {
-    bbound = true;
+  if (!mbound) {
+    mbound = true;
     document.querySelector('.footer #back').addEventListener('click', () => back('meditate'));
 
     const freqButtons = document.querySelector('#meditate-frequency');
@@ -162,6 +165,14 @@ function meditate() {
         }
       });
     });
+  }
+
+  bindMeditateAbort();
+}
+
+function bindMeditateAbort() {
+  if (!pbound) {
+    pbound = true;
 
     let clickTime = -600;
     document.querySelector('.page .meditate-wrap').addEventListener('click', ev => {
@@ -217,7 +228,6 @@ function startMeditation() {
 function endMeditation() {
   clearTimeout(mtid);
   document.querySelector('.page.meditate').classList.remove('black','invert','flash');
-  // document.querySelector('.page.meditate').classList.remove('invert');
   document.querySelector('.page.meditate').classList.add('hidden');
   document.exitFullscreen();
 }
@@ -246,6 +256,37 @@ function settings() {
     sbound = true;
     document.querySelector('.footer #back').addEventListener('click', () => back('settings'));
   }  
+}
+
+function study() {
+  document.querySelector('.page.meditate').classList.remove('hidden');
+  addFontId(document.querySelector('.page.meditate .hebrew-name'));
+  document.querySelector('.page.study-time').classList.remove('hidden');
+  document.querySelector('.footer.back').classList.remove('hidden');
+  bindMeditateAbort();
+}
+
+function startStudy() {
+  document.querySelector('body').requestFullscreen();
+  document.querySelector('.page.study-time').classList.add('hidden');
+  document.querySelector('.footer.back').classList.add('hidden');
+
+  const ms = document.querySelector('#study-time').value * 1000;
+  const end = document.querySelector('#study-end').value * 8;
+  let id = (document.querySelector('#study-start').value - 1) * 8 + 1;
+
+  selected = names.find( n => n.id === id);
+  setBoundFields('meditate');
+
+  mtid = setInterval(() => {
+    id += 1;
+    if (id <= end) {
+      selected = names.find( n => n.id === id);
+      setBoundFields('meditate');
+    } else {
+      endMeditation();
+    }
+  }, ms);
 }
 
 function chooseFont(ev) {
