@@ -6,6 +6,7 @@ let audio = null;
 let customCardListBuilt = false;
 let customImgElement = null;
 let customImgChosen = null;
+let desireHandlersBound = false;
 
 let segments = [];
 const singles = [ 'imgs/land.jpg', 'imgs/water.jpg', 'imgs/fire.jpg', 'imgs/wind.jpg', 'imgs/ether.jpg' ];
@@ -36,7 +37,7 @@ function prepare() {
 }
 
 function done() {
-  viewer.classList.remove('show');
+  viewer.classList.remove('show','cover');
   document.querySelector('body').classList.remove('no-scroll');
   document.exitFullscreen();
 }
@@ -63,9 +64,9 @@ function buildSegments() {
           segments.push({ t: blackTime, b: true });
         }
       });
-    } else if (typeChosen === 'o') {
-      segments.push({ i: decks[deckChosen].i, t: cardTime });
-      segments.push({ t: blackTime, b: true });
+    } else if (typeChosen === 'f') {
+      addFlashingSegments();
+      viewer.classList.add('cover');
 
     } else if (typeChosen !== 'p') {
       const images = typeChosen === 's' ? singles : decks[deckChosen].c;
@@ -105,6 +106,39 @@ function addBreathSegments(addBlack) {
   if (addBlack) {
     segments.push({ t: bTime * 1000, b: true });
   }
+}
+
+function addFlashingSegments() {
+  const data = getDesireData();
+  const chosenDesire = desireGroup.querySelector('.radio.selected').dataset.id;
+  const speed = Number(document.querySelector('#flashSpeed').value);
+  const time = Number(document.querySelector('#flashTime').value) * 60000;
+  const count = Math.ceil(time / speed);
+  const spliceWidth = Math.ceil(3000 / speed);
+
+  const availableImgs = data[chosenDesire].map(img => ({ i: img, t: speed }));
+  let items = [];
+
+  for (let i=0; i < Math.round(count / availableImgs.length); i++) {
+    items = items.concat(availableImgs);
+  }
+  
+  const baseCards = [
+    { i: 'imgs/land.jpg', t: speed },
+    { i: 'imgs/wind.jpg', t: speed },
+    { i: 'imgs/fire.jpg', t: speed },
+    { i: 'imgs/water.jpg', t: speed }
+  ];
+
+  let spliceIdx = spliceWidth;
+  while (spliceIdx < items.length) {
+    const item = baseCards.shift();
+    items.splice(spliceIdx, 0, item);
+    baseCards.push(item);
+    spliceIdx += spliceWidth;
+  }
+
+  segments = items;
 }
 
 let currentSegment = null;
@@ -162,7 +196,7 @@ function playChime() {
 function updateSelectedDeck() {
   deckButtons.forEach( btn => btn.classList.remove('selected') );
 
-  if (typeChosen === 'd' || typeChosen === 'o') {
+  if (typeChosen === 'd') {
     selectDeck.querySelector(`.radio[data-id=${deckChosen}]`).classList.add('selected');
   } else if (typeChosen === 'p') {
     if (pairChosen[0]) {
@@ -209,6 +243,20 @@ function renderCustomSequence() {
     : breathTime.classList.add('hidden');
 
   customGroup.querySelector('.chosen-cards').innerHTML = cards.join('');
+}
+
+function bindDesireHandlers() {
+  if (!desireHandlersBound) {
+    desireHandlersBound = true;
+
+    const buttons = document.querySelectorAll('.radio-buttons.desire .radio');
+    for (const radioButton of buttons) {
+      radioButton.addEventListener('click', evt => {
+        buttons.forEach( btn => btn.classList.remove('selected') );
+        evt.target.classList.add('selected');
+      });
+    }
+  }
 }
 
 function drag(ev) {
@@ -284,15 +332,18 @@ const ctas = {
   p: 'Choose Two Cards to Pair',
   o: 'Choose One Card',
   c: 'Choose a Deck',
+  f: 'Choose a Deck'
 };
 
-const countButtons = document.querySelectorAll('.radio-buttons.count .radio')
+const programButtons = document.querySelectorAll('.radio-buttons.program .radio')
 const deckButtons = document.querySelectorAll('.radio-buttons.deck .radio');
 const selectDeck = document.querySelector('#selectDeck');
 const sequenceTime = document.querySelector('.card-time.sequence');
 const breathTime = document.querySelector('.card-time.breath');
+const desireTime = document.querySelector('.card-time.desire');
 const deckGroup = document.querySelector('.group.deck');
 const customGroup = document.querySelector('.group.custom');
+const desireGroup = document.querySelector('.group.desire');
 const viewer = document.querySelector('.viewer');
 const playButton = document.querySelector('#playButton')
 
@@ -302,7 +353,7 @@ let deckChosen = 'land';
 const pairChosen = [];
 const customChosen =  onMobile ? ['','','','',''] : ['','','','','',''];
 
-for (const radioButton of countButtons) {
+for (const radioButton of programButtons) {
   radioButton.addEventListener('click', evt => {
     const newVal = evt.target.dataset.id;
     if (newVal !== typeChosen) {
@@ -310,6 +361,7 @@ for (const radioButton of countButtons) {
 
       if (typeChosen === 'b') {
         sequenceTime.classList.add('hidden');
+        desireTime.classList.add('hidden');
         breathTime.classList.remove('hidden');
       } else {
         sequenceTime.classList.remove('hidden');
@@ -324,18 +376,35 @@ for (const radioButton of countButtons) {
         customGroup.classList.add('hidden');
       }
 
+      if (typeChosen === 'f') {
+        deckGroup.classList.add('hidden');
+        desireGroup.classList.remove('hidden');
+
+        sequenceTime.classList.add('hidden');
+        breathTime.classList.add('hidden');
+        desireTime.classList.remove('hidden');
+      } else {
+        deckGroup.classList.remove('hidden');
+        desireGroup.classList.add('hidden');
+
+        sequenceTime.classList.remove('hidden');
+        desireTime.classList.add('hidden');
+      }
+
       if (typeChosen === 's' || typeChosen === 'b') {
         selectDeck.classList.add('dimmed');
       } else if (typeChosen === 'c') {
         addCustomCards();
         renderCustomSequence();
+      } else if (typeChosen === 'f') {
+        bindDesireHandlers();
       } else {
         selectDeck.classList.remove('dimmed');
         selectDeck.querySelector('div:first-child').innerText = ctas[typeChosen];
         updateSelectedDeck();
       }
 
-      countButtons.forEach( btn => btn.classList.remove('selected') );
+      programButtons.forEach( btn => btn.classList.remove('selected') );
       evt.target.classList.add('selected');
     }
   });
@@ -344,7 +413,7 @@ for (const radioButton of countButtons) {
 for (const radioButton of deckButtons) {
   radioButton.addEventListener('click', evt => {
     const newVal = evt.target.dataset.id;
-    if (typeChosen === 'd' || typeChosen === 'o') {
+    if (typeChosen === 'd') {
       if (newVal !== deckChosen) {
         deckChosen = newVal;
       }

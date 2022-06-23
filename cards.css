@@ -41,6 +41,10 @@ body.no-scroll {
   align-items: center;
 }
 
+.viewer.cover {
+  background-size: cover;
+}
+
 .viewer.show {
   visibility: visible;
   z-index: 10;
@@ -209,6 +213,13 @@ body.no-scroll {
   .card-time input[type=checkbox] {
     vertical-align: sub;    
   }
+}
+
+.card-time select {
+  width: 50px;
+  font-size: inherit;
+  border-radius: 4px;
+  border: none; 
 }
 
 .group {
