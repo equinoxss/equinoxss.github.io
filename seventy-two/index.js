@@ -271,20 +271,37 @@ function startStudy() {
   document.querySelector('.page.study-time').classList.add('hidden');
   document.querySelector('.footer.back').classList.add('hidden');
 
-  const ms = document.querySelector('#study-time').value * 1000;
-  const end = document.querySelector('#study-end').value * 8;
-  let id = (document.querySelector('#study-start').value - 1) * 8 + 1;
+  const ms = Number(document.querySelector('#study-time').value) * 1000;
+  const end = Number(document.querySelector('#study-end').value) * 8;
+  let id = (Number(document.querySelector('#study-start').value) - 1) * 8 + 1;
 
-  selected = names.find( n => n.id === id);
+  const steps = [];
+  for (let i=id; i <= end; i++) {
+    if ( i % 8 === 1 && i !== id) {
+      steps.push( { nameHb: '' });
+    }
+    steps.push( names.find( n => n.id === i) );
+  }
+
+  steps.push( { nameHb: '' });
+
+  const repeat = Number(document.querySelector('#study-repeat').value);
+  let segments = [];
+
+  for (i = 0; i < repeat; i++) {
+    segments = segments.concat(steps);
+  }
+
+  selected = segments.shift();
   setBoundFields('meditate');
 
   mtid = setInterval(() => {
-    id += 1;
-    if (id <= end) {
-      selected = names.find( n => n.id === id);
-      setBoundFields('meditate');
-    } else {
+    const segment = segments.shift();
+    if (!segment) {
       endMeditation();
+    } else {
+      selected = segment;
+      setBoundFields('meditate');
     }
   }, ms);
 }

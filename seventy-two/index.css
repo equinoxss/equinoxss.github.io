@@ -243,6 +243,21 @@ body {
   text-align: center;
 }
 
+.page.study-time {
+  padding: 30px;
+  display: block;
+}
+
+.page.study-time > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 .page.meditate-time input,
 .page.study-time input {
   width: 40px;
