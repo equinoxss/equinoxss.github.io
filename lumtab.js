@@ -332,7 +332,8 @@ const ctas = {
   p: 'Choose Two Cards to Pair',
   o: 'Choose One Card',
   c: 'Choose a Deck',
-  f: 'Choose a Deck'
+  f: 'Choose a Deck',
+  b: 'Choose a Deck'
 };
 
 const programButtons = document.querySelectorAll('.radio-buttons.program .radio')
@@ -359,37 +360,30 @@ for (const radioButton of programButtons) {
     if (newVal !== typeChosen) {
       typeChosen = newVal;
 
+      sequenceTime.classList.remove('hidden');
+      desireTime.classList.add('hidden');
+      breathTime.classList.add('hidden');
+
+      deckGroup.classList.remove('hidden');
+      customGroup.classList.add('hidden');
+      desireGroup.classList.add('hidden');
+
       if (typeChosen === 'b') {
         sequenceTime.classList.add('hidden');
-        desireTime.classList.add('hidden');
         breathTime.classList.remove('hidden');
-      } else {
-        sequenceTime.classList.remove('hidden');
-        breathTime.classList.add('hidden');
-      }
-
-      if (typeChosen === 'c') {
+      } else if (typeChosen === 'c') {
         deckGroup.classList.add('hidden');
         customGroup.classList.remove('hidden');
-      } else {
-        deckGroup.classList.remove('hidden');
-        customGroup.classList.add('hidden');
-      }
-
-      if (typeChosen === 'f') {
+      } else if (typeChosen === 'f') {
+        sequenceTime.classList.add('hidden');
         deckGroup.classList.add('hidden');
         desireGroup.classList.remove('hidden');
-
-        sequenceTime.classList.add('hidden');
-        breathTime.classList.add('hidden');
         desireTime.classList.remove('hidden');
-      } else {
-        deckGroup.classList.remove('hidden');
-        desireGroup.classList.add('hidden');
-
-        sequenceTime.classList.remove('hidden');
-        desireTime.classList.add('hidden');
       }
+      // } else {
+      //   sequenceTime.classList.remove('hidden');
+      //   desireTime.classList.add('hidden');
+      // }
 
       if (typeChosen === 's' || typeChosen === 'b') {
         selectDeck.classList.add('dimmed');
@@ -400,9 +394,10 @@ for (const radioButton of programButtons) {
         bindDesireHandlers();
       } else {
         selectDeck.classList.remove('dimmed');
-        selectDeck.querySelector('div:first-child').innerText = ctas[typeChosen];
         updateSelectedDeck();
       }
+
+      selectDeck.querySelector('div:first-child').innerText = ctas[typeChosen];
 
       programButtons.forEach( btn => btn.classList.remove('selected') );
       evt.target.classList.add('selected');
