@@ -277,6 +277,51 @@ body {
   letter-spacing: 0.5px;
 }
 
+.page.abk {
+  z-index: 20;
+  padding: 20px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+
+.page.abk .title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page.abk .hebrew-name.std {
+  font-size: 2.2rem;
+}
+
+.page.abk .image-row {
+  display: flex;
+}
+
+.page.abk img {
+  width: 50%;
+}
+
+@media (orientation: portrait) {
+  .page.abk .image-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .page.abk img {
+    width: 100%;
+  }
+}
+
+.page.abk .meaning {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 .button-bar {
   display: flex;
   gap: 10px;

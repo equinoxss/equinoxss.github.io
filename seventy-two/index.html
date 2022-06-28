@@ -79,8 +79,25 @@
     </div>
   </div>
 
+  <div class="page abk hidden">
+    <div class="title-row">
+      <div data-bind="dayEn"></div>
+      <div class="hebrew-name std" data-bind="dayHb"></div>
+    </div>
+    <div class="title-row">
+      <div></div>
+      <div class="hebrew-name ash" data-bind="extraHb"></div>
+    </div>
+    <div class="image-row">
+      <img data-bind="verseImg2" />
+      <img data-bind="verseImg" />
+    </div>
+    <div class="meaning" data-bind="meaningEn"></div>
+  </div>
+
   <div class="footer names">
     <div>72 Names of God</div>
+    <img src="imgs/abk/abk_icon.jpg" id="abk" />
     <img src="imgs/rows.jpg" id="study" />
     <img src="imgs/gear-solid.svg" id="settings" />
   </div>
@@ -97,6 +114,7 @@
   </div>
 
   <script src="data.js"></script>
+  <script src="abk.js"></script>
   <script src="index.js"></script>
 </body>
 </html>

@@ -6,7 +6,8 @@ function getNamesData() {
       ppos: 4,
       nameHb: 'והו',
       nameEn: 'Vav Hey Vav',
-      descriptionEn: 'Time Travel'
+      descriptionEn: 'Time Travel',
+      meditationEn: ''
     },
     {
       id: 2,
@@ -14,7 +15,8 @@ function getNamesData() {
       ppos: 3,
       nameHb: 'ילי',
       nameEn: 'Yud Lamed Yud',
-      descriptionEn: 'Recapturing the Spark'
+      descriptionEn: 'Recapturing the Spark',
+      meditationEn: ''
     },
     {
       id: 3,
@@ -22,7 +24,8 @@ function getNamesData() {
       ppos: 2,
       nameHb: 'סיט',
       nameEn: 'Samech Yud Tet',
-      descriptionEn: 'Miracle Making'
+      descriptionEn: 'Miracle Making',
+      meditationEn: ''
     },
     {
       id: 4,
@@ -30,7 +33,8 @@ function getNamesData() {
       ppos: 1,
       nameHb: 'עלם',
       nameEn: 'Ayin Lamed Mem',
-      descriptionEn: 'Eliminating Negative Thoughts'
+      descriptionEn: 'Eliminating Negative Thoughts',
+      meditationEn: ''
     },
     {
       id: 5,
@@ -38,7 +42,8 @@ function getNamesData() {
       ppos: 8,
       nameHb: 'מהש',
       nameEn: 'Mem Hey Shin',
-      descriptionEn: 'Healing'
+      descriptionEn: 'Healing',
+      meditationEn: ''
     },
     {
       id: 6,
@@ -46,7 +51,8 @@ function getNamesData() {
       ppos: 7,
       nameHb: 'ללה',
       nameEn: 'Lamed Lamed Hey',
-      descriptionEn: 'Dream State'
+      descriptionEn: 'Dream State',
+      meditationEn: ''
     },
     {
       id: 7,
@@ -54,7 +60,8 @@ function getNamesData() {
       ppos: 6,
       nameHb: 'אכא',
       nameEn: 'Aleph Kaf Aleph',
-      descriptionEn: 'DAN of the Soul'
+      descriptionEn: 'DAN of the Soul',
+      meditationEn: ''
     },
     {
       id: 8,
@@ -62,7 +69,8 @@ function getNamesData() {
       ppos: 5,
       nameHb: 'כהת',
       nameEn: 'Kaf Hey Tav',
-      descriptionEn: 'Defusing Negative Energy & Stress'
+      descriptionEn: 'Defusing Negative Energy & Stress',
+      meditationEn: ''
     },
     {
       id: 9,
@@ -70,7 +78,8 @@ function getNamesData() {
       ppos: 12,
       nameHb: 'הזי',
       nameEn: 'Hey Zayin Yud',
-      descriptionEn: 'Angelic Influence'
+      descriptionEn: 'Angelic Influence',
+      meditationEn: ''
     },
     {
       id: 10,
@@ -78,7 +87,8 @@ function getNamesData() {
       ppos: 11,
       nameHb: 'אלד',
       nameEn: 'Aleph Lamed Daled',
-      descriptionEn: 'Look can Kill'
+      descriptionEn: 'Look can Kill',
+      meditationEn: ''
     },
     {
       id: 11,
@@ -86,7 +96,8 @@ function getNamesData() {
       ppos: 10,
       nameHb: 'לאו',
       nameEn: 'Lamed Aleph Vav',
-      descriptionEn: 'Banishing the Remnants of Evil'
+      descriptionEn: 'Banishing the Remnants of Evil',
+      meditationEn: ''
     },
     {
       id: 12,
@@ -94,7 +105,8 @@ function getNamesData() {
       ppos: 9,
       nameHb: 'ההע',
       nameEn: 'Hey Hey Ayin',
-      descriptionEn: 'Unconditional Love'
+      descriptionEn: 'Unconditional Love',
+      meditationEn: ''
     },
     {
       id: 13,
@@ -102,7 +114,8 @@ function getNamesData() {
       ppos: 16,
       nameHb: 'יזל',
       nameEn: 'Yud Zayin Lamed',
-      descriptionEn: 'Heaven on Earth'
+      descriptionEn: 'Heaven on Earth',
+      meditationEn: ''
     },
     {
       id: 14,
@@ -110,7 +123,8 @@ function getNamesData() {
       ppos: 15,
       nameHb: 'מבה',
       nameEn: 'Mem Bet Hey',
-      descriptionEn: 'Farewell to Arms'
+      descriptionEn: 'Farewell to Arms',
+      meditationEn: ''
     },
     {
       id: 15,
@@ -118,7 +132,8 @@ function getNamesData() {
       ppos: 14,
       nameHb: 'הרי',
       nameEn: 'Hey Resh Lud',
-      descriptionEn: 'Long-range Vision'
+      descriptionEn: 'Long-range Vision',
+      meditationEn: ''
     },
     {
       id: 16,
@@ -126,7 +141,8 @@ function getNamesData() {
       ppos: 13,
       nameHb: 'הקם',
       nameEn: 'Hey Quf Mem',
-      descriptionEn: 'Dumping Depression'
+      descriptionEn: 'Dumping Depression',
+      meditationEn: ''
     },
     {
       id: 17,
@@ -134,7 +150,8 @@ function getNamesData() {
       ppos: 20,
       nameHb: 'לאו',
       nameEn: 'Lamed Aleph Vav',
-      descriptionEn: 'Great Escape'
+      descriptionEn: 'Great Escape',
+      meditationEn: ''
     },
     {
       id: 18,
@@ -142,7 +159,8 @@ function getNamesData() {
       ppos: 19,
       nameHb: 'כלי',
       nameEn: 'Kaf Lamed Yud',
-      descriptionEn: 'Fertility'
+      descriptionEn: 'Fertility',
+      meditationEn: ''
     },
     {
       id: 19,
@@ -150,7 +168,8 @@ function getNamesData() {
       ppos: 18,
       nameHb: 'לוו',
       nameEn: 'Lamed Vav Vav',
-      descriptionEn: 'Dialing God'
+      descriptionEn: 'Dialing God',
+      meditationEn: ''
     },
     {
       id: 20,
@@ -158,7 +177,8 @@ function getNamesData() {
       ppos: 17,
       nameHb: 'פהל',
       nameEn: 'Pey Hey Lamed',
-      descriptionEn: 'Victory over Addictions'
+      descriptionEn: 'Victory over Addictions',
+      meditationEn: ''
     },
     {
       id: 21,
@@ -166,7 +186,8 @@ function getNamesData() {
       ppos: 24,
       nameHb: 'נלך',
       nameEn: 'Nun Lamed Kaf',
-      descriptionEn: 'Eradicate Plague'
+      descriptionEn: 'Eradicate Plague',
+      meditationEn: ''
     },
     {
       id: 22,
@@ -174,7 +195,8 @@ function getNamesData() {
       ppos: 23,
       nameHb: 'ייי',
       nameEn: 'Yud Yud Yud',
-      descriptionEn: 'Stop Fatal Attraction'
+      descriptionEn: 'Stop Fatal Attraction',
+      meditationEn: ''
     },
     {
       id: 23,
@@ -182,7 +204,8 @@ function getNamesData() {
       ppos: 22,
       nameHb: 'מלה',
       nameEn: 'Mem Lamed Hey',
-      descriptionEn: 'Sharing the Flame'
+      descriptionEn: 'Sharing the Flame',
+      meditationEn: ''
     },
     {
       id: 24,
@@ -190,7 +213,8 @@ function getNamesData() {
       ppos: 21,
       nameHb: 'חהו',
       nameEn: 'Chet Hey Vav',
-      descriptionEn: 'Jealousy'
+      descriptionEn: 'Jealousy',
+      meditationEn: ''
     },
     {
       id: 25,
@@ -198,7 +222,8 @@ function getNamesData() {
       ppos: 28,
       nameHb: 'נתה',
       nameEn: 'Nun Tav Hey',
-      descriptionEn: 'Speak Your Mind'
+      descriptionEn: 'Speak Your Mind',
+      meditationEn: ''
     },
     {
       id: 26,
@@ -206,7 +231,8 @@ function getNamesData() {
       ppos: 27,
       nameHb: 'האא',
       nameEn: 'Hey Aleph Aleph',
-      descriptionEn: 'Order from Choas'
+      descriptionEn: 'Order from Choas',
+      meditationEn: ''
     },
     {
       id: 27,
@@ -214,7 +240,8 @@ function getNamesData() {
       ppos: 26,
       nameHb: 'ירת',
       nameEn: 'Yud Resh Tav',
-      descriptionEn: 'Silent Partner'
+      descriptionEn: 'Silent Partner',
+      meditationEn: ''
     },
     {
       id: 28,
@@ -222,7 +249,8 @@ function getNamesData() {
       ppos: 26,
       nameHb: 'שאה',
       nameEn: 'Shin Aleph Hey',
-      descriptionEn: 'Soul Mate'
+      descriptionEn: 'Soul Mate',
+      meditationEn: ''
     },
     {
       id: 29,
@@ -230,7 +258,8 @@ function getNamesData() {
       ppos: 32,
       nameHb: 'ריי',
       nameEn: 'Resh Yud Yud',
-      descriptionEn: 'Removing Hatred'
+      descriptionEn: 'Removing Hatred',
+      meditationEn: ''
     },
     {
       id: 30,
@@ -238,7 +267,8 @@ function getNamesData() {
       ppos: 31,
       nameHb: 'אום',
       nameEn: 'Aleph Vav Mem',
-      descriptionEn: 'Building Bridges'
+      descriptionEn: 'Building Bridges',
+      meditationEn: ''
     },
     {
       id: 31,
@@ -246,7 +276,8 @@ function getNamesData() {
       ppos: 30,
       nameHb: 'לכב',
       nameEn: 'Lamed Kaf Bet',
-      descriptionEn: 'Finish What You Start'
+      descriptionEn: 'Finish What You Start',
+      meditationEn: ''
     },
     {
       id: 32,
@@ -254,7 +285,8 @@ function getNamesData() {
       ppos: 29,
       nameHb: 'ושר',
       nameEn: 'Vav Shin Resh',
-      descriptionEn: 'Memories'
+      descriptionEn: 'Memories',
+      meditationEn: ''
     },
     {
       id: 33,
@@ -262,7 +294,8 @@ function getNamesData() {
       ppos: 36,
       nameHb: 'יחו',
       nameEn: 'Yud Chet Vav',
-      descriptionEn: 'Revealing the Dark Side'
+      descriptionEn: 'Revealing the Dark Side',
+      meditationEn: ''
     },
     {
       id: 34,
@@ -270,7 +303,8 @@ function getNamesData() {
       ppos: 35,
       nameHb: 'להח',
       nameEn: 'Lamed Hey Chet',
-      descriptionEn: 'Forget Thyself'
+      descriptionEn: 'Forget Thyself',
+      meditationEn: ''
     },
     {
       id: 35,
@@ -278,7 +312,8 @@ function getNamesData() {
       ppos: 34,
       nameHb: 'כוק',
       nameEn: 'Kaf Vav Quf',
-      descriptionEn: 'Sexual Energy'
+      descriptionEn: 'Sexual Energy',
+      meditationEn: ''
     },
     {
       id: 36,
@@ -286,7 +321,8 @@ function getNamesData() {
       ppos: 33,
       nameHb: 'מנד',
       nameEn: 'Mem Nun Daled',
-      descriptionEn: 'Fear(less)'
+      descriptionEn: 'Fear(less)',
+      meditationEn: ''
     },
     {
       id: 37,
@@ -294,7 +330,8 @@ function getNamesData() {
       ppos: 40,
       nameHb: 'אני',
       nameEn: 'Aleph Nun Yud',
-      descriptionEn: 'The Big Picture'
+      descriptionEn: 'The Big Picture',
+      meditationEn: ''
     },
     {
       id: 38,
@@ -302,7 +339,8 @@ function getNamesData() {
       ppos: 39,
       nameHb: 'חעם',
       nameEn: 'Chet Ayin Mem',
-      descriptionEn: 'Circutry'
+      descriptionEn: 'Circutry',
+      meditationEn: ''
     },
     {
       id: 39,
@@ -310,7 +348,8 @@ function getNamesData() {
       ppos: 38,
       nameHb: 'רהע',
       nameEn: 'Resh Hey Ayin',
-      descriptionEn: 'Diamond in the Rough'
+      descriptionEn: 'Diamond in the Rough',
+      meditationEn: ''
     },
     {
       id: 40,
@@ -318,7 +357,8 @@ function getNamesData() {
       ppos: 37,
       nameHb: 'ייז',
       nameEn: 'Yud Yud Zayin',
-      descriptionEn: 'Speaking the Right Words'
+      descriptionEn: 'Speaking the Right Words',
+      meditationEn: ''
     },
     {
       id: 41,
@@ -326,7 +366,8 @@ function getNamesData() {
       ppos: 44,
       nameHb: 'ההה',
       nameEn: 'Hei Hei Hei',
-      descriptionEn: 'Self-Esteem'
+      descriptionEn: 'Self-Esteem',
+      meditationEn: ''
     },
     {
       id: 42,
@@ -334,7 +375,8 @@ function getNamesData() {
       ppos: 43,
       nameHb: 'מיך',
       nameEn: 'Mem Yud Kaf',
-      descriptionEn: 'Revealing the Concealed'
+      descriptionEn: 'Revealing the Concealed',
+      meditationEn: ''
     },
     {
       id: 43,
@@ -342,7 +384,8 @@ function getNamesData() {
       ppos: 42,
       nameHb: 'וול',
       nameEn: 'Vav Vav Lamed',
-      descriptionEn: 'Defying Gravity'
+      descriptionEn: 'Defying Gravity',
+      meditationEn: ''
     },
     {
       id: 44,
@@ -350,7 +393,8 @@ function getNamesData() {
       ppos: 41,
       nameHb: 'ילה',
       nameEn: 'Yud Lamed Hey',
-      descriptionEn: 'Sweetening Judgement'
+      descriptionEn: 'Sweetening Judgement',
+      meditationEn: ''
     },
     {
       id: 45,
@@ -358,7 +402,8 @@ function getNamesData() {
       ppos: 48,
       nameHb: 'סאל',
       nameEn: 'Samech Aleph Lamed',
-      descriptionEn: 'The Power of Prosperity'
+      descriptionEn: 'The Power of Prosperity',
+      meditationEn: ''
     },
     {
       id: 46,
@@ -366,7 +411,8 @@ function getNamesData() {
       ppos: 47,
       nameHb: 'ערי',
       nameEn: 'Ayin Resh Yud',
-      descriptionEn: 'Absolute Certainty'
+      descriptionEn: 'Absolute Certainty',
+      meditationEn: ''
     },
     {
       id: 47,
@@ -374,7 +420,8 @@ function getNamesData() {
       ppos: 46,
       nameHb: 'עשל',
       nameEn: 'Ayin Shin Lamed',
-      descriptionEn: 'Global Transformation'
+      descriptionEn: 'Global Transformation',
+      meditationEn: ''
     },
     {
       id: 48,
@@ -382,7 +429,8 @@ function getNamesData() {
       ppos: 45,
       nameHb: 'מיה',
       nameEn: 'Mem Yud Hey',
-      descriptionEn: 'Unity'
+      descriptionEn: 'Unity',
+      meditationEn: ''
     },
     {
       id: 49,
@@ -390,7 +438,8 @@ function getNamesData() {
       ppos: 52,
       nameHb: 'והו',
       nameEn: 'Vav Hey Vav',
-      descriptionEn: 'Happiness'
+      descriptionEn: 'Happiness',
+      meditationEn: ''
     },
     {
       id: 50,
@@ -398,7 +447,8 @@ function getNamesData() {
       ppos: 51,
       nameHb: 'דני',
       nameEn: 'Daled Nun Yud',
-      descriptionEn: 'Enough is never Enough'
+      descriptionEn: 'Enough is never Enough',
+      meditationEn: ''
     },
     {
       id: 51,
@@ -406,7 +456,8 @@ function getNamesData() {
       ppos: 50,
       nameHb: 'החש',
       nameEn: 'Hey Chet Shin',
-      descriptionEn: 'No Guilt'
+      descriptionEn: 'No Guilt',
+      meditationEn: ''
     },
     {
       id: 52,
@@ -414,7 +465,8 @@ function getNamesData() {
       ppos: 49,
       nameHb: 'עמם',
       nameEn: 'Ayin Mem Mem',
-      descriptionEn: 'Passion'
+      descriptionEn: 'Passion',
+      meditationEn: ''
     },
     {
       id: 53,
@@ -422,7 +474,8 @@ function getNamesData() {
       ppos: 56,
       nameHb: 'ננא',
       nameEn: 'Nun Nun Aleph',
-      descriptionEn: 'No Agenda'
+      descriptionEn: 'No Agenda',
+      meditationEn: ''
     },
     {
       id: 54,
@@ -430,7 +483,8 @@ function getNamesData() {
       ppos: 55,
       nameHb: 'נית',
       nameEn: 'Nun Yud Tav',
-      descriptionEn: 'The Death of Death'
+      descriptionEn: 'The Death of Death',
+      meditationEn: ''
     },
     {
       id: 55,
@@ -438,7 +492,8 @@ function getNamesData() {
       ppos: 54,
       nameHb: 'מבה',
       nameEn: 'Mem Bet Hey',
-      descriptionEn: 'Thought into Action'
+      descriptionEn: 'Thought into Action',
+      meditationEn: ''
     },
     {
       id: 56,
@@ -446,7 +501,8 @@ function getNamesData() {
       ppos: 53,
       nameHb: 'פוי',
       nameEn: 'Pey Vav Yud',
-      descriptionEn: 'Dispelling Anger'
+      descriptionEn: 'Dispelling Anger',
+      meditationEn: ''
     },
     {
       id: 57,
@@ -454,7 +510,8 @@ function getNamesData() {
       ppos: 60,
       nameHb: 'נמם',
       nameEn: 'Nun Mem Mem',
-      descriptionEn: 'Listening to Your Soul'
+      descriptionEn: 'Listening to Your Soul',
+      meditationEn: ''
     },
     {
       id: 58,
@@ -462,7 +519,8 @@ function getNamesData() {
       ppos: 59,
       nameHb: 'ייל',
       nameEn: 'Yud Yud Lamed',
-      descriptionEn: 'Letting Go'
+      descriptionEn: 'Letting Go',
+      meditationEn: ''
     },
     {
       id: 59,
@@ -470,7 +528,8 @@ function getNamesData() {
       ppos: 58,
       nameHb: 'הרח',
       nameEn: 'Hey Resh Chet',
-      descriptionEn: 'Umbilical Cord'
+      descriptionEn: 'Umbilical Cord',
+      meditationEn: ''
     },
     {
       id: 60,
@@ -478,7 +537,8 @@ function getNamesData() {
       ppos: 57,
       nameHb: 'מער',
       nameEn: 'Mem Ayin Resh',
-      descriptionEn: 'Freedom'
+      descriptionEn: 'Freedom',
+      meditationEn: ''
     },
     {
       id: 61,
@@ -486,7 +546,8 @@ function getNamesData() {
       ppos: 64,
       nameHb: 'ומב',
       nameEn: 'Vav Mem Bet',
-      descriptionEn: 'Water'
+      descriptionEn: 'Water',
+      meditationEn: ''
     },
     {
       id: 62,
@@ -494,7 +555,8 @@ function getNamesData() {
       ppos: 63,
       nameHb: 'יהה',
       nameEn: 'Yud Hey Hey',
-      descriptionEn: 'Parent-Teacher Not Preacher'
+      descriptionEn: 'Parent-Teacher Not Preacher',
+      meditationEn: ''
     },
     {
       id: 63,
@@ -502,7 +564,8 @@ function getNamesData() {
       ppos: 62,
       nameHb: 'ענו',
       nameEn: 'Ayin Nun Vav',
-      descriptionEn: 'Appreciation'
+      descriptionEn: 'Appreciation',
+      meditationEn: ''
     },
     {
       id: 64,
@@ -510,7 +573,8 @@ function getNamesData() {
       ppos: 61,
       nameHb: 'מחי',
       nameEn: 'Mem Chet Yud',
-      descriptionEn: 'Casting yourself in a Favorable Light'
+      descriptionEn: 'Casting yourself in a Favorable Light',
+      meditationEn: ''
     },
     {
       id: 65,
@@ -518,7 +582,8 @@ function getNamesData() {
       ppos: 68,
       nameHb: 'דמב',
       nameEn: 'Daled Mem Bet',
-      descriptionEn: 'Fear of God'
+      descriptionEn: 'Fear of God',
+      meditationEn: ''
     },
     {
       id: 66,
@@ -526,7 +591,8 @@ function getNamesData() {
       ppos: 67,
       nameHb: 'מנק',
       nameEn: 'Mem Nun Quf',
-      descriptionEn: 'Accountability'
+      descriptionEn: 'Accountability',
+      meditationEn: ''
     },
     {
       id: 67,
@@ -534,7 +600,8 @@ function getNamesData() {
       ppos: 66,
       nameHb: 'איע',
       nameEn: 'Aleph Yud Ayin',
-      descriptionEn: 'Great Expectation'
+      descriptionEn: 'Great Expectation',
+      meditationEn: ''
     },
     {
       id: 68,
@@ -542,7 +609,8 @@ function getNamesData() {
       ppos: 65,
       nameHb: 'חבו',
       nameEn: 'Chet Bet Vav',
-      descriptionEn: 'Contracting Departed Souls'
+      descriptionEn: 'Contracting Departed Souls',
+      meditationEn: ''
     },
     {
       id: 69,
@@ -550,7 +618,8 @@ function getNamesData() {
       ppos: 72,
       nameHb: 'ראה',
       nameEn: 'Resh Aleph Hei',
-      descriptionEn: 'Lost and Found'
+      descriptionEn: 'Lost and Found',
+      meditationEn: ''
     },
     {
       id: 70,
@@ -558,7 +627,8 @@ function getNamesData() {
       ppos: 71,
       nameHb: 'יבם',
       nameEn: 'Yud Bet Mem',
-      descriptionEn: 'Recognizing Design Beneath Disorder'
+      descriptionEn: 'Recognizing Design Beneath Disorder',
+      meditationEn: ''
     },
     {
       id: 71,
@@ -566,7 +636,8 @@ function getNamesData() {
       ppos: 70,
       nameHb: 'היי',
       nameEn: 'Hey Yud Yud',
-      descriptionEn: 'Prophecy & Parallel Universe'
+      descriptionEn: 'Prophecy & Parallel Universe',
+      meditationEn: ''
     },
     {
       id: 72,
@@ -574,7 +645,8 @@ function getNamesData() {
       ppos: 69,
       nameHb: 'מום',
       nameEn: 'Mem Vav Mem',
-      descriptionEn: 'Spiritual Cleansing'
+      descriptionEn: 'Spiritual Cleansing',
+      meditationEn: ''
     }
  ];
 }

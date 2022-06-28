@@ -9,6 +9,7 @@ let orientation = 'portrait';
 function initApp() {
   document.querySelector('#settings').addEventListener('click', () => settings());
   document.querySelector('#study').addEventListener('click', () => study());
+  document.querySelector('#abk').addEventListener('click', () => abk());
 }
 
 function initOrientation() {
@@ -110,7 +111,11 @@ function addFontId(el) {
 function setBoundFields(page) {
   const fields = document.querySelectorAll(`.page.${page} [data-bind]`);
   fields.forEach( field => {
-    field.innerText = selected[field.dataset.bind];
+    if (field.nodeName == 'DIV') {
+      field.innerText = selected[field.dataset.bind];
+    } else if (field.nodeName === 'IMG') {
+      field.src = selected[field.dataset.bind];
+    }
   });
 }
 
@@ -127,16 +132,13 @@ function next() {
   showInfo( Math.min(selected.id + 1, 72) );
 }
 
-function back(from) {
+function back() {
   document.querySelector('.footer.back').classList.add('hidden');
-
-  if (from === 'meditate') {
-    document.querySelector('.page.meditate').classList.add('hidden');
-    document.querySelector('.page.meditate-time').classList.add('hidden');
-    document.querySelector('.page.study-time').classList.add('hidden');
-  } else if (from === 'settings') {
-    document.querySelector('.page.settings').classList.add('hidden');
-  }
+  document.querySelectorAll('.page:not(.hidden').forEach( page => {
+    if (!page.classList.contains('names')) {
+      page.classList.add('hidden');
+    }
+  });
 }
 
 function meditate() {
@@ -147,8 +149,6 @@ function meditate() {
   
   if (!mbound) {
     mbound = true;
-    document.querySelector('.footer #back').addEventListener('click', () => back('meditate'));
-
     const freqButtons = document.querySelector('#meditate-frequency');
     document.querySelector('#meditate-mode').addEventListener('change', ev => {
       ev.target.checked
@@ -168,6 +168,7 @@ function meditate() {
   }
 
   bindMeditateAbort();
+  bindBackButton();
 }
 
 function bindMeditateAbort() {
@@ -251,11 +252,14 @@ function setFlashFrequency(fq) {
 function settings() {
   document.querySelector('.page.settings').classList.remove('hidden');
   document.querySelector('.footer.back').classList.remove('hidden');
+  bindBackButton();
+} 
 
+function bindBackButton() {
   if (!sbound) {
     sbound = true;
-    document.querySelector('.footer #back').addEventListener('click', () => back('settings'));
-  }  
+    document.querySelector('.footer #back').addEventListener('click', () => back());
+  }
 }
 
 function study() {
@@ -264,6 +268,7 @@ function study() {
   document.querySelector('.page.study-time').classList.remove('hidden');
   document.querySelector('.footer.back').classList.remove('hidden');
   bindMeditateAbort();
+  bindBackButton();
 }
 
 function startStudy() {
@@ -304,6 +309,15 @@ function startStudy() {
       setBoundFields('meditate');
     }
   }, ms);
+}
+
+function abk() {
+  document.querySelector('.page.abk').classList.remove('hidden');
+  document.querySelector('.footer.back').classList.remove('hidden');
+
+  selected = getAnaBekoachData((new Date()).getDay());
+  setBoundFields('abk');
+  bindBackButton();
 }
 
 function chooseFont(ev) {
