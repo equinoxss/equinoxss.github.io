@@ -12,11 +12,15 @@
 
   <div class="page info hidden">
     <div class="column names">
-      <div class="english-name" data-bind="nameEn"></div>
+      <div class="name-meta">
+        <div class="name-number"></div>
+        <div class="english-name" data-bind="nameEn"></div>
+        <div class="name-number" data-bind="id"></div>
+      </div>
       <div class="hebrew-name" data-bind="nameHb"></div>
-      <div class="name-number" data-bind="id"></div>
+      <div class="name-footnote" data-bind="descriptionEn"></div>
     </div><div class="column description">
-      <div class="english-description" data-bind="descriptionEn"></div>
+      <div class="english-description" data-bind=":meditationEn"></div>
     </div>
   </div>
 

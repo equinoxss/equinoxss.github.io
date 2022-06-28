@@ -112,11 +112,28 @@ function setBoundFields(page) {
   const fields = document.querySelectorAll(`.page.${page} [data-bind]`);
   fields.forEach( field => {
     if (field.nodeName == 'DIV') {
-      field.innerText = selected[field.dataset.bind];
+      const computed = field.dataset.bind.startsWith(":");
+      const propName = String(field.dataset.bind).replace(':','');
+      const { text, cssClass } = computed
+        ? computeBoundValue(propName, selected[propName])
+        : { text: selected[propName] };
+      field.innerText = text;
+      field.dataset.extraClasses && (field.classList.remove(field.dataset.extraClasses), delete field.dataset.extraClasses);
+      cssClass && (field.classList.add(cssClass), field.dataset.extraClasses = cssClass);
     } else if (field.nodeName === 'IMG') {
       field.src = selected[field.dataset.bind];
     }
   });
+}
+
+function computeBoundValue(fieldname, text) {
+  let cssClass = null;
+
+  if (fieldname === 'meditationEn') {
+    cssClass = text.length > 320 ? 'long' : null;
+  }
+
+  return { cssClass, text };
 }
 
 function home() {
