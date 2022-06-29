@@ -88,7 +88,7 @@ function getNamesData() {
       nameHb: 'אלד',
       nameEn: 'Aleph Lamed Daled',
       descriptionEn: 'Look can Kill',
-      meditationEn: 'My Own potential to can the evil eye at others is diminished. A shield of positive energy surrounds me providing protection from the negative glances, looks of envy, and mean-spritzed intentions of others'
+      meditationEn: 'My Own potential to cast the evil eye at others is diminished. A shield of positive energy surrounds me providing protection from the negative glances, looks of envy, and mean-spritzed intentions of others'
     },
     {
       id: 11,

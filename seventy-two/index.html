@@ -86,11 +86,8 @@
   <div class="page abk hidden">
     <div class="title-row">
       <div data-bind="dayEn"></div>
-      <div class="hebrew-name std" data-bind="dayHb"></div>
-    </div>
-    <div class="title-row">
-      <div></div>
       <div class="hebrew-name ash" data-bind="extraHb"></div>
+      <div class="hebrew-name std" data-bind="dayHb"></div>
     </div>
     <div class="image-row">
       <img data-bind="verseImg2" />
@@ -99,8 +96,8 @@
     <div class="meaning" data-bind="meaningEn"></div>
   </div>
 
-  <div class="footer names">
-    <div>72 Names of God</div>
+  <!-- <div class="footer names">
+    <div>72 Names</div>
     <img src="imgs/abk/abk_icon.jpg" id="abk" />
     <img src="imgs/rows.jpg" id="study" />
     <img src="imgs/gear-solid.svg" id="settings" />
@@ -115,6 +112,30 @@
 
   <div class="footer back hidden">
     <img src="imgs/back.svg" id="back" />
+  </div> -->
+
+  <div class="footer agg">
+    <div data-page="names">72 Names</div>
+    <img data-page="names" src="imgs/abk/abk_icon.jpg" id="abk2" />
+    <img data-page="names" src="imgs/rows.jpg" id="study2" />
+    <img data-page="names" src="imgs/gear-solid.svg" id="settings2" />
+
+    <img class="hidden" data-page="info" src="imgs/previous.svg" id="previous2" />
+    <img class="hidden" data-page="info" src="imgs/grid.svg" id="home2" />
+    <img class="hidden" data-page="info" src="imgs/spa.svg" id="meditate2" />
+    <img class="hidden" data-page="info" src="imgs/next.svg" id="next2" />
+
+    <img class="hidden single" data-page="settings,meditate,abk" src="imgs/back.svg" id="back2" />
+    
+    <div class="hidden" data-page="abk"></div>
+    <img class="hidden small" data-page="abk" src="imgs/s-solid.svg" data-abk-day="0" />
+    <img class="hidden small" data-page="abk" src="imgs/m-solid.svg" data-abk-day="1" />
+    <img class="hidden small" data-page="abk" src="imgs/t-solid.svg" data-abk-day="2" />
+    <img class="hidden small" data-page="abk" src="imgs/w-solid.svg" data-abk-day="3" />
+    <img class="hidden small" data-page="abk" src="imgs/t-solid.svg" data-abk-day="4" />
+    <img class="hidden small" data-page="abk" src="imgs/f-solid.svg" data-abk-day="5" />
+    <img class="hidden small" data-page="abk" src="imgs/s-solid.svg" data-abk-day="6" />
+
   </div>
 
   <script src="data.js"></script>

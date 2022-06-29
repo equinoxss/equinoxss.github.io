@@ -5,11 +5,29 @@ let sbound = false;
 let pbound = false;
 let names = [];
 let orientation = 'portrait';
+let footerItems = [];
 
 function initApp() {
-  document.querySelector('#settings').addEventListener('click', () => settings());
-  document.querySelector('#study').addEventListener('click', () => study());
-  document.querySelector('#abk').addEventListener('click', () => abk());
+  // document.querySelector('#settings').addEventListener('click', () => settings());
+  // document.querySelector('#study').addEventListener('click', () => study());
+  // document.querySelector('#abk').addEventListener('click', () => abk());
+
+  document.querySelector('#settings2').addEventListener('click', () => settings());
+  document.querySelector('#study2').addEventListener('click', () => study());
+  document.querySelector('#abk2').addEventListener('click', () => abk());
+  document.querySelector('#previous2').addEventListener('click', () => previous());
+  document.querySelector('#home2').addEventListener('click', () => home());
+  document.querySelector('#meditate2').addEventListener('click', () => meditate());
+  document.querySelector('#next2').addEventListener('click', () => next());
+  document.querySelector('#back2').addEventListener('click', () => back());
+
+  document.querySelectorAll('.footer [data-abk-day').forEach( dayBtn => {
+    dayBtn.addEventListener('click', evt => {
+      abk( Number(evt.target.dataset.abkDay) );
+    });
+  })
+
+  footerItems = document.querySelectorAll('.footer.agg [data-page]');
 }
 
 function initOrientation() {
@@ -38,7 +56,7 @@ function initTable() {
 
   el.addEventListener('click', event => {
     document.querySelector('.page.info').classList.remove('hidden');
-    document.querySelector('.footer.info').classList.remove('hidden');
+    showFooterFor('info');
     showInfo(Number(event.target.dataset.id));
   });
 }
@@ -89,10 +107,10 @@ function bindPageElements() {
 
 function bindElements() {
   ibound = true;
-  document.querySelector('.footer #previous').addEventListener('click', () => previous());
-  document.querySelector('.footer #home').addEventListener('click', () => home());
-  document.querySelector('.footer #meditate').addEventListener('click', () => meditate());
-  document.querySelector('.footer #next').addEventListener('click', () => next());
+  // document.querySelector('.footer #previous').addEventListener('click', () => previous());
+  // document.querySelector('.footer #home').addEventListener('click', () => home());
+  // document.querySelector('.footer #meditate').addEventListener('click', () => meditate());
+  // document.querySelector('.footer #next').addEventListener('click', () => next());
 }
 
 function showInfo(id) {
@@ -138,7 +156,7 @@ function computeBoundValue(fieldname, text) {
 
 function home() {
   document.querySelector('.page.info').classList.add('hidden');
-  document.querySelector('.footer.info').classList.add('hidden');
+  showFooterFor('names');
 }
 
 function previous() {
@@ -150,7 +168,8 @@ function next() {
 }
 
 function back() {
-  document.querySelector('.footer.back').classList.add('hidden');
+  // document.querySelector('.footer.back').classList.add('hidden');
+  showFooterFor('names');
   document.querySelectorAll('.page:not(.hidden').forEach( page => {
     if (!page.classList.contains('names')) {
       page.classList.add('hidden');
@@ -162,8 +181,8 @@ function meditate() {
   document.querySelector('.page.meditate').classList.remove('hidden');
   addFontId(document.querySelector('.page.meditate .hebrew-name'));
   document.querySelector('.page.meditate-time').classList.remove('hidden');
-  document.querySelector('.footer.back').classList.remove('hidden');
-  
+  showFooterFor('meditate');
+
   if (!mbound) {
     mbound = true;
     const freqButtons = document.querySelector('#meditate-frequency');
@@ -185,7 +204,7 @@ function meditate() {
   }
 
   bindMeditateAbort();
-  bindBackButton();
+  // bindBackButton();
 }
 
 function bindMeditateAbort() {
@@ -207,7 +226,7 @@ let mtid = 0;
 function startMeditation() {
   document.querySelector('body').requestFullscreen();
   document.querySelector('.page.meditate-time').classList.add('hidden');
-  document.querySelector('.footer.back').classList.add('hidden');
+  showFooterFor('fullscreen');
   setBoundFields('meditate');
 
   const ms = Number(document.querySelector('#meditate-time').value) * 1000;
@@ -248,6 +267,7 @@ function endMeditation() {
   document.querySelector('.page.meditate').classList.remove('black','invert','flash');
   document.querySelector('.page.meditate').classList.add('hidden');
   document.exitFullscreen();
+  showFooterFor('meditate');
 }
 
 function setFlashFrequency(fq) {
@@ -268,30 +288,30 @@ function setFlashFrequency(fq) {
 
 function settings() {
   document.querySelector('.page.settings').classList.remove('hidden');
-  document.querySelector('.footer.back').classList.remove('hidden');
-  bindBackButton();
+  showFooterFor('settings');
+  // bindBackButton();
 } 
 
-function bindBackButton() {
-  if (!sbound) {
-    sbound = true;
-    document.querySelector('.footer #back').addEventListener('click', () => back());
-  }
-}
+// function bindBackButton() {
+//   if (!sbound) {
+//     sbound = true;
+//     document.querySelector('.footer #back').addEventListener('click', () => back());
+//   }
+// }
 
 function study() {
   document.querySelector('.page.meditate').classList.remove('hidden');
   addFontId(document.querySelector('.page.meditate .hebrew-name'));
   document.querySelector('.page.study-time').classList.remove('hidden');
-  document.querySelector('.footer.back').classList.remove('hidden');
+  showFooterFor('meditate');
   bindMeditateAbort();
-  bindBackButton();
+  // bindBackButton();
 }
 
 function startStudy() {
   document.querySelector('body').requestFullscreen();
   document.querySelector('.page.study-time').classList.add('hidden');
-  document.querySelector('.footer.back').classList.add('hidden');
+  showFooterFor('fullscreen');
 
   const ms = Number(document.querySelector('#study-time').value) * 1000;
   const end = Number(document.querySelector('#study-end').value) * 8;
@@ -328,13 +348,16 @@ function startStudy() {
   }, ms);
 }
 
-function abk() {
-  document.querySelector('.page.abk').classList.remove('hidden');
-  document.querySelector('.footer.back').classList.remove('hidden');
+function abk(day) {
+  if (day === undefined) {
+    day = (new Date()).getDay();
+  }
 
-  selected = getAnaBekoachData((new Date()).getDay());
+  document.querySelector('.page.abk').classList.remove('hidden');
+  showFooterFor('abk');
+
+  selected = getAnaBekoachData(day);
   setBoundFields('abk');
-  bindBackButton();
 }
 
 function chooseFont(ev) {
@@ -379,6 +402,15 @@ function setFont() {
       // ignore
     }
   }
+}
+
+function showFooterFor(page) {
+  document.querySelector('.footer.agg').dataset.page = page;
+  footerItems.forEach(item => {
+    item.dataset.page.indexOf(page) !== -1
+      ? item.classList.remove('hidden')
+      : item.classList.add('hidden')
+  });
 }
 
 // =============

@@ -1,14 +1,15 @@
 function getAnaBekoachData(day) {
   return {
     0: {
-      dayEn: 'Chesed, Sunday',
+      dayEn: 'Sunday',
       dayHb: 'חסד',
       verseImg: 'imgs/abk/sun.jpg',
+      verseImg2: 'imgs/abk/sun2.jpg',
       extraHb: 'אבג יתץ',
       meaningEn: 'Power of redemption. Unconditional love. Removing the negative influence of physical matter from our lives. Tapping into the Tree of Life reality. Remebering yesterday\'s lessons.'
     },
     1: {
-      dayEn: 'Gevurah, Monday',
+      dayEn: 'Monday',
       dayHb: 'גבורה',
       verseImg: 'imgs/abk/mon.jpg',
       verseImg2: 'imgs/abk/mon2.jpg',
@@ -16,37 +17,42 @@ function getAnaBekoachData(day) {
       meaningEn: 'Closing the gates to the Satan. Forgetting all limited and limiting thoughts. Destroying negative influences at the seed level, thus preventing bad things from happening in the first place. Overcoming our reactive nature. Transforming chaos to miracles and wonders.'
     },
     2: {
-      dayEn: 'Tiferet, Tuesday',
+      dayEn: 'Tuesday',
       dayHb: 'תפארת',
       verseImg: 'imgs/abk/tue.jpg',
+      verseImg2: 'imgs/abk/tue2.jpg',
       extraHb: 'נגד יכש',
       meaningEn: 'Opening the channel of sustenance. Taking back the Light we gave to the negative side. Removing hatred for no reason.'
     },
     3: {
-      dayEn: 'Netzach, Wednesday',
+      dayEn: 'Wednesday',
       dayHb: 'נצח',
       verseImg: 'imgs/abk/wed.jpg',
+      verseImg2: 'imgs/abk/wed2.jpg',
       extraHb: 'בטר צתג',
       meaningEn: 'The power to preserve. Gaining endurance to follow through and prove victorious in our spritual work.'
     },
     4: {
-      dayEn: 'Hod, Thursday',
+      dayEn: 'Thursday',
       dayHb: 'הוד',
       verseImg: 'imgs/abk/thu.jpg',
+      verseImg2: 'imgs/abk/thu2.jpg',
       extraHb: 'חקב טנע',
       meaningEn: 'Seeing the "big picture," thus gaining deep insight and clairvoyance into how we can connect to the Light and bring the Light to ourselves and the world.'
     },
     5: {
-      dayEn: 'Yesod, Friday',
+      dayEn: 'Friday',
       dayHb: 'יסוד',
       verseImg: 'imgs/abk/fri.jpg',
+      verseImg2: 'imgs/abk/fri2.jpg',
       extraHb: 'יגל פזק',
       meaningEn: 'Feeling a desire to enlighten others. Bringing spirituality to the world by spreading the wisdom of Kabbalah. Findning peace and inner tranquility.'
     },
     6: {
-      dayEn: 'Malchut, Saturday',
+      dayEn: 'Saturday',
       dayHb: 'מלכות',
       verseImg: 'imgs/abk/sat.jpg',
+      verseImg2: 'imgs/abk/sat2.jpg',
       extraHb: 'שקו צית',
       meaningEn: 'The power to manifest things in the right way. Renewel and restoration.'
     }
