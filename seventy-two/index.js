@@ -148,7 +148,7 @@ function computeBoundValue(fieldname, text) {
   let cssClass = null;
 
   if (fieldname === 'meditationEn') {
-    cssClass = text.length > 320 ? 'long' : null;
+    cssClass = text.length > 280 ? 'long' : null;
   }
 
   return { cssClass, text };
@@ -362,7 +362,7 @@ function abk(day) {
 
 function chooseFont(ev) {
   document.querySelector('.page.settings').classList.add('hidden');
-  document.querySelector('.footer.back').classList.add('hidden');
+  showFooterFor('names');
 
   localStorage.font = ev.target.dataset.id;
   setFont();

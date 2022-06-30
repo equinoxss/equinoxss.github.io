@@ -25,7 +25,7 @@ function getNamesData() {
       nameHb: 'סיט',
       nameEn: 'Samech Yud Tet',
       descriptionEn: 'Miracle Making',
-      meditationEn: 'Free yourself from all selfishness, envy, anger and self-pity. By rejecting these negative temptations, you are also free to invoke this Name - and thereby ignite the power of miracles.'
+      meditationEn: 'Free myself from all selfishness, envy, anger and self-pity. By rejecting these negative temptations, I\'m also free to invoke this Name - and thereby ignite the power of miracles.'
     },
     {
       id: 4,
@@ -88,7 +88,7 @@ function getNamesData() {
       nameHb: 'אלד',
       nameEn: 'Aleph Lamed Daled',
       descriptionEn: 'Look can Kill',
-      meditationEn: 'My Own potential to cast the evil eye at others is diminished. A shield of positive energy surrounds me providing protection from the negative glances, looks of envy, and mean-spritzed intentions of others'
+      meditationEn: 'My Own potential to can the evil eye at others is diminished. A shield of positive energy surrounds me providing protection from the negative glances, looks of envy, and mean-spritzed intentions of others'
     },
     {
       id: 11,
@@ -133,7 +133,7 @@ function getNamesData() {
       nameHb: 'הרי',
       nameEn: 'Hey Resh Lud',
       descriptionEn: 'Long-range Vision',
-      meditationEn: 'I have the power of clear vision and forest in every past of my life. The blindfolds are removed. I can see the full-grown tree within the newly planted seed. I can grasp the cause and effect relationship that governs all reality. My life choices and actions are motivated by ultimate results, not momentary illusions. I can now also see more with my eyes; I can perceive more through my mind\'s eye; and I feel more through my intuition.'
+      meditationEn: 'I have the power of clear vision and foresight in every past of my life. The blindfolds are removed. I can grasp the cause and effect relationship that governs all reality. My life choices and actions are motivated by ultimate results, not momentary illusions. I can also see more with my eyes; I can perceive more through my mind\'s eye; I feel more through my intuition.'
     },
     {
       id: 16,
@@ -142,7 +142,7 @@ function getNamesData() {
       nameHb: 'הקם',
       nameEn: 'Hey Quf Mem',
       descriptionEn: 'Dumping Depression',
-      meditationEn: 'The emotional strength to stand after you stumble, to rise after you fall and to endure when the path seems unendurable is bestowed upon you.'
+      meditationEn: 'The emotional strength to stand after I stumble, to rise after I fall and to endure when the path seems unendurable is bestowed upon me.'
     },
     {
       id: 17,
@@ -151,7 +151,7 @@ function getNamesData() {
       nameHb: 'לאו',
       nameEn: 'Lamed Aleph Vav',
       descriptionEn: 'Great Escape',
-      meditationEn: 'This Name brings the greatest of all freedoms: escape from ego-based desires, selfish inclinations, and the "me first" mentality. In their place, you gain life\'s true and lasting gifts - family, friendship and fulfillment.'
+      meditationEn: 'This Name brings the greatest of all freedoms: escape from ego-based desires, selfish inclinations, and the "me first" mentality. In their place, I gain life\'s true & lasting gifts - family, friendship and fulfillment.'
     },
     {
       id: 18,
@@ -160,7 +160,7 @@ function getNamesData() {
       nameHb: 'כלי',
       nameEn: 'Kaf Lamed Yud',
       descriptionEn: 'Fertility',
-      meditationEn: 'Abundance and fruitfulness fill your being. You are imbued with the power of procreation. You can also meditate upon others who are trying to start a family.'
+      meditationEn: 'Abundance and fruitfulness fill my being. I am imbued with the power of procreation. I can also meditate upon others who are trying to start a family.'
     },
     {
       id: 19,
@@ -169,7 +169,7 @@ function getNamesData() {
       nameHb: 'לוו',
       nameEn: 'Lamed Vav Vav',
       descriptionEn: 'Dialing God',
-      meditationEn: 'You dial. You connect. Your prayers are answered at the speed of "Light."'
+      meditationEn: 'I dial. I connect. My prayers are answered at the speed of "Light."'
     },
     {
       id: 20,
@@ -178,7 +178,7 @@ function getNamesData() {
       nameHb: 'פהל',
       nameEn: 'Pey Hey Lamed',
       descriptionEn: 'Victory over Addictions',
-      meditationEn: 'Recall any nasty habits or unpleasant character traits that you cannot get rid of. This Name ensures your victory over the forces of ego. You are imbued with the emotional power and discipline to triumph over all self-centered impulses and negative desires. '
+      meditationEn: 'Recall any nasty habits or unpleasant character traits that I cannot get rid of. This Name ensures my victory over the forces of ego. I am imbued with the emotional power and discipline to triumph over all self-centered impulses and negative desires. '
     },
     {
       id: 21,
@@ -196,7 +196,7 @@ function getNamesData() {
       nameHb: 'ייי',
       nameEn: 'Yud Yud Yud',
       descriptionEn: 'Stop Fatal Attraction',
-      meditationEn: 'Here you become the high priest in the temple of your won being. Through the power of this Name, your soul is imbued with divine energy, and evil people are banished from your presence.'
+      meditationEn: 'Here I become the high priest in the temple of my won being. Through the power of this Name, my soul is imbued with divine energy, and evil people are banished from my presence.'
     },
     {
       id: 23,
@@ -205,7 +205,7 @@ function getNamesData() {
       nameHb: 'מלה',
       nameEn: 'Mem Lamed Hey',
       descriptionEn: 'Sharing the Flame',
-      meditationEn: 'Concentration Sharing Light with friends, famiy and the entire humanity. Take this Name with you , out into the real world and share these tools with others. Ask for the strength to walk the talk. In you mind\'s eye, envisage opening sand opportunities in the world for the global dissemination of this ancient wisdom. Know that this Name is arousing the forces of immortality and increasing joy in the world. Expect and demand nothing less.'
+      meditationEn: 'Concentration Sharing Light with friends, family and the entire humanity. Take this Name with me, out into the real world and share these tools with others. Ask for the strength to walk the talk. In my mind\'s eye, envisage openings & opportunities in the world for the global dissemination of this ancient wisdom. Know that this Name is arousing the forces of immortality & increasing joy in the world. Expect and demand nothing less.'
     },
     {
       id: 24,
@@ -214,7 +214,7 @@ function getNamesData() {
       nameHb: 'חהו',
       nameEn: 'Chet Hey Vav',
       descriptionEn: 'Jealousy',
-      meditationEn: 'You ascend into the Upper World to diminish the forces of darkness caused by your jealous starts and envious thoughts, in turn, you lessen the pain and suffering in the world. '
+      meditationEn: 'I ascend into the Upper World to diminish the forces of darkness caused by my jealous starts and envious thoughts, in turn, I lessen the pain and suffering in the world. '
     },
     {
       id: 25,
@@ -223,7 +223,7 @@ function getNamesData() {
       nameHb: 'נתה',
       nameEn: 'Nun Tav Hey',
       descriptionEn: 'Speak Your Mind',
-      meditationEn: 'When you need to tell the truth, this Name brings you courage to open your heart as well as your mouth. When you need to hear the truth, this Name bring s you strength to open your ears and close your mouth.'
+      meditationEn: 'When I need to tell the truth, this Name brings me courage to open my heart as well as my mouth. When I need to hear the truth, this Name brings me strength to open my ears and close my mouth.'
     },
     {
       id: 26,
@@ -231,8 +231,8 @@ function getNamesData() {
       ppos: 27,
       nameHb: 'האא',
       nameEn: 'Hey Aleph Aleph',
-      descriptionEn: 'Order from Choas',
-      meditationEn: 'Harmony always underlies chaos. With this Name, balance and serenity are restored among the seven days of the week. Order emerges from chaos. Not only will your toast not fall on the buttered side, it won\'t fall at all!'
+      descriptionEn: 'Order from Chaos',
+      meditationEn: 'Harmony always underlies chaos. With this Name, balance and serenity are restored among the seven days of the week. Order emerges from chaos. Not only will my toast not fall on the buttered side, it won\'t fall at all!'
     },
     {
       id: 27,
@@ -241,7 +241,7 @@ function getNamesData() {
       nameHb: 'ירת',
       nameEn: 'Yud Resh Tav',
       descriptionEn: 'Silent Partner',
-      meditationEn: 'Tithing - and meditation upon this sequence of letters - removes the Dark Force\'s presence from your earnings and its destructive influence from your life. The Light is now your silent partner, bringing you endless blessings and protection. It\'s a partnership made in heaven!'
+      meditationEn: 'Tithing - and meditation upon this sequence of letters - removes the Dark Force\'s presence from my earnings and its destructive influence from my life. The Light is now my silent partner, bringing me endless blessings and protection. It\'s a partnership made in heaven!'
     },
     {
       id: 28,
@@ -250,7 +250,7 @@ function getNamesData() {
       nameHb: 'שאה',
       nameEn: 'Shin Aleph Hey',
       descriptionEn: 'Soul Mate',
-      meditationEn: 'The energy of soul Nate is aroused through this sequence of letters. You attract the other half of your soul. All of your existing relationships are deeply enriched, imbued with soul mate energy.'
+      meditationEn: 'The energy of soul mate is aroused through this sequence of letters. I attract the other half of my soul. All of my existing relationships are deeply enriched, imbued with soul mate energy.'
     },
     {
       id: 29,
@@ -259,7 +259,7 @@ function getNamesData() {
       nameHb: 'ריי',
       nameEn: 'Resh Yud Yud',
       descriptionEn: 'Removing Hatred',
-      meditationEn: 'Be painfully honest! Acknowledge every person or group of people toward whom you fell anger, envy, malice, total disgust, or any combination thererof. With the Light of this Name, drop those negative feelings like a load of wet laundry'
+      meditationEn: 'Be painfully honest! Acknowledge every person or group of people toward whom I feel anger, envy, malice, total disgust, or any combination thereof. With the Light of this Name, drop those negative feelings like a load of wet laundry!'
     },
     {
       id: 30,
@@ -268,7 +268,7 @@ function getNamesData() {
       nameHb: 'אום',
       nameEn: 'Aleph Vav Mem',
       descriptionEn: 'Building Bridges',
-      meditationEn: 'With the power of this Name, you extend the hand of friendship to individuals with whom you\'re in conflict - even if they owe you money! You awaken compassion and summon the courage to pick uptake phone and dial that person right now. And that means right now! Accordingly, a bridge to the Upper World will be erected on your behalf.'
+      meditationEn: 'With the power of this Name, I extend the hand of friendship to individuals with whom I\'m in conflict - even if they owe you money! I awaken compassion and summon the courage to pick uptake phone and dial that person right now. And that means right now! Accordingly, a bridge to the Upper World will be erected on my behalf.'
     },
     {
       id: 31,
@@ -277,7 +277,7 @@ function getNamesData() {
       nameHb: 'לכב',
       nameEn: 'Lamed Kaf Bet',
       descriptionEn: 'Finish What You Start',
-      meditationEn: 'You\'re endowed with the power to conclude everything you begin, especially tasks and goals of a spiritual nature.'
+      meditationEn: 'I\'m endowed with the power to conclude everything I begin, especially tasks and goals of a spiritual nature.'
     },
     {
       id: 32,
@@ -286,7 +286,7 @@ function getNamesData() {
       nameHb: 'ושר',
       nameEn: 'Vav Shin Resh',
       descriptionEn: 'Memories',
-      meditationEn: 'The power of memory arises within your consciousness. Lessons of life are deeply ingrained into your being, including the lessons and wisdom filling the very pass of this book. This Name also removes negative memories and activates greater memory retention.'
+      meditationEn: 'The power of memory arises within my consciousness. Lessons of life are deeply ingrained into my being, including the lessons and wisdom filling the very pass of this book. This Name also removes negative memories and activates greater memory retention.'
     },
     {
       id: 33,
@@ -295,7 +295,7 @@ function getNamesData() {
       nameHb: 'יחו',
       nameEn: 'Yud Chet Vav',
       descriptionEn: 'Revealing the Dark Side',
-      meditationEn: 'Light shines. You recognize the negative forces still active within yourself. Your reactive impulses are no longer a mystery. With the power of this Name, they\'re history!'
+      meditationEn: 'Light shines. I recognize the negative forces still active within myself. My reactive impulses are no longer a mystery. With the power of this Name, they\'re history!'
     },
     {
       id: 34,
@@ -304,7 +304,7 @@ function getNamesData() {
       nameHb: 'להח',
       nameEn: 'Lamed Hey Chet',
       descriptionEn: 'Forget Thyself',
-      meditationEn: 'You are now transcending the limits of yourself so that you cling to the Tree of Life. Happiness finds you, now that the ego is out of the spotlight. You master the art of getting out of your own way, letting go of all stubbornness.'
+      meditationEn: 'I\'m now transcending the limits of myself so that I cling to the Tree of Life. Happiness finds me, now that the ego is out of the spotlight. I master the art of getting out of my own way, letting go of all stubbornness.'
     },
     {
       id: 35,
@@ -313,7 +313,7 @@ function getNamesData() {
       nameHb: 'כוק',
       nameEn: 'Kaf Vav Quf',
       descriptionEn: 'Sexual Energy',
-      meditationEn: 'You purity your desires so that you share love and energy with your partner, putting his or her needs ahead of your own. You ignite seal energy so that your passion helps elevate all existence. You replenish the Light that was lost due to any prior selfish sexual activities.'
+      meditationEn: 'I purity my desires so that I share love & energy with my partner, putting his or her needs ahead of my own. I ignite seal energy so that my passion helps elevate all existence. I replenish the Light that was lost due to any prior selfish sexual activities.'
     },
     {
       id: 36,
@@ -322,7 +322,7 @@ function getNamesData() {
       nameHb: 'מנד',
       nameEn: 'Mem Nun Daled',
       descriptionEn: 'Fear(less)',
-      meditationEn: 'Ask yourself. "What am I afraid of?" The courage to conquer your fear now rises within you. By proactively confronting your fears at the seed level, you pull them out by the roots. You extirpate/destroy them entirely from your being.'
+      meditationEn: 'Ask myself. "What am I afraid of?" The courage to conquer my fear now rises within me. By proactively confronting my fears at the seed level, I pull them out by the roots. I extirpate/destroy them entirely from my being.'
     },
     {
       id: 37,
@@ -331,7 +331,7 @@ function getNamesData() {
       nameHb: 'אני',
       nameEn: 'Aleph Nun Yud',
       descriptionEn: 'The Big Picture',
-      meditationEn: 'This Name raises your awareness of the long-term effects of all your actions. You see the big picture of the spiritual challenges in every moment before they can become the foundations of chaos and crises.'
+      meditationEn: 'This Name raises my awareness of the long-term effects of all my actions. I see the big picture of the spiritual challenges in every moment before they can become the foundations of chaos and crises.'
     },
     {
       id: 38,
@@ -340,7 +340,7 @@ function getNamesData() {
       nameHb: 'חעם',
       nameEn: 'Chet Ayin Mem',
       descriptionEn: 'Circuitry',
-      meditationEn: 'This Name helps you to receive when you share and share when you receive. You see the opportunity that sharing gives and you are aware that when you receive with the right consciousness, you are also sharing. This is the circuitry of life. Connect to it and you move out of the black hole and into the Light.'
+      meditationEn: 'This Name helps me to receive when I share and share when I receive. I see the opportunity that sharing gives and I\'m aware that when I receive with the right consciousness, I\'m also sharing. This is the circuitry of life. Connect to it and I move out of the black hole and into the Light.'
     },
     {
       id: 39,
@@ -349,7 +349,7 @@ function getNamesData() {
       nameHb: 'רהע',
       nameEn: 'Resh Hey Ayin',
       descriptionEn: 'Diamond in the Rough',
-      meditationEn: 'Here you accomplish nothing less than the complete transformation of negative situations into positive opportunities and blessings. Manna rains down upon you. Life begins to taste life anything your soul desires or imagines.'
+      meditationEn: 'Here I accomplish nothing less than the complete transformation of negative situations into positive opportunities and blessings. Manna rains down upon me. Life begins to taste life anything my soul desires or imagines.'
     },
     {
       id: 40,
@@ -358,7 +358,7 @@ function getNamesData() {
       nameHb: 'ייז',
       nameEn: 'Yud Yud Zayin',
       descriptionEn: 'Speaking the Right Words',
-      meditationEn: 'Silence your ego. Push the mute button. Now call upon the Light to speak on your behalf, on all occasions, so that your every word elevated your soul and all existence.'
+      meditationEn: 'Silence my ego. Push the mute button. Now call upon the Light to speak on my behalf, on all occasions, so that my every word elevated my soul and all existence.'
     },
     {
       id: 41,
@@ -367,7 +367,7 @@ function getNamesData() {
       nameHb: 'ההה',
       nameEn: 'Hei Hei Hei',
       descriptionEn: 'Self-Esteem',
-      meditationEn: 'With the divine energy of this sequence of letters, you are connected to the power of the ancient high priests of the temple in Jerusalem to heal and establish wellness in all area of life.'
+      meditationEn: 'With the divine energy of this sequence of letters, I\'m connected to the power of the ancient high priests of the temple in Jerusalem to heal and establish wellness in all area of life.'
     },
     {
       id: 42,
@@ -376,7 +376,7 @@ function getNamesData() {
       nameHb: 'מיך',
       nameEn: 'Mem Yud Kaf',
       descriptionEn: 'Revealing the Concealed',
-      meditationEn: 'You bring forth the powers observation to see the truth... and the courage to handle it!'
+      meditationEn: 'I bring forth the powers observation to see the truth... and the courage to handle it!'
     },
     {
       id: 43,
@@ -385,7 +385,7 @@ function getNamesData() {
       nameHb: 'וול',
       nameEn: 'Vav Vav Lamed',
       descriptionEn: 'Defying Gravity',
-      meditationEn: 'You unleash the power of mind over matter, the soul over the ego and the spiritual over the physic. The goal is not to renounce the physical would but to eliminate its control over you and to become the true captain of your own fate. Everything becomes possible!'
+      meditationEn: 'I unleash the power of mind over matter, the soul over the ego and the spiritual over the physical. The goal is not to renounce the physical would but to eliminate its control over me and to become the true captain of my own fate. Everything becomes possible!'
     },
     {
       id: 44,
@@ -394,7 +394,7 @@ function getNamesData() {
       nameHb: 'ילה',
       nameEn: 'Yud Lamed Hey',
       descriptionEn: 'Sweetening Judgement',
-      meditationEn: 'Through meditation upon this sequence and with genuine penitence in your heart, you lesson or even evoke judgements set forth against you. And take an extra long moment to offer forbearance and compassion to others, so that these qualities of mercy are returned to you in equal measure.'
+      meditationEn: 'Through meditation upon this sequence and with genuine penitence in my heart, I lesson or even evoke judgements set forth against me. And take an extra long moment to offer forbearance and compassion to others, so that these qualities of mercy are returned to me in equal measure.'
     },
     {
       id: 45,
@@ -403,7 +403,7 @@ function getNamesData() {
       nameHb: 'סאל',
       nameEn: 'Samech Aleph Lamed',
       descriptionEn: 'The Power of Prosperity',
-      meditationEn: 'Acknowledge that the Light of the Creator is the ultimate source of all prosperity and well-bing. Now summon the force of prosperity and sustenance and ask for the strength token your ego in check when the other checks start rolling in.'
+      meditationEn: 'Acknowledge that the Light of the Creator is the ultimate source of all prosperity and well-bing. Now summon the force of prosperity and sustenance and ask for the strength to keep my ego in check when the other checks start rolling in.'
     },
     {
       id: 46,
@@ -412,7 +412,7 @@ function getNamesData() {
       nameHb: 'ערי',
       nameEn: 'Ayin Resh Yud',
       descriptionEn: 'Absolute Certainty',
-      meditationEn: 'Certainty! Certitude! Conviction! Sureness! Trust! All these fill you heart through meditation upon this Name.'
+      meditationEn: 'Certainty! Certitude! Conviction! Sureness! Trust! All these fill my heart through meditation upon this Name.'
     },
     {
       id: 47,
@@ -421,7 +421,7 @@ function getNamesData() {
       nameHb: 'עשל',
       nameEn: 'Ayin Shin Lamed',
       descriptionEn: 'Global Transformation',
-      meditationEn: 'Reflect upon the spiritual truth that world peace begins with peace in your won heat. With this Name, you speed your won transformation - and strengthen the forces of peace throughout the world.'
+      meditationEn: 'Reflect upon the spiritual truth that world peace begins with peace in my own heart. With this Name, I speed my own transformation - and strengthen the forces of peace throughout the world.'
     },
     {
       id: 48,
@@ -430,7 +430,7 @@ function getNamesData() {
       nameHb: 'מיה',
       nameEn: 'Mem Yud Hey',
       descriptionEn: 'Unity',
-      meditationEn: 'Through these letters, you pass the true test of spiritual character: You\'re able to see all sides of the problems that come before you. Your focus is upon unity and soul as opposite division and oneself.'
+      meditationEn: 'Through these letters, I pass the true test of spiritual character: I\'m able to see all sides of the problems that come before me. My focus is upon unity and soul as opposite division and oneself.'
     },
     {
       id: 49,
@@ -439,7 +439,7 @@ function getNamesData() {
       nameHb: 'והו',
       nameEn: 'Vav Hey Vav',
       descriptionEn: 'Happiness',
-      meditationEn: 'You find the straight to restrain selfish longings. Through this Name you are asking for what your soul needs, not what your ego wants. You find deep appreciation for whatever life brings you. This bring you happiness in the deepest sense.'
+      meditationEn: 'I find the straight to restrain selfish longings. Through this Name I\'m asking for what my soul needs, not what my ego wants. I find deep appreciation for whatever life brings me. This bring me happiness in the deepest sense.'
     },
     {
       id: 50,
@@ -448,7 +448,7 @@ function getNamesData() {
       nameHb: 'דני',
       nameEn: 'Daled Nun Yud',
       descriptionEn: 'Enough is never Enough',
-      meditationEn: 'Your eyes and heart remain focused on the end goal at all times. You. Waken the persistence and passion to never - and that means never - ever settle for less!'
+      meditationEn: 'My eyes and heart remain focused on the end goal at all times. U awaken the persistence and passion to never - and that means never - ever settle for less!'
     },
     {
       id: 51,
@@ -457,7 +457,7 @@ function getNamesData() {
       nameHb: 'החש',
       nameEn: 'Hey Chet Shin',
       descriptionEn: 'No Guilt',
-      meditationEn: 'Recall any negative deeds from your past. Reflect on some of your more unpleasant traits. Fell the pain of the people you have hurt. Ask the Light to eradicate all your negative attributes. The force called repentance spiritually repairs your past sins and diminishes the dar side of your nature.'
+      meditationEn: 'Recall any negative deeds from my past. Reflect on some of my more unpleasant traits. Feel the pain of the people I have hurt. Ask the Light to eradicate all my negative attributes. The force called repentance spiritually repairs my past sins and diminishes the dark side of my nature.'
     },
     {
       id: 52,
@@ -466,7 +466,7 @@ function getNamesData() {
       nameHb: 'עמם',
       nameEn: 'Ayin Mem Mem',
       descriptionEn: 'Passion',
-      meditationEn: 'This Name stokes the fires of passion in your heart and in your soul. These letters give you the power to maintain sincerity, devotion and correct conscious in your prayers your meditations and your spiritual connections. '
+      meditationEn: 'This Name stokes the fires of passion in my heart and in my soul. These letters give me the power to maintain sincerity, devotion and correct conscious in my prayers, my meditations and my spiritual connections. '
     },
     {
       id: 53,
@@ -475,7 +475,7 @@ function getNamesData() {
       nameHb: 'ננא',
       nameEn: 'Nun Nun Aleph',
       descriptionEn: 'No Agenda',
-      meditationEn: 'Self-interest, ulterior motives, and hidden agendas give way to pure acts of friendship, unconditional live and giving. In return, sure and living friends, joy and fulfillment are attracted into your life.'
+      meditationEn: 'Self-interest, ulterior motives, and hidden agendas give way to pure acts of friendship, unconditional live and giving. In return, sure and living friends, joy and fulfillment are attracted into my life.'
     },
     {
       id: 54,
@@ -484,7 +484,7 @@ function getNamesData() {
       nameHb: 'נית',
       nameEn: 'Nun Yud Tav',
       descriptionEn: 'The Death of Death',
-      meditationEn: 'Meditatewith total convection and certainty upon the absolute demise of the gangle of death, once and for all!'
+      meditationEn: 'Meditate with total convection and certainty upon the absolute demise of the gangle of death, once and for all!'
     },
     {
       id: 55,
@@ -493,7 +493,7 @@ function getNamesData() {
       nameHb: 'מבה',
       nameEn: 'Mem Bet Hey',
       descriptionEn: 'Thought into Action',
-      meditationEn: 'You are now reconnecting and reuniting the Upper and Lower Worlds through the power of this Name. By bringing these realm together, you find courage and commitment to accomplish your goals and achieve your dreams. Your thoughts become actualized. Your best idea are transformed into action and the into concrete results.'
+      meditationEn: 'I\'m reconnecting and reuniting the Upper & Lower Worlds through the power of this Name. By bringing these realm together, I find courage and commitment to accomplish my goals and achieve my dreams. My thoughts become actualized. My best idea are transformed into action and then into concrete results!'
     },
     {
       id: 56,
@@ -502,7 +502,7 @@ function getNamesData() {
       nameHb: 'פוי',
       nameEn: 'Pey Vav Yud',
       descriptionEn: 'Dispelling Anger',
-      meditationEn: 'You remove the power and allure of the world\'s controlling "idols" by invoking the power of this Name. Anger is purged from our heart. Your happiness and peace of mind are generated from within.'
+      meditationEn: 'I remove the power and allure of the world\'s controlling "idols" by invoking the power of this Name. Anger is purged from our heart. Your happiness and peace of mind are generated from within.'
     },
     {
       id: 57,
@@ -511,7 +511,7 @@ function getNamesData() {
       nameHb: 'נמם',
       nameEn: 'Nun Mem Mem',
       descriptionEn: 'Listening to Your Soul',
-      meditationEn: 'The whispers of your soul and the divine counsel of the Light are heard loud and clear. You know what you have to do . You are willing and prepared to do what it takes to get it done.'
+      meditationEn: 'The whispers of my soul and the divine counsel of the Light are heard loud and clear. I know what I have to do . I\'m willing and prepared to do what it takes to get it done.'
     },
     {
       id: 58,
@@ -520,7 +520,7 @@ function getNamesData() {
       nameHb: 'ייל',
       nameEn: 'Yud Yud Lamed',
       descriptionEn: 'Letting Go',
-      meditationEn: 'You LET Go of everything Period!'
+      meditationEn: 'I LET Go of everything Period!'
     },
     {
       id: 59,
@@ -529,7 +529,7 @@ function getNamesData() {
       nameHb: 'הרח',
       nameEn: 'Hey Resh Chet',
       descriptionEn: 'Umbilical Cord',
-      meditationEn: 'You establish an umbilical cord to the divine energy, ensuring a constant glimmer of Light in your life, especially for those times when you wind up in a place of utter darkness.'
+      meditationEn: 'I establish an umbilical cord to the divine energy, ensuring a constant glimmer of Light in my life, especially for those times when I wind up in a place of utter darkness.'
     },
     {
       id: 60,
@@ -538,7 +538,7 @@ function getNamesData() {
       nameHb: 'מער',
       nameEn: 'Mem Ayin Resh',
       descriptionEn: 'Freedom',
-      meditationEn: 'You perceive the balance and harmony that fills all Creation, especially in the hardships, challenges and tests that you must face throughout life. With the power of this Name, you arouse strength to pass all those tests, to rise to a higher level of being, and to gain the joy and fulfillment that accompany true spiritual transformation. You unlock the chains of ego and achieve freedom!'
+      meditationEn: 'I perceive the balance and harmony that fills all Creation, especially in the hardships, challenges and tests that I must face throughout life. With the power of this Name, I arouse strength to pass all those tests, to rise to a higher level of being, and to gain the joy and fulfillment that accompany true spiritual transformation. I unlock the chains of ego and achieve freedom!'
     },
     {
       id: 61,
@@ -547,7 +547,7 @@ function getNamesData() {
       nameHb: 'ומב',
       nameEn: 'Vav Mem Bet',
       descriptionEn: 'Water',
-      meditationEn: 'You purify the waters of earth and awaken the forces of healing and immortality!'
+      meditationEn: 'I purify the waters of earth and awaken the forces of healing and immortality!'
     },
     {
       id: 62,
@@ -556,7 +556,7 @@ function getNamesData() {
       nameHb: 'יהה',
       nameEn: 'Yud Hey Hey',
       descriptionEn: 'Parent-Teacher Not Preacher',
-      meditationEn: 'Desire to lovingly, respectfully, selflessly share this wisdom with your children! The preacher is you is silenced. The teacher in you shines through in all your actions.'
+      meditationEn: 'Desire to lovingly, respectfully, selflessly share this wisdom with my children! The preacher in me is silenced. The teacher in me shines through in all my actions.'
     },
     {
       id: 63,
@@ -565,7 +565,7 @@ function getNamesData() {
       nameHb: 'ענו',
       nameEn: 'Ayin Nun Vav',
       descriptionEn: 'Appreciation',
-      meditationEn: 'Appreciation, Thankfulness, Gratitude! These notable attributes are aroused bytes Name. Infused with these attributes, you ration and enjoy all the blessings and treasures in your life. '
+      meditationEn: 'Appreciation, Thankfulness, Gratitude! These notable attributes are aroused by this Name. Infused with these attributes, I retain and enjoy all the blessings and treasures in my life. '
     },
     {
       id: 64,
@@ -574,7 +574,7 @@ function getNamesData() {
       nameHb: 'מחי',
       nameEn: 'Mem Chet Yud',
       descriptionEn: 'Casting yourself in a Favorable Light',
-      meditationEn: 'Your own being is lit beautifully, suffused with the creator\'s radiance so everyone around you sees the positive, beautiful aspects of your self, opposed to the distorted and dark image projected by the ego.'
+      meditationEn: 'My own being is lit beautifully, suffused with the creator\'s radiance so everyone around me sees the positive, beautiful aspects of myself, opposed to the distorted and dark image projected by the ego.'
     },
     {
       id: 65,
@@ -583,7 +583,7 @@ function getNamesData() {
       nameHb: 'דמב',
       nameEn: 'Daled Mem Bet',
       descriptionEn: 'Fear of God',
-      meditationEn: 'Awareness of divine spark in every person is awakened in your heat. You become wise in the ways of the world. You perceive the repercussions attached ti tier every word and deed, and you know that sharing acts toward others are always in your own best interest.'
+      meditationEn: 'Awareness of divine spark in every person is awakened in my heart. I become wise in the ways of the world. I perceive the repercussions attached to my every word & deed, and I know that sharing acts toward others are always in my own best interest.'
     },
     {
       id: 66,
@@ -592,7 +592,7 @@ function getNamesData() {
       nameHb: 'מנק',
       nameEn: 'Mem Nun Quf',
       descriptionEn: 'Accountability',
-      meditationEn: 'With these letters, impulses toward self-pity, retaliation and revenge are swept away. You see that a "victim\'s mentality" is the foundation of all those feelings and you replace that mentality with the understanding that you are the creator of your own circumstances. And you know that what you have created, you can change. Thus everything changes now!'
+      meditationEn: 'With these letters, impulses toward self-pity, retaliation and revenge are swept away. I see that a "victim\'s mentality" is the foundation of all those feelings and I replace that mentality with the understanding that I\'m the creator of my own circumstances. And I know that what I have created, I can change. Thus everything changes now!'
     },
     {
       id: 67,
@@ -601,7 +601,7 @@ function getNamesData() {
       nameHb: 'איע',
       nameEn: 'Aleph Yud Ayin',
       descriptionEn: 'Great Expectation',
-      meditationEn: 'By meditating on this Name, you gain control over the power of time in your life. Instead of constantly demanding more of tomorrow, you appreciate what you have - and what you are - right now. False and self-seeking expectations are cast out!'
+      meditationEn: 'By meditating on this Name, I gain control over the power of time in my life. Instead of constantly demanding more of tomorrow, I appreciate what I have - and what I am - right now. False and self-seeking expectations are cast out!'
     },
     {
       id: 68,
@@ -610,7 +610,7 @@ function getNamesData() {
       nameHb: 'חבו',
       nameEn: 'Chet Bet Vav',
       descriptionEn: 'Contracting Departed Souls',
-      meditationEn: 'Evoke the memories of loved ones who have passed on. Surround them with the Light of this Name. Meditate to elevate their souls to every higher levels in the spiritual worlds. Open yourself up o receive their guidance and support.'
+      meditationEn: 'Evoke the memories of loved ones who have passed on. Surround them with the Light of this Name. Meditate to elevate their souls to every higher levels in the spiritual worlds. Open myself up to receive their guidance and support.'
     },
     {
       id: 69,
@@ -619,7 +619,7 @@ function getNamesData() {
       nameHb: 'ראה',
       nameEn: 'Resh Aleph Hei',
       descriptionEn: 'Lost and Found',
-      meditationEn: 'With the Name as you compass, the path toward your spiritual home is illuminated. You regain your bearings. With every step you take and with each moment that passes, you feel comfort, confidence and a stronger sense of direction.'
+      meditationEn: 'With the Name as my compass, the path toward my spiritual home is illuminated. I regain my bearings. With every step I take and with each moment that passes, I feel comfort, confidence and a stronger sense of direction.'
     },
     {
       id: 70,
@@ -628,7 +628,7 @@ function getNamesData() {
       nameHb: 'יבם',
       nameEn: 'Yud Bet Mem',
       descriptionEn: 'Recognizing Design Beneath Disorder',
-      meditationEn: 'When you find yourself overcome with feelings of doubt or panic or with thoughts of doom, these letters reveal the order that underlies chaos. You become enlightened to the Creator\'s master plan as it pertains to your purpose in this world and to the problems you face.'
+      meditationEn: 'When I find myself overcome with feelings of doubt or panic or with thoughts of doom, these letters reveal the order that underlies chaos. I become enlightened to the Creator\'s master plan as it pertains to my purpose in this world and to the problems I face.'
     },
     {
       id: 71,
@@ -637,7 +637,7 @@ function getNamesData() {
       nameHb: 'היי',
       nameEn: 'Hey Yud Yud',
       descriptionEn: 'Prophecy & Parallel Universe',
-      meditationEn: 'The power of prophecy is bestowed upon you. With your consciousness elevated and your awareness heightened, you have the power to enter a new universe transformation and Light.'
+      meditationEn: 'The power of prophecy is bestowed upon me. With my consciousness elevated and my awareness heightened, I have the power to enter a new universe transformation and Light.'
     },
     {
       id: 72,
@@ -646,7 +646,7 @@ function getNamesData() {
       nameHb: 'מום',
       nameEn: 'Mem Vav Mem',
       descriptionEn: 'Spiritual Cleansing',
-      meditationEn: 'By meditating on these letters, you push REWIND and ERASE on your spiritual video. You are purified in your present life by correcting your transgressions from your life in the past. This Name also cleanses our physical environment from spiritual impurities.'
+      meditationEn: 'By meditating on these letters, I push REWIND and ERASE on my spiritual video. I\'m purified in my present life by correcting my transgressions from my life in the past. This Name also cleanses our physical environment from spiritual impurities.'
     }
  ];
 }
