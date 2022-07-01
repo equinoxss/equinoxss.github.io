@@ -67,6 +67,7 @@ function buildSegments() {
     } else if (typeChosen === 'f') {
       addFlashingSegments();
       viewer.classList.add('cover');
+      document.querySelector('#fireRing').classList.remove('hidden');
 
     } else if (typeChosen !== 'p') {
       const images = typeChosen === 's' ? singles : decks[deckChosen].c;
@@ -111,7 +112,7 @@ function addBreathSegments(addBlack) {
 function addFlashingSegments() {
   const data = getDesireData();
   const chosenDesire = desireGroup.querySelector('.radio.selected').dataset.id;
-  const speed = Number(document.querySelector('#flashSpeed').value);
+  const speed =  Number(document.querySelector('#flashSpeed').value);
   const time = Number(document.querySelector('#flashTime').value) * 60000;
   const count = Math.ceil(time / speed);
   const spliceWidth = Math.ceil(3000 / speed);
@@ -127,7 +128,8 @@ function addFlashingSegments() {
     { i: 'imgs/land.jpg', t: speed },
     { i: 'imgs/wind.jpg', t: speed },
     { i: 'imgs/fire.jpg', t: speed },
-    { i: 'imgs/water.jpg', t: speed }
+    { i: 'imgs/water.jpg', t: speed },
+    { i: 'imgs/ether.jpg', t: speed }
   ];
 
   let spliceIdx = spliceWidth;
