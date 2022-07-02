@@ -49,7 +49,7 @@ function initTable() {
 
   const el = document.querySelector('.page .names-table');
   const cells = names.map(cell => `
-    <div class="name-cell hebrew-name small" data-id="${cell.id}">${cell.nameHb}</div>
+    <div class="name-cell hebrew-name small" data-id="${cell.id}">${cell.nameHb}<div class="name-number">${cell.id}</div></div>
   `);
 
   el.innerHTML = cells.join('');

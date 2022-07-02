@@ -91,6 +91,22 @@ body {
   text-align: center;
   line-height: 30px;
   cursor: pointer;
+  position: relative;
+}
+
+.name-cell .name-number {
+  display: none;
+}
+
+@media (min-width: 945px) and (min-height: 512px) {
+  .name-cell .name-number {
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+  }
 }
 
 .page.info {

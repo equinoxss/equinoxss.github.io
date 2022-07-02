@@ -38,6 +38,7 @@ function prepare() {
 
 function done() {
   viewer.classList.remove('show','cover');
+  document.querySelector('#fireRing').classList.add('hidden');
   document.querySelector('body').classList.remove('no-scroll');
   document.exitFullscreen();
 }
@@ -124,7 +125,14 @@ function addFlashingSegments() {
     items = items.concat(availableImgs);
   }
   
-  const baseCards = [
+  const baseCards = window.innerHeight < window.innerWidth ?
+  [
+    { i: 'imgs/land-L.jpg', t: speed },
+    { i: 'imgs/wind-L.jpg', t: speed },
+    { i: 'imgs/fire-L.jpg', t: speed },
+    { i: 'imgs/water-L.jpg', t: speed },
+    { i: 'imgs/ether-L.jpg', t: speed }
+  ] : [
     { i: 'imgs/land.jpg', t: speed },
     { i: 'imgs/wind.jpg', t: speed },
     { i: 'imgs/fire.jpg', t: speed },
