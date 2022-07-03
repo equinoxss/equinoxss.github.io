@@ -37,12 +37,14 @@ function prepare() {
 
   if (typeChosen === 'v') {
     cubeContainer && cubeContainer.classList.remove('hidden');
+    cubeControls && cubeControls.classList.remove('hidden');
   }
 }
 
 function done() {
   viewer.classList.remove('show','cover');
   cubeContainer && cubeContainer.classList.add('hidden');
+  cubeControls && cubeControls.classList.add('hidden');
   fireRing && fireRing.classList.add('hidden');
   document.querySelector('body').classList.remove('no-scroll');
   document.exitFullscreen();
@@ -372,6 +374,7 @@ const desireGroup = document.querySelector('.group.desire');
 const viewer = document.querySelector('.viewer');
 const playButton = document.querySelector('#playButton');
 const cubeContainer = document.querySelector('.cube-container');
+const cubeControls = document.querySelector('.cube-controls');
 const fireRing = document.querySelector('#fireRing');
 
 const onMobile = window.innerWidth <= 512;
@@ -464,6 +467,20 @@ viewer.addEventListener('click', ev => {
     clickTime = ev.timeStamp;
   }
 });
+
+if (cubeControls) {
+  cubeControls.querySelector('#iconLayerToggle').addEventListener('click', ev => {
+    ev.stopPropagation();
+    ev.target.classList.toggle('selected');
+    cubeContainer.classList.toggle('show-icons');
+  });
+
+  cubeControls.querySelector('#openViewToggle').addEventListener('click', ev => {
+    ev.stopPropagation();
+    ev.target.classList.toggle('selected');
+    cubeContainer.classList.toggle('open-view');
+  });
+}
 
 document.querySelector('#cardTime').value = cardTime / 60000;
 document.querySelector('#vizTime').value = blackTime / 60000;

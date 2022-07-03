@@ -384,9 +384,14 @@ img#fireRing {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  /* transition-duration: 2s; */
   transform: rotateX(0) rotateY(0deg) rotateZ(-45deg);
   animation: spinZ 15s linear infinite;
+}
+
+.cube-container.open-view .cube {
+  width: 60%;
+  height: 60%;
+  margin: 100px;
 }
 
 .cube-side {
@@ -399,27 +404,27 @@ img#fireRing {
 
 .cube-side:nth-child(1) {
   transform: rotateY(0deg) translateZ(250px);
-  background-image: url(imgs/land-S.jpg);
+  background-image: url(imgs/square/fire-S.jpg);
 }
 .cube-side:nth-child(2) {
   transform: rotateY(90deg) translateZ(250px);
-  background-image: url(imgs/water-S.jpg);
+  background-image: url(imgs/square/water-S.jpg);
 }
 .cube-side:nth-child(3) {
   transform: rotateY(180deg) translateZ(250px);
-  background-image: url(imgs/wind-S.jpg);
+  background-image: url(imgs/square/wind-S.jpg);
 }
 .cube-side:nth-child(4) {
   transform: rotateY(-90deg) translateZ(250px);
-  background-image: url(imgs/fire-S.jpg);
+  background-image: url(imgs/square/land-S.jpg);
 }
 .cube-side:nth-child(5) {
   transform: rotateX(-90deg) translateZ(250px);
-  background-image: url(imgs/ether-S.jpg);
+  background-image: url(imgs/cube/ether-S.jpg);
 }
 .cube-side:nth-child(6) {
   transform: rotateX(90deg) translateZ(250px);
-  background-image: url(imgs/commun-S.jpg);
+  background-image: url(imgs/cube/commun-S.jpg);
 }
 
 @keyframes spinZ {
@@ -429,4 +434,34 @@ img#fireRing {
   to {
     transform: rotateY(360deg)  rotateX(0deg) rotatez(-45deg);
   }
+}
+
+.cube-controls {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  background-color: transparent;
+  text-align: right;
+}
+
+.cube-controls .toggle-button {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 5px;
+  background-color: transparent;
+  height: 40px;
+  width: 70px;
+  color: rgba(255,255,255,0.5);
+  margin-right: 10px;
+  display: inline-block;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cube-controls .toggle-button.selected {
+  background-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
 }
