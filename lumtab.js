@@ -9,13 +9,13 @@ let customImgChosen = null;
 let desireHandlersBound = false;
 
 let segments = [];
-const singles = [ 'imgs/land.jpg', 'imgs/water.jpg', 'imgs/fire.jpg', 'imgs/wind.jpg', 'imgs/ether.jpg' ];
+const singles = [ 'imgs/square/land.jpg', 'imgs/square/water.jpg', 'imgs/square/fire.jpg', 'imgs/square/wind.jpg', 'imgs/square/ether.jpg' ];
 const decks = {
-  land: { i: 'imgs/land.jpg', c: [ 'imgs/land.jpg', 'imgs/land-water.jpeg', 'imgs/land-fire.jpeg', 'imgs/land-wind.jpeg', 'imgs/land-ether.jpeg' ] },
-  water: { i: 'imgs/water.jpg', c: [ 'imgs/water.jpg', 'imgs/water-land.jpeg', 'imgs/water-fire.jpeg', 'imgs/water-wind.jpeg', 'imgs/water-ether.jpeg' ] },
-  fire: { i: 'imgs/fire.jpg', c: [ 'imgs/fire.jpg', 'imgs/fire-land.jpeg', 'imgs/fire-water.jpeg', 'imgs/fire-wind.jpeg', 'imgs/fire-ether.jpeg' ] },
-  wind: { i: 'imgs/wind.jpg', c: [ 'imgs/wind.jpg', 'imgs/wind-land.jpeg', 'imgs/wind-water.jpeg', 'imgs/wind-fire.jpeg', 'imgs/wind-ether.jpeg' ] },
-  ether: { i: 'imgs/ether.jpg', c: [ 'imgs/ether.jpg', 'imgs/ether-land.jpeg', 'imgs/ether-water.jpeg', 'imgs/ether-fire.jpeg', 'imgs/ether-wind.jpeg' ] },
+  land: { i: 'imgs/square/land.jpg', c: [ 'imgs/square/land.jpg', 'imgs/square/land-water.jpeg', 'imgs/square/land-fire.jpeg', 'imgs/square/land-wind.jpeg', 'imgs/square/land-ether.jpeg' ] },
+  water: { i: 'imgs/square/water.jpg', c: [ 'imgs/square/water.jpg', 'imgs/square/water-land.jpeg', 'imgs/square/water-fire.jpeg', 'imgs/square/water-wind.jpeg', 'imgs/square/water-ether.jpeg' ] },
+  fire: { i: 'imgs/square/fire.jpg', c: [ 'imgs/square/fire.jpg', 'imgs/square/fire-land.jpeg', 'imgs/square/fire-water.jpeg', 'imgs/square/fire-wind.jpeg', 'imgs/square/fire-ether.jpeg' ] },
+  wind: { i: 'imgs/square/wind.jpg', c: [ 'imgs/square/wind.jpg', 'imgs/square/wind-land.jpeg', 'imgs/square/wind-water.jpeg', 'imgs/square/wind-fire.jpeg', 'imgs/square/wind-ether.jpeg' ] },
+  ether: { i: 'imgs/square/ether.jpg', c: [ 'imgs/square/ether.jpg', 'imgs/square/ether-land.jpeg', 'imgs/square/ether-water.jpeg', 'imgs/square/ether-fire.jpeg', 'imgs/square/ether-wind.jpeg' ] },
 };
 
 function start() {
@@ -36,14 +36,14 @@ function prepare() {
   document.querySelector('body').requestFullscreen();
 
   if (typeChosen === 'v') {
-    viewer.querySelector('.cube-container').classList.remove('hidden');
+    cubeContainer && cubeContainer.classList.remove('hidden');
   }
 }
 
 function done() {
   viewer.classList.remove('show','cover');
-  document.querySelector('.cube-container').classList.add('hidden');
-  document.querySelector('#fireRing').classList.add('hidden');
+  cubeContainer && cubeContainer.classList.add('hidden');
+  fireRing && fireRing.classList.add('hidden');
   document.querySelector('body').classList.remove('no-scroll');
   document.exitFullscreen();
 }
@@ -73,7 +73,7 @@ function buildSegments() {
     } else if (typeChosen === 'f') {
       addFlashingSegments();
       viewer.classList.add('cover');
-      document.querySelector('#fireRing').classList.remove('hidden');
+      fireRing & fireRing.classList.remove('hidden');
 
     } else if (typeChosen !== 'p') {
       const images = typeChosen === 's' ? singles : decks[deckChosen].c;
@@ -83,12 +83,12 @@ function buildSegments() {
         segments.push({ t: blackTime, b: true });
       });
 
-      segments.push({ i: 'imgs/commun.jpg', t: cardTime });
+      segments.push({ i: 'imgs/square/commun.jpg', t: cardTime });
       segments.push({ t: blackTime, b: true });
     } else {
-      segments.push({ i: `imgs/${pairChosen[0]}-${pairChosen[1]}.jpeg`, t: cardTime });
+      segments.push({ i: `imgs/square/${pairChosen[0]}-${pairChosen[1]}.jpeg`, t: cardTime });
       segments.push({ t: blackTime, b: true });
-      segments.push({ i: `imgs/${pairChosen[1]}-${pairChosen[0]}.jpeg`, t: cardTime });
+      segments.push({ i: `imgs/square/${pairChosen[1]}-${pairChosen[0]}.jpeg`, t: cardTime });
       segments.push({ t: blackTime, b: true });
     }
   }
@@ -104,10 +104,10 @@ function addBreathSegments(addBlack) {
   const cycles = Math.ceil( (sTime * 60) / ((square ? 4 : 2) * bTime) );
 
   for (let i=0;i<cycles;i++) {
-    segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000, s: 'sounds/inhale.mp3' });
-    square && segments.push({ i: 'imgs/breath-up-hold.jpeg', t: bTime * 1000, s: 'sounds/bell.mp3'  });
-    segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000, s: 'sounds/exhale.mp3'  });
-    square && segments.push({ i: 'imgs/breath-down-hold.jpeg', t: bTime * 1000, s: 'sounds/bell.mp3'  });
+    segments.push({ i: 'imgs/breath/breath-up.jpeg', t: bTime * 1000, s: 'sounds/inhale.mp3' });
+    square && segments.push({ i: 'imgs/breath/breath-up-hold.jpeg', t: bTime * 1000, s: 'sounds/bell.mp3'  });
+    segments.push({ i: 'imgs/breath/breath-down.jpeg', t: bTime * 1000, s: 'sounds/exhale.mp3'  });
+    square && segments.push({ i: 'imgs/breath/breath-down-hold.jpeg', t: bTime * 1000, s: 'sounds/bell.mp3'  });
   }
   
   if (addBlack) {
@@ -132,17 +132,17 @@ function addFlashingSegments() {
   
   const baseCards = window.innerHeight < window.innerWidth ?
   [
-    { i: 'imgs/land-L.jpg', t: speed },
-    { i: 'imgs/wind-L.jpg', t: speed },
-    { i: 'imgs/fire-L.jpg', t: speed },
-    { i: 'imgs/water-L.jpg', t: speed },
-    { i: 'imgs/ether-L.jpg', t: speed }
+    { i: 'imgs/landscape/land-L.jpg', t: speed },
+    { i: 'imgs/landscape/wind-L.jpg', t: speed },
+    { i: 'imgs/landscape/fire-L.jpg', t: speed },
+    { i: 'imgs/landscape/water-L.jpg', t: speed },
+    { i: 'imgs/landscape/ether-L.jpg', t: speed }
   ] : [
-    { i: 'imgs/land.jpg', t: speed },
-    { i: 'imgs/wind.jpg', t: speed },
-    { i: 'imgs/fire.jpg', t: speed },
-    { i: 'imgs/water.jpg', t: speed },
-    { i: 'imgs/ether.jpg', t: speed }
+    { i: 'imgs/rectangular/land.jpg', t: speed },
+    { i: 'imgs/rectangular/wind.jpg', t: speed },
+    { i: 'imgs/rectangular/fire.jpg', t: speed },
+    { i: 'imgs/rectangular/water.jpg', t: speed },
+    { i: 'imgs/rectangular/ether.jpg', t: speed }
   ];
 
   let spliceIdx = spliceWidth;
@@ -238,8 +238,8 @@ function addCustomCards() {
       return acc.concat(cards);
     }, []);
 
-    imgs.push('<img src="imgs/commun.jpg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
-    imgs.push('<img src="imgs/breath-btn.jpeg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
+    imgs.push('<img src="imgs/square/commun.jpg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
+    imgs.push('<img src="imgs/breath/breath-btn.jpeg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
 
     customGroup.querySelector('.card-list').innerHTML = imgs.join('');
   }
@@ -357,6 +357,7 @@ const ctas = {
   f: 'Choose a Deck',
   b: 'Choose a Deck',
   v: 'Choose a Deck',
+  s: 'Choose a Deck'
 };
 
 const programButtons = document.querySelectorAll('.radio-buttons.program .radio')
@@ -369,7 +370,9 @@ const deckGroup = document.querySelector('.group.deck');
 const customGroup = document.querySelector('.group.custom');
 const desireGroup = document.querySelector('.group.desire');
 const viewer = document.querySelector('.viewer');
-const playButton = document.querySelector('#playButton')
+const playButton = document.querySelector('#playButton');
+const cubeContainer = document.querySelector('.cube-container');
+const fireRing = document.querySelector('#fireRing');
 
 const onMobile = window.innerWidth <= 512;
 let typeChosen = 's';
@@ -384,12 +387,12 @@ for (const radioButton of programButtons) {
       typeChosen = newVal;
 
       sequenceTime.classList.remove('hidden');
-      desireTime.classList.add('hidden');
+      desireTime && desireTime.classList.add('hidden');
       breathTime.classList.add('hidden');
 
       deckGroup.classList.remove('hidden');
-      customGroup.classList.add('hidden');
-      desireGroup.classList.add('hidden');
+      customGroup && customGroup.classList.add('hidden');
+      desireGroup && desireGroup.classList.add('hidden');
 
       if (typeChosen === 'b') {
         sequenceTime.classList.add('hidden');
@@ -400,13 +403,9 @@ for (const radioButton of programButtons) {
       } else if (typeChosen === 'f') {
         sequenceTime.classList.add('hidden');
         deckGroup.classList.add('hidden');
-        desireGroup.classList.remove('hidden');
-        desireTime.classList.remove('hidden');
+        desireGroup && desireGroup.classList.remove('hidden');
+        desireTime && desireTime.classList.remove('hidden');
       }
-      // } else {
-      //   sequenceTime.classList.remove('hidden');
-      //   desireTime.classList.add('hidden');
-      // }
 
       if (typeChosen === 's' || typeChosen === 'b') {
         selectDeck.classList.add('dimmed');

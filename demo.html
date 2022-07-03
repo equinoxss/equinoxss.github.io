@@ -25,27 +25,9 @@
             <img src="imgs/square/fire-land.jpeg" />
             <img src="imgs/square/ether-wind.jpeg" />
             <div class="label">Card Pairs</div>
-          </div>
-          <div class="radio small-img" data-id="c">
-            <img src="imgs/square/fire-S.jpg" />
-            <img src="imgs/square/wind-ether.jpeg" />
-            <img src="imgs/square/water-S.jpg" />
-            <img src="imgs/square/commun-S.jpg" />
-            <div class="label">Custom</div>
-          </div>
-          <div class="radio small-img" data-id="f">
-            <img src="imgs/square/land-S.jpg" />
-            <img src="imgs/square/wind-S.jpg" />
-            <img src="imgs/square/fire-S.jpg" />
-            <img src="imgs/square/water-S.jpg" />
-            <div class="label">Cycling</div>
-          </div>
-          <div class="radio" data-id="v">
-            <img src="imgs/square/commun-S.jpg" />
-            <div class="label">Cube</div>
-          </div>          
+          </div>        
           <div class="radio" data-id="b">
-            <img src="imgs/breath/breath-up.jpeg" />
+            <img src="imgs/breath/breath-tile.jpeg" />
             <div class="label">Breath</div>
           </div>          
         </div>
@@ -79,35 +61,6 @@
         </div>
       </div>
 
-      <div class="group custom hidden">
-        <div>Choose Cards to Build Sequence</div>
-        <div class="card-list"></div>
-        <hr/>
-        <div class="card-list-title">
-          Your Sequence
-          <div class="add-custom" onclick="addCustomCard()">Add Card Slot</div>
-        </div>
-        <div class="chosen-cards"></div>
-      </div>
-
-      <div class="group desire hidden">
-        <div>Choose a Desire</div>
-        <div class="radio-buttons desire">
-          <div class="radio selected" data-id="health">
-            <img src="imgs/desire/health.jpg" />
-            <div class="label">Health</div>                
-          </div>
-          <div class="radio" data-id="relationship">
-            <img src="imgs/desire/relationship.jpg" />
-            <div class="label">Relationships</div>
-          </div>
-          <div class="radio" data-id="success">
-            <img src="imgs/desire/success.jpg" />
-            <div class="label">Success</div>
-          </div>
-        </div>
-      </div>
-
       <div class="card-time sequence">
         <div class="group">Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
         <div class="group">Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
@@ -119,34 +72,14 @@
         <div class="group"><input type="checkbox" id="squareBreathing" />Box breathing</div>
       </div>
 
-      <div class="card-time desire hidden">
-        <div class="group">Speed:
-          <select id="flashSpeed" value="300"><option value="300">1</option><option value="200">2</option><option value="150">3</option><option value="100">4</option></select></div>
-          <!-- <input type="number" id="flashSpeed" min="1" max="3" /> mins</div> -->
-        <div class="group">Visualization time: <input type="number" id="flashTime" value="1" min="1" max="60" /> mins</div>
-      </div>      
-
       <div class="trial"></div>
       <div class="button inverted" onclick="start()">Start</div>
     </div>
     <div class="viewer">
       <img src="imgs/play.svg" class="hidden" id="playButton" />
-      <img src="imgs/desire/fire-ring.png" class="hidden" id="fireRing" />
-
-      <div class="cube-container hidden">
-        <div class="cube">
-          <div class="cube-side"></div>
-          <div class="cube-side"></div>
-          <div class="cube-side"></div>
-          <div class="cube-side"></div>
-          <div class="cube-side"></div>
-          <div class="cube-side"></div>
-        </div>
-      </div>  
     </div>
   </div>
 
-  <script src="desire.js"></script>
   <script src="lumtab.js"></script>
 </body> 
 </html>
