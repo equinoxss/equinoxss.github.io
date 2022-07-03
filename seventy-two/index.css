@@ -102,10 +102,9 @@ body {
   .name-cell .name-number {
     display: block;
     position: absolute;
-    bottom: 5px;
-    left: 5px;
+    top: 0px;
+    left: 1rem;
     font-size: 1.1rem;
-    line-height: 1.1rem;
   }
 }
 

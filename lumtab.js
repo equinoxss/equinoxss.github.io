@@ -34,10 +34,15 @@ function prepare() {
   viewer.classList.add('show');
   document.querySelector('body').classList.add('no-scroll');
   document.querySelector('body').requestFullscreen();
+
+  if (typeChosen === 'v') {
+    viewer.querySelector('.cube-container').classList.remove('hidden');
+  }
 }
 
 function done() {
   viewer.classList.remove('show','cover');
+  document.querySelector('.cube-container').classList.add('hidden');
   document.querySelector('#fireRing').classList.add('hidden');
   document.querySelector('body').classList.remove('no-scroll');
   document.exitFullscreen();
@@ -99,10 +104,10 @@ function addBreathSegments(addBlack) {
   const cycles = Math.ceil( (sTime * 60) / ((square ? 4 : 2) * bTime) );
 
   for (let i=0;i<cycles;i++) {
-    segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000 });
-    square && segments.push({ i: 'imgs/breath-up-hold.jpeg', t: bTime * 1000 });
-    segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000 });
-    square && segments.push({ i: 'imgs/breath-down-hold.jpeg', t: bTime * 1000 });
+    segments.push({ i: 'imgs/breath-up.jpeg', t: bTime * 1000, s: 'sounds/inhale.mp3' });
+    square && segments.push({ i: 'imgs/breath-up-hold.jpeg', t: bTime * 1000, s: 'sounds/bell.mp3'  });
+    segments.push({ i: 'imgs/breath-down.jpeg', t: bTime * 1000, s: 'sounds/exhale.mp3'  });
+    square && segments.push({ i: 'imgs/breath-down-hold.jpeg', t: bTime * 1000, s: 'sounds/bell.mp3'  });
   }
   
   if (addBlack) {
@@ -157,19 +162,22 @@ let timers = [];
 let viewerPaused = false;
 
 function next() {
-  try {
-    currentSegment = segments.shift();
+  if (typeChosen !== 'v') {
+    try {
+      currentSegment = segments.shift();
 
-    viewer.style.backgroundImage = currentSegment.i ? `url(${currentSegment.i})` : null;
+      viewer.style.backgroundImage = currentSegment.i ? `url(${currentSegment.i})` : null;
 
-    timers = [];
-    currentStart = Date.now();
+      timers = [];
+      currentStart = Date.now();
 
-    currentSegment.t && timers.push( setTimeout(() => next(), currentSegment.t) );
-    currentSegment.b && timers.push( setTimeout(() => playChime(), Math.max(0, currentSegment.t - 1000)) );
-    currentSegment.done && done();
-  } catch(e) {
-    exitMeditation();
+      currentSegment.t && timers.push( setTimeout(() => next(), currentSegment.t) );
+      currentSegment.b && timers.push( setTimeout(() => playChime(), Math.max(0, currentSegment.t - 1000)) );
+      currentSegment.s && playSound(currentSegment.s);
+      currentSegment.done && done();
+    } catch(e) {
+      exitMeditation();
+    }
   }
 }
 
@@ -201,6 +209,10 @@ function playChime() {
   audio.src = 'sounds/bell2.mp3';
 
   setTimeout(() => playSilent(), bellTime);
+}
+
+function playSound(sound) {
+  audio.src = sound;
 }
 
 function updateSelectedDeck() {
@@ -343,7 +355,8 @@ const ctas = {
   o: 'Choose One Card',
   c: 'Choose a Deck',
   f: 'Choose a Deck',
-  b: 'Choose a Deck'
+  b: 'Choose a Deck',
+  v: 'Choose a Deck',
 };
 
 const programButtons = document.querySelectorAll('.radio-buttons.program .radio')
