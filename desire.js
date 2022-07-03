@@ -90,7 +90,10 @@ function getDesireData() {
       'imgs/desire/success/mansion2.jpeg',
       'imgs/desire/success/m.jpg',
       'imgs/desire/success/kids-vacation.jpeg',
-      'imgs/desire/success/family-beach-big.jpeg'
+      'imgs/desire/success/family-beach-big.jpeg',
+      'imgs/desire/relationship/finish-line.jpeg',
+      'imgs/desire/relationship/gallery.jpeg',
+      'imgs/desire/relationship/open.gallery.jpg'
     ]
   }
 }
