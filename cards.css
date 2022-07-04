@@ -536,6 +536,106 @@ body {
 }
 
 
+@media (max-width: 512px) and (orientation: portrait) {
+  .cube-side .cube-icons {
+    grid-template-columns: 40px 40px 40px;
+    gap: 12px 6px;
+    padding: 60px;
+    font-size: 2.5rem;
+  }
+
+  .cube-side .cube-icons.top {
+    transform: rotate(90deg) translateX(-6px) translateY(32px);
+  }
+  
+  .cube-side .cube-icons.bottom {
+    transform: rotate(180deg) translateX(6px) translateY(32px);
+  }
+
+  .cube-side .cube-icons img {
+    max-height: 50px;
+  }
+
+  .cube-side .cube-icons.top img,
+  .cube-side .cube-icons.bottom img {
+    width: 100%;
+    margin-top: 40px;
+    max-height: unset;
+  }
+
+  .cube-container.open-view .cube-side .cube-icons {
+    grid-template-columns: 25px 25px 25px;
+    gap: 18px 9px;
+    padding: 45px 55px;
+    font-size: 2rem;
+  }
+  
+  .cube-container.open-view .cube-side .cube-icons.top {
+    transform: rotate(90deg) translateX(2px) translateY(22px);
+  }
+  
+  .cube-container.open-view .cube-side .cube-icons.bottom {
+    transform: rotate(180deg) translateX(0px) translateY(12px);
+  }
+  
+  .cube-container.open-view .cube-side .cube-icons img {
+    max-height: 40px;
+  }
+
+  .cube-container.open-view .cube-side .cube-icons.top img,
+  .cube-container.open-view .cube-side .cube-icons.bottom img {
+    margin-top: 25px;
+  }
+}
+
+@media (max-height: 512px) and (orientation: landscape) {
+  .cube-side .cube-icons {
+    grid-template-columns: 40px 40px 40px;
+    gap: 12px 6px;
+    padding: 60px;
+    font-size: 2.5rem;
+  }
+
+  .cube-side .cube-icons.top {
+    transform: rotate(90deg) translateX(-6px) translateY(32px);
+  }
+  
+  .cube-side .cube-icons.bottom {
+    transform: rotate(180deg) translateX(6px) translateY(32px);
+  }
+
+  .cube-side .cube-icons.top img,
+  .cube-side .cube-icons.bottom img {
+    width: 100%;
+    margin-top: 40px;
+    max-height: unset;
+  }
+
+  .cube-container.open-view .cube-side .cube-icons {
+    grid-template-columns: 25px 25px 25px;
+    gap: 18px 9px;
+    padding: 45px 55px;
+    font-size: 2rem;
+  }
+  
+  .cube-container.open-view .cube-side .cube-icons.top {
+    transform: rotate(90deg) translateX(2px) translateY(22px);
+  }
+  
+  .cube-container.open-view .cube-side .cube-icons.bottom {
+    transform: rotate(180deg) translateX(0px) translateY(12px);
+  }
+  
+  .cube-container.open-view .cube-side .cube-icons img {
+    max-height: 40px;
+  }
+
+  .cube-container.open-view .cube-side .cube-icons.top img,
+  .cube-container.open-view .cube-side .cube-icons.bottom img {
+    margin-top: 25px;
+  } 
+}
+
 @keyframes spinZ {
   from {
     transform: rotateY(0deg) rotateX(0deg) rotatez(-45deg);

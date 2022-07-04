@@ -106,9 +106,9 @@ function addBreathSegments(addBlack) {
   const cycles = Math.ceil( (sTime * 60) / ((square ? 4 : 2) * bTime) );
 
   for (let i=0;i<cycles;i++) {
-    segments.push({ i: 'imgs/breath/breath-up.jpeg', t: bTime * 1000, s: 'sounds/inhale.mp3' });
+    segments.push({ i: 'imgs/breath/breath-up.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3' });
     square && segments.push({ i: 'imgs/breath/breath-up-hold.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3'  });
-    segments.push({ i: 'imgs/breath/breath-down.jpeg', t: bTime * 1000, s: 'sounds/exhale.mp3'  });
+    segments.push({ i: 'imgs/breath/breath-down.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3'  });
     square && segments.push({ i: 'imgs/breath/breath-down-hold.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3'  });
   }
   
@@ -408,17 +408,19 @@ for (const radioButton of programButtons) {
         deckGroup.classList.add('hidden');
         desireGroup && desireGroup.classList.remove('hidden');
         desireTime && desireTime.classList.remove('hidden');
+      } else if (typeChosen === 'v') {
+        sequenceTime.classList.add('hidden');
       }
 
-      if (typeChosen === 's' || typeChosen === 'b') {
-        selectDeck.classList.add('dimmed');
+      if (typeChosen === 's' || typeChosen === 'b' || typeChosen === 'v') {
+        deckGroup.classList.add('hidden');
       } else if (typeChosen === 'c') {
         addCustomCards();
         renderCustomSequence();
       } else if (typeChosen === 'f') {
         bindDesireHandlers();
       } else {
-        selectDeck.classList.remove('dimmed');
+        deckGroup.classList.remove('hidden');
         updateSelectedDeck();
       }
 
