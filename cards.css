@@ -393,9 +393,9 @@ body {
 }
 
 .cube-container.open-view .cube {
-  width: 60%;
-  height: 60%;
-  margin: 100px;
+  width: 80%;
+  height: 80%;
+  margin: 50px;
 }
 
 
@@ -406,9 +406,7 @@ body {
   }
 
   .cube-container.open-view .cube {
-    width: 70%;
-    height: 70%;
-    margin: 38px;  
+    margin: 30px;
   }
 
   body {
@@ -424,11 +422,9 @@ body {
   }
 
   .cube-container.open-view .cube {
-    width: 70%;
-    height: 70%;
-    margin: 38px;  
+    margin: 30px;  
   }
-  
+
   body {
     --cube-side-outset: min(35vw, 35vh);
   }
@@ -441,6 +437,16 @@ body {
   height: 100%;
   background-color: white;
   background-size: cover;
+}
+
+.cube-side .cube-icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+.cube-side .cube-icons img {
+  width: 50px;
 }
 
 .cube-side:nth-child(1) {
