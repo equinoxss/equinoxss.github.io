@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'StamSefarad';
+  src: url(./seventy-two/fonts/Stam-Sefarad-CLM-Medium.ttf);
+}
+
 body {
   background-color: black;
   font-family: sans-serif;
@@ -398,6 +403,33 @@ body {
   margin: 50px;
 }
 
+.cube-container.open-view .cube-side .cube-icons {
+  grid-template-columns: 65px 65px 65px;
+  gap: 25px 25px;
+  padding: 80px 78px;
+  font-size: 3.5rem;
+}
+
+.cube-container.open-view .cube-side .cube-icons.top {
+  transform: rotate(90deg) translateX(15px) translateY(40px);
+}
+
+.cube-container.open-view .cube-side .cube-icons.bottom {
+  transform: rotate(180deg) translateX(0px) translateY(12px);
+}
+
+.cube-container.open-view .cube-side .cube-icons img {
+  max-height: 75px;
+}
+
+.cube-container.show-icons .cube-icons {
+  display: grid;
+}
+
+.cube-container.show-icons .cube-icons.top,
+.cube-container.show-icons .cube-icons.bottom {
+    display: block;
+}
 
 @media (max-width: 512px) and (orientation: portrait) {
   .cube-container {
@@ -440,13 +472,21 @@ body {
 }
 
 .cube-side .cube-icons {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 50px;
+  display: none;
+  grid-template-columns: 80px 80px 80px;
+  gap: 38px 25px;
+  padding: 100px 110px;
+
+  font-family: StamSefarad;
+  font-size: 5rem;
+  color: black;
+  text-align: center;  
 }
 
 .cube-side .cube-icons img {
-  width: 50px;
+  width: 100%;
+  justify-self: center;
+  max-height: 90px;
 }
 
 .cube-side:nth-child(1) {
@@ -473,6 +513,28 @@ body {
   transform: rotateX(90deg) translateZ(var(--cube-side-outset));
   background-image: url(imgs/cube/commun-S.jpg);
 }
+
+.cube-icons.top,
+.cube-icons.bottom {
+  display: none;
+  padding: 0;
+}
+
+.cube-icons.top img,
+.cube-icons.bottom img {
+  width: 60%;
+  margin-top: 65px;
+  max-height: unset;
+}
+
+.cube-icons.top {
+  transform: rotate(90deg) translateX(97px) translateY(68px);
+}
+
+.cube-icons.bottom {
+  transform: rotate(180deg) translateX(0px) translateY(-45px);
+}
+
 
 @keyframes spinZ {
   from {
@@ -506,6 +568,7 @@ body {
   text-align: center;
   cursor: pointer;
   font-size: 1rem;
+  user-select: none;
 }
 
 .cube-controls .toggle-button.selected {
