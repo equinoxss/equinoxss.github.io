@@ -329,9 +329,12 @@ body {
   z-index: 20;
   padding: 20px;
   font-size: 1.5rem;
+}
+
+.page.abk .chapter {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  
+  gap: 70px;
 }
 
 .page.abk .title-row {
@@ -350,6 +353,11 @@ body {
 
 .page.abk img {
   width: 50%;
+}
+
+.page.abk .song {
+  align-self: center;
+  margin-bottom: 30px;
 }
 
 @media (orientation: portrait) {

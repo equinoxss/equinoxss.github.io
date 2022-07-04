@@ -5,6 +5,7 @@ function getAnaBekoachData(day) {
       dayHb: 'חסד',
       verseImg: 'imgs/abk/sun.jpg',
       verseImg2: 'imgs/abk/sun2.jpg',
+      songImg: 'imgs/abk/sunSong.jpg',
       extraHb: 'אבג יתץ',
       meaningEn: 'Power of redemption. Unconditional love. Removing the negative influence of physical matter from our lives. Tapping into the Tree of Life reality. Remebering yesterday\'s lessons.'
     },
@@ -13,6 +14,7 @@ function getAnaBekoachData(day) {
       dayHb: 'גבורה',
       verseImg: 'imgs/abk/mon.jpg',
       verseImg2: 'imgs/abk/mon2.jpg',
+      songImg: 'imgs/abk/monSong.jpg',
       extraHb: 'קרע שטן',
       meaningEn: 'Closing the gates to the Satan. Forgetting all limited and limiting thoughts. Destroying negative influences at the seed level, thus preventing bad things from happening in the first place. Overcoming our reactive nature. Transforming chaos to miracles and wonders.'
     },
@@ -21,6 +23,7 @@ function getAnaBekoachData(day) {
       dayHb: 'תפארת',
       verseImg: 'imgs/abk/tue.jpg',
       verseImg2: 'imgs/abk/tue2.jpg',
+      songImg: 'imgs/abk/tueSong.jpg',
       extraHb: 'נגד יכש',
       meaningEn: 'Opening the channel of sustenance. Taking back the Light we gave to the negative side. Removing hatred for no reason.'
     },
@@ -29,6 +32,7 @@ function getAnaBekoachData(day) {
       dayHb: 'נצח',
       verseImg: 'imgs/abk/wed.jpg',
       verseImg2: 'imgs/abk/wed2.jpg',
+      songImg: 'imgs/abk/wedSong.jpg',
       extraHb: 'בטר צתג',
       meaningEn: 'The power to preserve. Gaining endurance to follow through and prove victorious in our spritual work.'
     },
@@ -37,6 +41,7 @@ function getAnaBekoachData(day) {
       dayHb: 'הוד',
       verseImg: 'imgs/abk/thu.jpg',
       verseImg2: 'imgs/abk/thu2.jpg',
+      songImg: 'imgs/abk/thuSong.jpg',
       extraHb: 'חקב טנע',
       meaningEn: 'Seeing the "big picture," thus gaining deep insight and clairvoyance into how we can connect to the Light and bring the Light to ourselves and the world.'
     },
@@ -45,6 +50,7 @@ function getAnaBekoachData(day) {
       dayHb: 'יסוד',
       verseImg: 'imgs/abk/fri.jpg',
       verseImg2: 'imgs/abk/fri2.jpg',
+      songImg: 'imgs/abk/friSong.jpg',
       extraHb: 'יגל פזק',
       meaningEn: 'Feeling a desire to enlighten others. Bringing spirituality to the world by spreading the wisdom of Kabbalah. Findning peace and inner tranquility.'
     },
@@ -53,6 +59,7 @@ function getAnaBekoachData(day) {
       dayHb: 'מלכות',
       verseImg: 'imgs/abk/sat.jpg',
       verseImg2: 'imgs/abk/sat2.jpg',
+      songImg: 'imgs/abk/satSong.jpg',
       extraHb: 'שקו צית',
       meaningEn: 'The power to manifest things in the right way. Renewel and restoration.'
     }
