@@ -8,10 +8,6 @@ let orientation = 'portrait';
 let footerItems = [];
 
 function initApp() {
-  // document.querySelector('#settings').addEventListener('click', () => settings());
-  // document.querySelector('#study').addEventListener('click', () => study());
-  // document.querySelector('#abk').addEventListener('click', () => abk());
-
   document.querySelector('#settings2').addEventListener('click', () => settings());
   document.querySelector('#study2').addEventListener('click', () => study());
   document.querySelector('#abk2').addEventListener('click', () => abk());
@@ -28,6 +24,7 @@ function initApp() {
   })
 
   footerItems = document.querySelectorAll('.footer.agg [data-page]');
+  setFont();
 }
 
 function initOrientation() {
