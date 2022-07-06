@@ -489,4 +489,5 @@ document.querySelector('#vizTime').value = blackTime / 60000;
 document.querySelector('#breathTime').value = 4;
 document.querySelector('#sessionTime').value = 3;
 
-onMobile && (document.querySelector('.add-custom').innerText = '+');
+const addCustom = document.querySelector('.add-custom');
+onMobile && (addCustom.innerText = '+');
