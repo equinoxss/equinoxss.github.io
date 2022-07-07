@@ -106,10 +106,10 @@ function addBreathSegments(addBlack) {
   const cycles = Math.ceil( (sTime * 60) / ((square ? 4 : 2) * bTime) );
 
   for (let i=0;i<cycles;i++) {
-    segments.push({ i: 'imgs/breath/breath-up.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3' });
-    square && segments.push({ i: 'imgs/breath/breath-up-hold.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3'  });
-    segments.push({ i: 'imgs/breath/breath-down.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3'  });
-    square && segments.push({ i: 'imgs/breath/breath-down-hold.jpeg', t: bTime * 1000, s: 'sounds/ting.mp3'  });
+    segments.push({ i: 'imgs/breath/breath-up.jpeg', t: bTime * 1000, s: 'sounds/inhale.mp3' });
+    square && segments.push({ i: 'imgs/breath/breath-up-hold.jpeg', t: bTime * 1000, s: 'sounds/bell2.mp3'  });
+    segments.push({ i: 'imgs/breath/breath-down.jpeg', t: bTime * 1000, s: 'sounds/exhale.mp3'  });
+    square && segments.push({ i: 'imgs/breath/breath-down-hold.jpeg', t: bTime * 1000, s: 'sounds/bell2.mp3'  });
   }
   
   if (addBlack) {
