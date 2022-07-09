@@ -1,5 +1,5 @@
-let cardTime = 60000;
-let blackTime = 120000;
+let cardTime = 120000;
+let blackTime = 60000;
 const bellTime = 2000;
 
 let audio = null;
@@ -180,6 +180,8 @@ function next() {
     } catch(e) {
       exitMeditation();
     }
+  } else {
+    startCubeAnimation();
   }
 }
 
@@ -351,6 +353,10 @@ function addCustomCard() {
   renderCustomSequence();
 }
 
+function startCubeAnimation() {
+  cubeContainer.classList.add('animate');  
+}
+
 const ctas = {
   d: 'Choose a Deck',
   p: 'Choose Two Cards to Pair',
@@ -481,6 +487,12 @@ if (cubeControls) {
     ev.stopPropagation();
     ev.target.classList.toggle('selected');
     cubeContainer.classList.toggle('open-view');
+  });
+
+  cubeControls.querySelector('#pauseAnimationToggle').addEventListener('click', ev => {
+    ev.stopPropagation();
+    ev.target.classList.toggle('selected');
+    cubeContainer.classList.toggle('pause');
   });
 }
 
