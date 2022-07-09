@@ -347,6 +347,18 @@ body {
   font-size: 2rem;
 }
 
+.page.abk .button-row {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 0 20px;
+}
+
+.page.abk .button-row img {
+  height: 100%;
+  width: auto;
+}
+
 .page.abk .image-row {
   display: flex;
 }
@@ -360,10 +372,22 @@ body {
   margin-bottom: 30px;
 }
 
+@media (max-width: 512px) and  (orientation: portrait) {
+  .page.abk .chapter {
+    gap: 40px;
+  }
+}
+ 
+@media (max-height: 512px) and  (orientation: landscape) {
+  .page.abk .chapter {
+    gap: 40px;
+  }
+}
+
 @media (orientation: portrait) {
   .page.abk .image-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-end;
     align-items: flex-end;
   }

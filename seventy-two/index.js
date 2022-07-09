@@ -6,6 +6,7 @@ let pbound = false;
 let names = [];
 let orientation = 'portrait';
 let footerItems = [];
+let audio = null;
 
 function initApp() {
   document.querySelector('#settings2').addEventListener('click', () => settings());
@@ -21,10 +22,16 @@ function initApp() {
     dayBtn.addEventListener('click', evt => {
       abk( Number(evt.target.dataset.abkDay) );
     });
-  })
+  });
+
+  document.querySelector('#playSong').addEventListener('click', () => playAbkSong());
+  document.querySelector('#playSpeak').addEventListener('click', () => playAbkSpeak());
 
   footerItems = document.querySelectorAll('.footer.agg [data-page]');
   setFont();
+
+  audio = new Audio();
+  audio.autoplay = true;
 }
 
 function initOrientation() {
@@ -104,10 +111,6 @@ function bindPageElements() {
 
 function bindElements() {
   ibound = true;
-  // document.querySelector('.footer #previous').addEventListener('click', () => previous());
-  // document.querySelector('.footer #home').addEventListener('click', () => home());
-  // document.querySelector('.footer #meditate').addEventListener('click', () => meditate());
-  // document.querySelector('.footer #next').addEventListener('click', () => next());
 }
 
 function showInfo(id) {
@@ -357,6 +360,18 @@ function abk(day) {
   setBoundFields('abk');
 }
 
+function playAbkSpeak() {
+  if (selected.speechAud) {
+    audio.src = selected.speechAud;
+  }
+}
+
+function playAbkSong() {
+  if (selected.songAud) {
+    audio.src = selected.songAud;
+  }
+}
+
 function chooseFont(ev) {
   document.querySelector('.page.settings').classList.add('hidden');
   showFooterFor('names');
@@ -374,7 +389,7 @@ function setFont() {
 
   fontId = localStorage.font;
   const fontNames = {
-    std: 'initial',
+    std: 'StamSefarad',
     ash: 'StamAshkenaz',
     sef: 'StamSefarad',
     pal: 'Paleo',
