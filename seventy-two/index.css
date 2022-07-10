@@ -120,8 +120,8 @@ body {
 }
 
 .column {
-  width: 50vh;
-  height: 100vw;
+  width: 50vw;
+  height: calc(100vh - 50px);
   box-sizing: border-box;
 }
 
@@ -137,13 +137,16 @@ body {
   }
 }
 
-.page.info .column.names {
-  flex: 1 1 50%;
+.page.info .column {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 10px;
+}
+
+.page.info .column.names {
+  flex: 1 1 40%;
 }
 
 .page.info .column.names .name-meta {
@@ -172,6 +175,7 @@ body {
 }
 
 .page.info .column.description {
+  flex: 1 1 60%;
   padding: 20px;
   text-align: center;
   display: flex;

@@ -85,7 +85,11 @@ function buildSegments() {
         segments.push({ t: blackTime, b: true });
       });
 
-      segments.push({ i: 'imgs/square/commun.jpg', t: cardTime });
+      segments.push({ i: 'imgs/square/commun-S1.jpg', t: cardTime });
+      segments.push({ t: blackTime, b: true });
+      segments.push({ i: 'imgs/square/commun-S2.jpg', t: cardTime });
+      segments.push({ t: blackTime, b: true });
+      segments.push({ i: 'imgs/square/commun-S3.jpg', t: cardTime });
       segments.push({ t: blackTime, b: true });
     } else {
       segments.push({ i: `imgs/square/${pairChosen[0]}-${pairChosen[1]}.jpeg`, t: cardTime });
@@ -242,7 +246,7 @@ function addCustomCards() {
       return acc.concat(cards);
     }, []);
 
-    imgs.push('<img src="imgs/square/commun.jpg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
+    imgs.push('<img src="imgs/square/commun-S3.jpg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
     imgs.push('<img src="imgs/breath/breath-btn.jpeg" draggable="true" ondragstart="drag(event)" onclick="selectCustomImg(event)" />');
 
     customGroup.querySelector('.card-list').innerHTML = imgs.join('');

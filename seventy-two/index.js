@@ -85,12 +85,12 @@ function calculateSizes() {
     h = (h - 50) / 2;
   }
 
-  sheet.insertRule(`
-    .column {
-      width: ${w}px;
-      height: ${h}px;
-    }
-  `);
+  // sheet.insertRule(`
+  //   .column {
+  //     width: ${w}px;
+  //     height: ${h}px;
+  //   }
+  // `);
 
   const ch = Math.floor((h-20)/9); // 20px for borders
   sheet.insertRule(`
