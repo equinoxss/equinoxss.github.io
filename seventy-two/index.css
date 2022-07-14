@@ -267,6 +267,10 @@ body {
   color: black !important;
 }
 
+.page.meditate.white {
+  background: white !important;
+}
+
 @keyframes flash {
   49% {
     color: black;

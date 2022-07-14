@@ -58,7 +58,7 @@ function buildSegments() {
   segments.push({ i: 'imgs/count-1.jpeg', t: 675 });
 
   if (typeChosen === 'b') {
-    addBreathSegments();
+    addBreathSegments(true);
   } else {
     cardTime = document.querySelector('#cardTime').value * 60000;
     blackTime = document.querySelector('#vizTime').value * 60000;

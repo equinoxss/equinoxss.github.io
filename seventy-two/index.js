@@ -222,12 +222,14 @@ function bindMeditateAbort() {
 }
 
 let mtid = 0;
+let returnPage = '';
 
 function startMeditation() {
   document.querySelector('body').requestFullscreen();
   document.querySelector('.page.meditate-time').classList.add('hidden');
   showFooterFor('fullscreen');
   setBoundFields('meditate');
+  returnPage = 'info';
 
   const ms = Number(document.querySelector('#meditate-time').value) * 1000;
   const fm = document.querySelector('#meditate-mode').checked;
@@ -250,7 +252,7 @@ function startMeditation() {
 
         mtid = setTimeout(() => {
           // black
-          document.querySelector('.page.meditate').classList.add('black');
+          document.querySelector('.page.meditate').classList.add('white');
       
           mtid = setTimeout(() => {
             // done
@@ -264,10 +266,10 @@ function startMeditation() {
 
 function endMeditation() {
   clearTimeout(mtid);
-  document.querySelector('.page.meditate').classList.remove('black','invert','flash');
+  document.querySelector('.page.meditate').classList.remove('black','invert','flash','white');
   document.querySelector('.page.meditate').classList.add('hidden');
   document.exitFullscreen();
-  showFooterFor('meditate');
+  showFooterFor(returnPage);
 }
 
 function setFlashFrequency(fq) {
@@ -289,15 +291,7 @@ function setFlashFrequency(fq) {
 function settings() {
   document.querySelector('.page.settings').classList.remove('hidden');
   showFooterFor('settings');
-  // bindBackButton();
-} 
-
-// function bindBackButton() {
-//   if (!sbound) {
-//     sbound = true;
-//     document.querySelector('.footer #back').addEventListener('click', () => back());
-//   }
-// }
+}
 
 function study() {
   document.querySelector('.page.meditate').classList.remove('hidden');
@@ -305,13 +299,13 @@ function study() {
   document.querySelector('.page.study-time').classList.remove('hidden');
   showFooterFor('meditate');
   bindMeditateAbort();
-  // bindBackButton();
 }
 
 function startStudy() {
   document.querySelector('body').requestFullscreen();
   document.querySelector('.page.study-time').classList.add('hidden');
   showFooterFor('fullscreen');
+  returnPage = 'names';
 
   const ms = Number(document.querySelector('#study-time').value) * 1000;
   const end = Number(document.querySelector('#study-end').value) * 8;
