@@ -55,6 +55,22 @@ body.no-scroll {
   z-index: 10;
 }
 
+.viewer.inset {
+  background-color: rgb(202,202,202);
+}
+
+@media (min-width: 513px) and (orientation: portrait) {
+  .viewer.inset {
+    background-size: 43%;
+  }
+}
+
+@media (min-height: 513px) and (orientation: landscape) {
+  .viewer.inset {
+    background-size: 43%;
+  }
+}
+
 .viewer #playButton {
   width: 120px;
   animation: pulsing 2s ease-out infinite;

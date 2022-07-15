@@ -38,11 +38,13 @@ function prepare() {
   if (typeChosen === 'v') {
     cubeContainer && cubeContainer.classList.remove('hidden');
     cubeControls && cubeControls.classList.remove('hidden');
+  } else if (typeChosen === 's') {
+    viewer.classList.add('inset');
   }
 }
 
 function done() {
-  viewer.classList.remove('show','cover');
+  viewer.classList.remove('show','cover','inset');
   cubeContainer && cubeContainer.classList.add('hidden');
   cubeControls && cubeControls.classList.add('hidden');
   fireRing && fireRing.classList.add('hidden');
