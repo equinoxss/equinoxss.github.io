@@ -46,6 +46,10 @@ body.no-scroll {
   align-items: center;
 }
 
+.viewer.gray {
+  background-color: #f1f1f1;
+}
+
 .viewer.cover {
   background-size: cover;
 }
@@ -349,6 +353,15 @@ body.no-scroll {
   border-color: white;
   border-style: double;
   background: #f1f1f1;
+}
+
+.bgkdChoices {
+  padding: 20px;
+}
+
+.bgkdChoices input {
+  width: 24px;
+  height: 24px;
 }
 
 .remove-img {

@@ -40,11 +40,13 @@ function prepare() {
     cubeControls && cubeControls.classList.remove('hidden');
   } else if (typeChosen === 's') {
     viewer.classList.add('inset');
+  } else if (typeChosen == 'c') {
+    document.querySelector('#blackBkgd').checked || viewer.classList.add('gray');
   }
 }
 
 function done() {
-  viewer.classList.remove('show','cover','inset');
+  viewer.classList.remove('show','cover','inset','gray');
   cubeContainer && cubeContainer.classList.add('hidden');
   cubeControls && cubeControls.classList.add('hidden');
   fireRing && fireRing.classList.add('hidden');
