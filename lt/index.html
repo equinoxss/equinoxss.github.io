@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="lt.css">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+  <div class="wrap">
+    <div class="controls">
+      <div class="app-title">Luminous Tablets</div>
+
+      <div class="group custom hidden">
+        <div>Choose Cards to Build Sequence</div>
+        <div class="card-list"></div>
+        <hr/>
+        <div class="card-list-title">
+          Your Sequence
+          <div class="add-custom" onclick="addCustomCard()">Add Card Slot</div>
+        </div>
+        <div class="chosen-cards"></div>
+        <hr />
+        <div class="card-list-title">Background color</div>
+        <div class="bgkdChoices">
+          <input type="radio" id="blackBkgd" name="background" value="black" checked>
+          <label for="blackBkgd">Black</label>
+    
+          <input type="radio" id="grayBkgd" name="background" value="gray">
+          <label for="grayBkgd">White</label>
+        </div>
+      </div>
+
+      <div class="card-time sequence">
+        <div class="group">Card time: <input type="number" id="cardTime" min="1" max="60" /> mins</div>
+        <div class="group">Visualization time: <input type="number" id="vizTime" min="1" max="60" /> mins</div>
+      </div>
+
+      <div class="card-time breath hidden">
+        <div class="group">Breath time: <input type="number" id="breathTime" min="1" max="60" /> seconds</div>
+        <div class="group">Breathing for: <input type="number" id="sessionTime" min="1" max="60" /> mins</div>
+        <div class="group"><input type="checkbox" id="squareBreathing" />Box breathing</div>
+      </div>
+
+      <div class="button inverted" onclick="start()">Start</div>
+    </div>
+
+    <div class="viewer">
+      <img src="imgs/play.svg" class="hidden" id="playButton" />
+    </div>
+
+  </div>
+
+  <script src="lt.js"></script>
+</body> 
+</html>

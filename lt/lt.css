@@ -1,0 +1,392 @@
+@font-face {
+  font-family: 'StamSefarad';
+  src: url(./seventy-two/fonts/Stam-Sefarad-CLM-Medium.ttf);
+}
+
+body {
+  background-color: black;
+  font-family: sans-serif;
+  font-size: 2em;
+  color: white;
+  margin: 0;
+}
+
+@media (max-width: 512px) {
+  body {
+    font-size: 1.3em;
+  }
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.viewer {
+  position: fixed;
+  visibility: hidden;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewer.gray {
+  background-color: #f1f1f1;
+}
+
+.viewer.cover {
+  background-size: cover;
+}
+
+.viewer.show {
+  visibility: visible;
+  z-index: 10;
+}
+
+.viewer.inset {
+  background-color: rgb(202,202,202);
+}
+
+@media (min-width: 513px) and (orientation: portrait) {
+  .viewer.inset {
+    background-size: 43%;
+  }
+}
+
+@media (min-height: 513px) and (orientation: landscape) {
+  .viewer.inset {
+    background-size: 43%;
+  }
+}
+
+.viewer #playButton {
+  width: 120px;
+  animation: pulsing 2s ease-out infinite;
+}
+
+@keyframes pulsing {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.controls {
+  padding: 3rem;
+}
+
+.app-title {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+  font-weight: bold;
+}
+
+.radio-buttons {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: white;
+  margin: 2rem 1rem;
+  cursor: pointer;
+}
+
+.radio {
+  max-width: 120px;
+}
+
+@media (max-width: 512px) {
+  .radio-buttons {
+    gap: 1rem;
+  }
+
+  .controls {
+    padding: 1rem;
+  }
+
+  .app-title {
+    font-size: 32px;
+    margin: 30px 0;
+    font-weight: bold;
+  }
+
+  .radio {
+    flex-basis: 20.9%;
+  }
+}
+
+.radio:not(.selected) {
+  filter: opacity(0.5) grayscale(0.3);
+}
+
+.radio img {
+  width: 100%;
+  border-radius: 1rem;
+  pointer-events: none;
+}
+
+.radio.small-img img {
+  width: 46%;
+  border-radius: 0.5rem;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 1080px) {
+  .radio.small-img img {
+    width: 43%;
+  }
+}
+
+.radio .label {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 512px) {
+  .radio .label {
+    font-size: 1rem;
+  }
+}
+
+.dimmed {
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.button {
+  width: 250px;
+  height: 5rem;
+  line-height: 5rem;
+  border-radius: 1rem;
+  margin: 0 auto;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  user-select: none;
+}
+
+@media (max-width: 512px) {
+  .button {
+    width: 90vw;
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.card-time {
+  margin-bottom: 1rem;
+}
+
+.card-time div {
+  padding: 20px 40px;
+  display: inline-block;
+}
+
+.card-time div + div {
+  margin-left: 2rem;
+}
+
+@media (max-width: 512px) {
+  .card-time {
+    margin-bottom: 0;
+  }
+
+  .card-time div {
+    padding: 20px 10px;
+    width: 100%;
+    box-sizing: border-box;    
+  }
+
+  .card-time div + div {
+    margin-left: 0;
+  }
+}
+
+.card-time input {
+  width: 50px;
+  font-size: inherit;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+}
+
+.card-time input[type=checkbox] {
+  height: 25px;
+}
+
+@media (max-width: 512px) {
+  .card-time input[type=checkbox] {
+    vertical-align: sub;    
+  }
+}
+
+.card-time select {
+  width: 50px;
+  font-size: inherit;
+  border-radius: 4px;
+  border: none; 
+}
+
+.group {
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.card-list {
+  display: grid;
+  gap: 10px 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 30px 15px 15px;
+}
+
+@media (min-width: 768px) {
+  .card-list {
+    gap: 10px 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-list {
+    gap: 10px 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.card-list img {
+  width: 100%;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.card-list img.selected {
+  border: 4px solid yellow;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.card-list-title {
+  margin-top: 30px;
+  position: relative;
+}
+
+.chosen-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.chosen-cards .custom-slot {
+  display: block;
+  height: 120px;
+  width: 120px;
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 1rem;
+  padding: 3px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+@media (max-width: 980px) {
+  .chosen-cards .custom-slot {
+    height: 10vw;
+    width: 10vw;
+  }
+}
+
+@media (max-width: 512px) {
+  .chosen-cards {
+    gap: 10px;
+  }
+
+  .chosen-cards .custom-slot {
+    height: 15vw;
+    width: 15vw;
+  }
+}
+
+.chosen-cards .custom-slot img {
+  width: 100%;
+  pointer-events: none;
+  border-radius: 0.8rem;
+}
+
+.chosen-cards .custom-slot.active-drop {
+  border-color: white;
+  border-style: double;
+  background: #f1f1f1;
+}
+
+.bgkdChoices {
+  padding: 20px;
+}
+
+.bgkdChoices input {
+  width: 24px;
+  height: 24px;
+}
+
+.remove-img {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background: white;
+  color: black;
+  height: 30px;
+  width: 30px;
+  line-height: 26px;
+  border-radius: 15px;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+.add-custom {
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 0px;
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+@media (max-width: 512px) {
+  .add-custom {
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 1.5rem;
+    right: 10px;
+    top: -5px;
+    font-size: 1.5rem;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+  } 
+}
